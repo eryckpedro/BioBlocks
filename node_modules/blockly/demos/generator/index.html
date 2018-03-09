@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo: Generating JavaScript</title>
+
+  <!-- These three files contain the compress version -->
+
+  <!--
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  -->
+
+  <!-- These files are the uncompressed version -->
+  <script src="../../blockly_uncompressed.js"></script>
+  <script src="../../generators/javascript.js"></script>
+
+
+  <script src="../../blocks/colour.js"></script>
+  <script src="../../blocks/lists.js"></script>
+  <script src="../../blocks/logic.js"></script>
+  <script src="../../blocks/loops.js"></script>
+  <script src="../../blocks/math.js"></script>
+  <script src="../../blocks/procedures.js"></script>
+  <script src="../../blocks/text.js"></script>
+  <script src="../../blocks/variables.js"></script>
+  <script src="../../blocks/variables_dynamic.js"></script>
+
+  <script src="../../blocks/loggle/appearance.js"></script>
+  <script src="../../blocks/loggle/movement.js"></script>
+
+  <script src="../../generators/javascript/colour.js"></script>
+  <script src="../../generators/javascript/lists.js"></script>
+  <script src="../../generators/javascript/logic.js"></script>
+  <script src="../../generators/javascript/loops.js"></script>
+  <script src="../../generators/javascript/math.js"></script>
+  <script src="../../generators/javascript/procedures.js"></script>
+  <script src="../../generators/javascript/text.js"></script>
+  <script src="../../generators/javascript/variables.js"></script>
+  <script src="../../generators/javascript/variables_dynamic.js"></script>
+
+  <script src="../../generators/javascript/loggle/appearance.js"></script>
+  <script src="../../generators/javascript/loggle/movement.js"></script>
+
+  <script src="../../msg/js/pt-br.js"></script>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="https://developers.google.com/blockly/">Blockly</a> &gt;
+    <a href="../index.html">Demos</a> &gt; Generating JavaScript</h1>
+
+  <p>This is a simple demo of generating code from blocks.</p>
+
+  <p>&rarr; More info on <a href="https://developers.google.com/blockly/guides/configure/web/code-generators">Code Generators</a>&hellip;</p>
+
+  <p>
+    <button onclick="showCode()">Show JavaScript</button>
+    <button onclick="runCode()">Run JavaScript</button>
+  </p>
+
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+  <xml id="toolbox" style="display: none">
+    <category name="Logic">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+    </category>
+    <category name="Loops">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+    </category>
+    <category name="Text">
+      <block type="text"></block>
+      <block type="text_length"></block>
+      <block type="text_print"></block>
+    </category>
+    <category name="Other">
+      <block type="aprnc_create_agent"></block>
+      <block type="aprnc_set_pen"></block>
+      <block type="move_all_agents"></block>
+      <block type="move_all_chg_heading"></block>
+      <block type="move_all_jump_random_left_right"></block>
+      <block type="move_all_jump_random_up_down"></block>
+    </category>
+  </xml>
+
+  <script>
+    var fs = require('fs');
+
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+        {media: '../../media/',
+         toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                               demoWorkspace);
+
+
+    function showCode() {
+      // Generate JavaScript code and display it.
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      alert(code);
+    }
+
+    function runCode() 
+    {
+      var template = fs.readFileSync('./templates/template.txt', 'utf8');
+      
+      var modelo_dir = './templates/modelo.nlogo';
+      
+      fs.writeFileSync(modelo_dir, template);
+      
+      // This is for Windows systems
+      var childProcess = require('child_process');
+      childProcess.exec('start ' + modelo_dir, function (err, stdout, stderr) {
+        if (err) {
+          console.error(err);
+          return;
+        }});
+    }
+
+    
+
+  </script>
+
+</body>
+</html>

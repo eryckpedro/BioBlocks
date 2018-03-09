@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Loggle: Ambiente de Programação Visual para o NetLogo</title>
+
+    <!-- These files are the uncompressed version -->
+    <script src="./node_modules/blockly/blockly_uncompressed.js"></script>
+    <script src="./node_modules/blockly/generators/javascript.js"></script>
+
+    <script src="./node_modules/blockly/blocks/colour.js"></script>
+    <script src="./node_modules/blockly/blocks/lists.js"></script>
+    <script src="./node_modules/blockly/blocks/logic.js"></script>
+    <script src="./node_modules/blockly/blocks/loops.js"></script>
+    <script src="./node_modules/blockly/blocks/math.js"></script>
+    <script src="./node_modules/blockly/blocks/procedures.js"></script>
+    <script src="./node_modules/blockly/blocks/text.js"></script>
+    <script src="./node_modules/blockly/blocks/variables.js"></script>
+    <script src="./node_modules/blockly/blocks/variables_dynamic.js"></script>
+
+    <script src="./node_modules/blockly/blocks/loggle/appearance.js"></script>
+    <script src="./node_modules/blockly/blocks/loggle/movement.js"></script>
+    <script src="./node_modules/blockly/blocks/loggle/logic.js"></script>
+    <script src="./node_modules/blockly/blocks/loggle/definition.js"></script>
+
+    <script src="./node_modules/blockly/generators/javascript/colour.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/lists.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/logic.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/loops.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/math.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/procedures.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/text.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/variables.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/variables_dynamic.js"></script>
+
+    <script src="./node_modules/blockly/generators/javascript/loggle/appearance.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/loggle/movement.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/loggle/logic.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/loggle/definition.js"></script>
+
+    <script src="./node_modules/blockly/msg/js/pt-br.js"></script>
+</head>
+<style>
+    body 
+    {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 
+    {
+      font-weight: normal;
+      font-size: 140%;
+    }
+</style>
+<body>
+    <p>
+        <button onclick="showNLCode()">Mostrar código NetLogo</button>
+        <button onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
+    </p>
+    
+    <div id="blocklyDiv" style="height: 600px; width: 800px;"></div>
+
+    <xml id="toolbox" style="display: none">
+    <category name="Criação e Aparência">
+        <block type="aprnc_create_agent"></block>
+        <block type="aprnc_create_agent2"></block>
+        <block type="aprnc_set_pen"></block>
+        <block type="aprnc_set_size_all"></block>
+        <block type="aprnc_set_color_all"></block>
+        <block type="aprnc_hide_all"></block>
+        <block type="aprnc_show_all"></block>
+        <block type="agent_type"></block>
+    </category>
+    <category name="Movimentação">
+        <block type="move_all_agents"></block>
+        <block type="move_all_chg_heading"></block>
+        <block type="move_all_jump_random_left_right"></block>
+        <block type="move_all_jump_random_up_down"></block>
+    </category>
+    <category name="Matemática">
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="math_single"></block>
+    </category>
+    <category name="Definição">
+        <block type="def_breed_agent"></block>
+        <block type="def_agent_property"></block>
+        <block type="def_agent_property_type_num"></block>
+        <block type="def_agent_property_type_color"></block>
+    </category>
+    <category name="Lógica">
+        <block type="logic_if"></block>
+        <block type="logic_compare2"></block>
+    </category>
+    <category name="Texto">
+        <block type="text"></block>
+        <block type="text_length"></block>
+        <block type="text_print"></block>
+    </category>
+    </xml>
+
+    <script src="./resources/codeHandler.js"></script>
+</body>
+</html>
