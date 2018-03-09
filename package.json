@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "google-closure-library": "^20180204.0.0",
-    "blockly": "/blockly"
+    "blockly": "file:./resources/blockly"
   }
 }
