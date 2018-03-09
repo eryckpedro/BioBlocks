@@ -58,3 +58,18 @@ Blockly.Blocks['def_agent_property_type_num'] = {
     }
 };
 
+Blockly.Blocks['def_global_property'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("característica global:");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("nome"), "NAME_PROPERTY");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("Característica que todos os agentes tem");
+   this.setHelpUrl("");
+    }
+};
+

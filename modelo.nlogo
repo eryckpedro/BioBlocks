@@ -1,6 +1,16 @@
-breed [ wolves wolf ]
 to setup
-if (0 = 0) [ ask turtles [ pen-down ] ]
+create-turtles 2
+[
+  set shape "wolf"
+  set size 3
+  set color blue
+  setxy random-xcor random-ycor
+]ask turtles [ pen-down ]
+ask turtles [ fd 5 ]
+if (4 > (2 + 1)) [ ask turtles [ set heading 90 ] ]
+ask turtles [ set heading 45 ]
+ask turtles [ fd 2 ]
+ask turtles [ pen-up ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

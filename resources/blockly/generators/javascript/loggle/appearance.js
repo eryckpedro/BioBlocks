@@ -29,17 +29,18 @@ Blockly.JavaScript['aprnc_create_agent2'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
 
   var shape = "\"" + value_name_agent + "\"";
-  var code = "...";
+  var code = "";
 
   console.log(shape);
 
   if(statements_val_properties.length == 0)
   {
-    code = 'create-turtles ' + value_num_agents + ' [ set shape ' + shape + ' ]\n';
+    code = 'create-turtles ' + value_num_agents + ' [ set shape ' + shape + ' setxy random-xcor random-ycor ]\n';
   }
   else
   {
-
+    code = 'create-turtles ' + value_num_agents + '\n[\n  set shape ' + shape + ' \n'
+          + statements_val_properties + '  setxy random-xcor random-ycor \n]\n';
   }
 
   return code;
