@@ -832,48 +832,6 @@
     </value>
   </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
     <mutation connections="LEFT"></mutation>
-    <field name="NAME">def_agent_property_type</field>
-    <field name="INLINE">INT</field>
-    <field name="CONNECTIONS">LEFT</field>
-    <statement name="INPUTS">
-      <block type="input_dummy" id="*/_cIf{%Cz0{*4AEedy5">
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_dropdown" id=":_YtZ`j1cp4nKJTH-llJ">
-            <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
-            <field name="FIELDNAME">TYPE_PROP</field>
-            <field name="USER0">tamanho</field>
-            <field name="CPU0">size</field>
-            <field name="USER1">direção</field>
-            <field name="CPU1">heading</field>
-          </block>
-        </statement>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="OUTPUTTYPE">
-      <shadow type="type_null" id="e5~GBWtjO2IX`:}eZ3%F"></shadow>
-      <block type="type_other" id="1V9L0~PmE$??b6Xl$}EB">
-        <field name="TYPE">agent_property</field>
-      </block>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
-        <mutation colour="#805ba5"></mutation>
-        <field name="HUE">270</field>
-      </block>
-    </value>
-  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
-    <mutation connections="LEFT"></mutation>
     <field name="NAME">def_agent_property_type_num</field>
     <field name="INLINE">INT</field>
     <field name="CONNECTIONS">LEFT</field>
@@ -998,6 +956,224 @@
       <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
         <mutation colour="#805ba5"></mutation>
         <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">def_global_property</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">característica global:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="8ZRK@W-xl_c{cxyfe9vd">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_input" id="%@4HY2)G6A*?k6Y%-2mb">
+                <field name="TEXT">nome</field>
+                <field name="FIELDNAME">NAME_PROPERTY</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT">Característica que todos os agentes tem</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">move_random</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=4CJ0EPQ`ibxBL#AhFD0">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="CC=gJDxb[%RU#5vj-(N[">
+            <field name="TEXT">mover em direção aleatória</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Move um conjunto de agentes numa direção aleatória</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_ask_turtles</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="VJw~lm$Hk]lL_ANmiLen">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="ZlBFUfQ.7[ba,HP^TW!2">
+            <field name="TEXT">pedir que</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="h,:5~out,I;x|.w[L.ZI">
+            <field name="INPUTNAME">NAME_AGENT</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="PU_FA;Q^mtOUj}bd;N5`"></shadow>
+              <block type="type_other" id="j5fn,U,:rgAkL73QJt0/">
+                <field name="TYPE">agent_usr_created</field>
+              </block>
+            </value>
+            <next>
+              <block type="input_statement" id="f)u-n{zYk2[~V7-R+h5Z">
+                <field name="INPUTNAME">NAME</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                  <shadow type="type_null" id="Gw!~=Y%!jQdJH}|zL;B("></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Atribui um conjunto de funções a um determinado conjunto de agentes</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">agent_type_usr_created</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="bgQpdO|?V1dsf}wcp9db">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_input" id="S[)t4YrwIOzK?c75om:_">
+            <field name="TEXT">nome_da_raça</field>
+            <field name="FIELDNAME">NAME_BREED</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Tipo representando um agente denominado como uma Raça</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="^cS]x4Jd}L)Cskp($Y80"></shadow>
+      <block type="type_other" id="L6eu3[Do.YY-]X_8|O0)">
+        <field name="TYPE">agent_usr_created</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="uL7(0G`?e$.occLoCg)R">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">move_agent_group</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=4CJ0EPQ`ibxBL#AhFD0">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="CC=gJDxb[%RU#5vj-(N[">
+            <field name="TEXT">mover aleatoriamente</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
       </block>
     </value>
   </block></xml>

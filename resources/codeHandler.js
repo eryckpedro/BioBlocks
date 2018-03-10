@@ -1,6 +1,8 @@
 var fs = require('fs');
 
 const GLOBAL_TAG = "_GLOBAL";
+const BREED_TAG  = "breed [ ";
+var breedArray = [];
 var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
@@ -23,6 +25,7 @@ function generateNLCode()
     allCodeArray.length = 0;
     globalsArray.length = 0;
     codeArray.length = 0;
+    breedArray.length = 0;
 
     allCodeArray = blocksCode.split("\n");
 
@@ -36,12 +39,28 @@ function generateNLCode()
             codeArray.push(line);
     }
 
-    var setupCode = "to setup\n";
-    var globalCode = "";
+    var setupCode = "to setup\n"; // Setup function base code
+    var globalCode = "";          // Code for globals commands to come before setup code
+    var setDftShpCode = "";       // Code for setting up the default shape of breed-type agents
 
     for(var i = 0; i < globalsArray.length; i++)
     {
         globalCode = globalCode + globalsArray[i] + "\n";
+        if( globalsArray[i].startsWith("breed") )
+        {
+            var breedShapeCmd = 'set-default-shape ';
+            var breedType = (globalsArray[i].substring(BREED_TAG.length)).split(" ",1)[0];
+
+            switch(breedType)
+            {
+                case "lobos":
+                    breedArray.push(breedShapeCmd + breedType + " \"wolf\"");
+                    break;
+                case "ovelhas":
+                    breedArray.push(breedShapeCmd + breedType + " \"sheep\"");
+                    break;
+            }
+        }
     }
 
     for(var i = 0; i < codeArray.length; i++)
@@ -49,7 +68,12 @@ function generateNLCode()
         setupCode = setupCode + codeArray[i] + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trimRight() + "\nend";
+    for(var i = 0; i < breedArray.length; i++)
+    {
+         setDftShpCode = setDftShpCode + breedArray[i] + "\n";
+    }
+
+    var nlCode = globalCode + setupCode.trimRight() + "\n" + setDftShpCode.trimRight() + "\nend";
 
     return nlCode;
 }

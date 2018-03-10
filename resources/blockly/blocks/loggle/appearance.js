@@ -20,9 +20,29 @@ Blockly.Blocks['aprnc_create_agent2'] = {
           .appendField("criar");
       this.appendValueInput("NUM_AGENTS")
           .setCheck("Number");
+      this.appendDummyInput()
+          .appendField("do tipo:")
+          .appendField(new Blockly.FieldDropdown([["tartaruga","turtle"], ["lobo","wolf"], ["ovelha","sheep"]]), "NAME_AGENT");
+      this.appendStatementInput("VAL_PROPERTIES")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['aprnc_create_breed_type_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("criar");
+      this.appendValueInput("NUM_AGENTS")
+          .setCheck("Number");
       this.appendValueInput("NAME_AGENT")
-          .setCheck("agent")
-          .appendField("do tipo:");
+          .setCheck("agent_usr_created")
+          .appendField("da raça criada de:");
       this.appendStatementInput("VAL_PROPERTIES")
           .setCheck(null);
       this.setInputsInline(true);

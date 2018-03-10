@@ -24,11 +24,11 @@ Blockly.JavaScript['aprnc_create_agent'] = function(block) {
 
 Blockly.JavaScript['aprnc_create_agent2'] = function(block) {
   var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_name_agent = block.getFieldValue('NAME_AGENT');
   var statements_val_properties = Blockly.JavaScript.statementToCode(block, 'VAL_PROPERTIES');
   // TODO: Assemble JavaScript into code variable.
 
-  var shape = "\"" + value_name_agent + "\"";
+  var shape = "\"" + dropdown_name_agent + "\"";
   var code = "";
 
   if(statements_val_properties.length == 0)
@@ -42,6 +42,28 @@ Blockly.JavaScript['aprnc_create_agent2'] = function(block) {
   }
 
   return code;
+};
+
+Blockly.JavaScript['aprnc_create_breed_type_agent'] = function(block) {
+  var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_val_properties = Blockly.JavaScript.statementToCode(block, 'VAL_PROPERTIES');
+  // TODO: Assemble JavaScript into code variable.
+
+  var code = "";
+
+  if(statements_val_properties.length == 0)
+  {
+    code = 'create ' + value_name_agent + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
+  }
+  else
+  {
+    code = 'create ' + value_name_agent + ' ' + value_num_agents + '\n[\n '
+          + statements_val_properties + '   setxy random-xcor random-ycor \n]\n';
+  }
+
+  return code;
+
 };
 
 Blockly.JavaScript['aprnc_set_pen'] = function(block) {
