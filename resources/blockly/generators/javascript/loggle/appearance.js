@@ -31,8 +31,6 @@ Blockly.JavaScript['aprnc_create_agent2'] = function(block) {
   var shape = "\"" + value_name_agent + "\"";
   var code = "";
 
-  console.log(shape);
-
   if(statements_val_properties.length == 0)
   {
     code = 'create-turtles ' + value_num_agents + ' [ set shape ' + shape + ' setxy random-xcor random-ycor ]\n';
@@ -89,6 +87,14 @@ Blockly.JavaScript['agent_type'] = function(block) {
   var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
   // TODO: Assemble JavaScript into code variable.
   var code = dropdown_type_agent;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['agent_type_usr_created'] = function(block) {
+  var text_name_breed = block.getFieldValue('NAME_BREED');
+  // TODO: Assemble JavaScript into code variable.
+  var code = text_name_breed;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

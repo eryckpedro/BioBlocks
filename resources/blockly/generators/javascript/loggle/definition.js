@@ -6,10 +6,10 @@ Blockly.JavaScript['def_breed_agent'] = function(block) {
     switch(dropdown_breed_def)
     {
         case "wolf":
-            code = code + 'breed [ wolves wolf ]\n';
+            code = code + 'breed [ lobos lobo ]\n';
             break;
         case "sheep":
-            code = code + 'breed [ sheep a-sheep ]\n';
+            code = code + 'breed [ ovelhas ovelha ]\n';
             break;
     }
 

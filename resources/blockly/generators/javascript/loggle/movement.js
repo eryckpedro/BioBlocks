@@ -23,3 +23,9 @@ Blockly.JavaScript['move_all_jump_random_up_down'] = function(block) {
   var code = 'ask turtles [ set ycor random-ycor ]\n';
   return code;
 };
+
+Blockly.JavaScript['move_agent_group'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'rt random 50 \nlt random 50 \nfd 1\n';
+  return code;
+};

@@ -23,6 +23,7 @@
     <script src="./node_modules/blockly/blocks/loggle/movement.js"></script>
     <script src="./node_modules/blockly/blocks/loggle/logic.js"></script>
     <script src="./node_modules/blockly/blocks/loggle/definition.js"></script>
+    <script src="./node_modules/blockly/blocks/loggle/procedures.js"></script>
 
     <script src="./node_modules/blockly/generators/javascript/colour.js"></script>
     <script src="./node_modules/blockly/generators/javascript/lists.js"></script>
@@ -38,6 +39,7 @@
     <script src="./node_modules/blockly/generators/javascript/loggle/movement.js"></script>
     <script src="./node_modules/blockly/generators/javascript/loggle/logic.js"></script>
     <script src="./node_modules/blockly/generators/javascript/loggle/definition.js"></script>
+    <script src="./node_modules/blockly/generators/javascript/loggle/procedures.js"></script>
 
     <script src="./node_modules/blockly/msg/js/pt-br.js"></script>
 </head>
@@ -65,6 +67,7 @@
     <category name="Criação e Aparência">
         <block type="aprnc_create_agent2"></block>
         <block type="agent_type"></block>
+        <block type="agent_type_usr_created"></block>
         <block type="aprnc_set_pen"></block>
         <block type="aprnc_set_size_all"></block>
         <block type="aprnc_set_color_all"></block>
@@ -72,6 +75,7 @@
         <block type="aprnc_show_all"></block>
     </category>
     <category name="Movimentação">
+        <block type="move_agent_group"></block>
         <block type="move_all_agents"></block>
         <block type="move_all_chg_heading"></block>
         <block type="move_all_jump_random_left_right"></block>
@@ -92,6 +96,9 @@
     <category name="Lógica">
         <block type="logic_if"></block>
         <block type="logic_compare2"></block>
+    </category>
+    <category name="Funções">
+        <block type="proc_ask_turtles"></block>
     </category>
     <category name="Texto">
         <block type="text"></block>

@@ -118,3 +118,15 @@ Blockly.Blocks['aprnc_set_size_all'] = {
    this.setHelpUrl("");
     }
  };
+
+ Blockly.Blocks['agent_type_usr_created'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("nome_da_raça"), "NAME_BREED");
+      this.setInputsInline(true);
+      this.setOutput(true, "agent_usr_created");
+      this.setColour(120);
+   this.setTooltip("Tipo representando um agente denominado como uma Raça");
+   this.setHelpUrl("");
+    }
+};
