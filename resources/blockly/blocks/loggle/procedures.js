@@ -14,3 +14,16 @@ Blockly.Blocks['proc_ask_turtles'] = {
    this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['proc_wolf_catches_sheep'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("quando um lobo pegar uma ovelha, coma-a");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("Atribui um conjunto de funções a um determinado conjunto de agentes");
+   this.setHelpUrl("");
+    }
+};

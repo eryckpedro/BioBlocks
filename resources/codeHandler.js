@@ -39,9 +39,9 @@ function generateNLCode()
             codeArray.push(line);
     }
 
-    var setupCode = "to setup\n"; // Setup function base code
-    var globalCode = "";          // Code for globals commands to come before setup code
-    var setDftShpCode = "";       // Code for setting up the default shape of breed-type agents
+    var setupCode = "to setup\nclear-all\nreset-ticks\n"; // Setup function base code
+    var globalCode = "";                                  // Code for globals commands to come before setup code
+    var setDftShpCode = "";                               // Code for setting up the default shape of breed-type agents
 
     for(var i = 0; i < globalsArray.length; i++)
     {
@@ -63,17 +63,19 @@ function generateNLCode()
         }
     }
 
-    for(var i = 0; i < codeArray.length; i++)
-    {
-        setupCode = setupCode + codeArray[i] + '\n';
-    }
-
     for(var i = 0; i < breedArray.length; i++)
     {
          setDftShpCode = setDftShpCode + breedArray[i] + "\n";
     }
 
-    var nlCode = globalCode + setupCode.trimRight() + "\n" + setDftShpCode.trimRight() + "\nend";
+    setupCode = setupCode + setDftShpCode;
+
+    for(var i = 0; i < codeArray.length; i++)
+    {
+        setupCode = setupCode + codeArray[i] + '\n';
+    }
+
+    var nlCode = globalCode + setupCode.trimRight() + "\n" + "\nend";
 
     return nlCode;
 }

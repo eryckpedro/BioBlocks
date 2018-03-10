@@ -1,16 +1,37 @@
+breed [ lobos lobo ]
+breed [ ovelhas ovelha ]
 to setup
-create-turtles 2
+clear-all
+reset-ticks
+set-default-shape lobos "wolf"
+set-default-shape ovelhas "sheep"
+create-lobos 50
 [
-  set shape "wolf"
-  set size 3
-  set color blue
-  setxy random-xcor random-ycor
-]ask turtles [ pen-down ]
-ask turtles [ fd 5 ]
-if (4 > (2 + 1)) [ ask turtles [ set heading 90 ] ]
-ask turtles [ set heading 45 ]
-ask turtles [ fd 2 ]
-ask turtles [ pen-up ]
+   set size 2
+  set color gray
+   setxy random-xcor random-ycor
+]
+create-ovelhas 100
+[
+   set size 1
+  set color pink
+   setxy random-xcor random-ycor
+]
+while [ticks < 80000]
+[
+  ask ovelhas [   rt random 50
+    lt random 50
+    fd 1
+  ]
+  ask lobos [   rt random 50
+    lt random 50
+    fd 1
+    let prey one-of ovelhas-here
+    if prey != nobody [ ask prey [die] ]
+  ]
+tick
+]
+
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

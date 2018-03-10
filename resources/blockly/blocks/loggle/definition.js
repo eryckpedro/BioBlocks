@@ -3,7 +3,7 @@ Blockly.Blocks['def_breed_agent'] = {
       this.appendDummyInput()
           .appendField("definir geração de");
       this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["lobo","wolf"], ["ovelha","sheep"]]), "BREED_DEF");
+          .appendField(new Blockly.FieldDropdown([["LOBOS","wolf"], ["OVELHAS","sheep"]]), "BREED_DEF");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

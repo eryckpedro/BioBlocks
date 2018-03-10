@@ -41,3 +41,21 @@ Blockly.JavaScript['logic_compare2'] = function(block) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['logic_while_forever'] = function(block) {
+    var statements_do_statements = Blockly.JavaScript.statementToCode(block, 'DO_STATEMENTS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'while [ticks < 80000] \n[\n' + statements_do_statements + 'tick\n]\n';
+    return code;
+ };
+
+Blockly.JavaScript['logic_check_collision'] = function(block) {
+    var value_left_val = Blockly.JavaScript.valueToCode(block, 'LEFT_VAL', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_right_val = Blockly.JavaScript.valueToCode(block, 'RIGHT_VAL', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+
+    var code = '...';
+    
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
