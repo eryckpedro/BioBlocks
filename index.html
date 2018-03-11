@@ -54,6 +54,24 @@
       font-weight: normal;
       font-size: 140%;
     }
+    #wrapper
+    {
+        border: 1px solid white;
+    }
+    #blocklyDiv 
+    {
+        display: inline-block;
+        height: 550px;
+        width:  550px;
+    }
+    #codeDiv 
+    {
+        vertical-align: top;
+        display: inline-block;
+        height: 600px;
+        width:  400px;
+        font-size: 125%;
+    }
 </style>
 <body>
     <p>
@@ -61,7 +79,14 @@
         <button onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
     </p>
     
+    <div id="wrapper">
+        <div id="blocklyDiv"></div>
+        <div id="codeDiv"></div>
+    </div>
+
+    <!--
     <div id="blocklyDiv" style="height: 600px; width: 800px;"></div>
+    -->
 
     <xml id="toolbox" style="display: none">
     <category name="Criação e Aparência">

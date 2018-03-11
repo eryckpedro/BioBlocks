@@ -84,7 +84,9 @@ function showNLCode()
 {
     var nlCode = generateNLCode();
 
-    alert(nlCode);
+    document.getElementById("codeDiv").innerText = nlCode;
+
+    //alert(nlCode);
 }
 
 function sendCodeToNL() 
