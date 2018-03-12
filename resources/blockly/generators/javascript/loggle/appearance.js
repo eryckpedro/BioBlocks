@@ -66,6 +66,28 @@ Blockly.JavaScript['aprnc_create_breed_type_agent'] = function(block) {
 
 };
 
+Blockly.JavaScript['aprnc_create_breed_type_agent2'] = function(block) {
+  var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
+  var variable_name_breed = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_BREED'), Blockly.Variables.NAME_TYPE);
+  var statements_val_properties = Blockly.JavaScript.statementToCode(block, 'VAL_PROPERTIES');
+  // TODO: Assemble JavaScript into code variable.
+  
+  var code = "";
+
+  if(statements_val_properties.length == 0)
+  {
+    code = 'create-' + variable_name_breed + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
+  }
+  else
+  {
+    code = 'create-' + variable_name_breed + ' ' + value_num_agents + '\n[\n '
+          + statements_val_properties + '   setxy random-xcor random-ycor \n]\n';
+  }
+
+  return code;
+
+};
+
 Blockly.JavaScript['aprnc_set_pen'] = function(block) {
   var dropdown_pen_val = block.getFieldValue('PEN_VAL');
   // TODO: Assemble JavaScript into code variable.
@@ -117,6 +139,22 @@ Blockly.JavaScript['agent_type_usr_created'] = function(block) {
   var text_name_breed = block.getFieldValue('NAME_BREED');
   // TODO: Assemble JavaScript into code variable.
   var code = text_name_breed;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['agent_breed_type_wolves'] = function(block) {
+  //var variable_wolf = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('wolf'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'wolf';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['agent_breed_type_sheep'] = function(block) {
+  //var variable_sheep = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('sheep'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'sheep';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

@@ -13,6 +13,21 @@ Blockly.Blocks['def_breed_agent'] = {
     }
 };
 
+Blockly.Blocks['def_breed_agent2'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("definir raça de:");
+      this.appendValueInput("NAME_BREED")
+          .setCheck("agent_var_usr_created");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['def_agent_property'] = {
     init: function() {
       this.appendDummyInput()

@@ -36,7 +36,10 @@ function generateNLCode()
         if (line.startsWith(GLOBAL_TAG))
             globalsArray.push(line.substring(GLOBAL_TAG.length));
         else
-            codeArray.push(line);
+        {
+            if (! line.startsWith("var"))
+                codeArray.push(line);
+        }
     }
 
     var setupCode = "to setup\nclear-all\nreset-ticks\n"; // Setup function base code
@@ -68,14 +71,14 @@ function generateNLCode()
          setDftShpCode = setDftShpCode + breedArray[i] + "\n";
     }
 
-    setupCode = setupCode + setDftShpCode;
+    setupCode = setupCode + setDftShpCode.trimRight();
 
     for(var i = 0; i < codeArray.length; i++)
     {
-        setupCode = setupCode + codeArray[i] + '\n';
+        setupCode = setupCode + codeArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trimRight() + "\n" + "\nend";
+    var nlCode = globalCode + setupCode.trim() + "\n" + "end";
 
     return nlCode;
 }

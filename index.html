@@ -62,7 +62,7 @@
     {
         display: inline-block;
         height: 550px;
-        width:  550px;
+        width:  650px;
     }
     #codeDiv 
     {
@@ -91,14 +91,27 @@
     <xml id="toolbox" style="display: none">
     <category name="Criação e Aparência">
         <block type="aprnc_create_agent2"></block>
-        <block type="aprnc_create_breed_type_agent"></block>
+        <block type="aprnc_create_breed_type_agent2"></block>
+        <block type="agent_breed_type_wolves"></block>
+        <block type="agent_breed_type_sheep"></block>
         <block type="agent_type"></block>
-        <block type="agent_type_usr_created"></block>
         <block type="aprnc_set_pen"></block>
         <block type="aprnc_set_size_all"></block>
         <block type="aprnc_set_color_all"></block>
         <block type="aprnc_hide_all"></block>
         <block type="aprnc_show_all"></block>
+    </category>
+    <category name="Definição">
+        <block type="def_breed_agent2"></block>
+        <block type="def_agent_property"></block>
+        <block type="def_agent_property_type_num"></block>
+        <block type="def_agent_property_type_color"></block>
+        <block type="def_global_property"></block>
+    </category>
+    <category name="Funções">
+        <block type="proc_ask_turtles"></block>
+        <block type="proc_ask_breed"></block>
+        <block type="proc_wolf_catches_sheep"></block>
     </category>
     <category name="Movimentação">
         <block type="move_agent_group"></block>
@@ -107,26 +120,15 @@
         <block type="move_all_jump_random_left_right"></block>
         <block type="move_all_jump_random_up_down"></block>
     </category>
-    <category name="Matemática">
-        <block type="math_number"></block>
-        <block type="math_arithmetic"></block>
-        <block type="math_single"></block>
-    </category>
-    <category name="Definição">
-        <block type="def_breed_agent"></block>
-        <block type="def_agent_property"></block>
-        <block type="def_agent_property_type_num"></block>
-        <block type="def_agent_property_type_color"></block>
-        <block type="def_global_property"></block>
-    </category>
     <category name="Lógica">
         <block type="logic_if"></block>
         <block type="logic_compare2"></block>
         <block type="logic_while_forever"></block>
     </category>
-    <category name="Funções">
-        <block type="proc_ask_turtles"></block>
-        <block type="proc_wolf_catches_sheep"></block>
+    <category name="Matemática">
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="math_single"></block>
     </category>
     <category name="Texto">
         <block type="text"></block>

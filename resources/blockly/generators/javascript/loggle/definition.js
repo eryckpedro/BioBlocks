@@ -16,6 +16,26 @@ Blockly.JavaScript['def_breed_agent'] = function(block) {
     return code;
 };
 
+Blockly.JavaScript['def_breed_agent2'] = function(block) {
+    var value_name_breed = Blockly.JavaScript.valueToCode(block, 'NAME_BREED', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    
+    var code = '_GLOBAL';
+
+    switch(value_name_breed)
+    {
+        case "wolf":
+            code = code + 'breed [ lobos lobo ]\n';
+            break;
+        case "sheep":
+            code = code + 'breed [ ovelhas ovelha ]\n';
+            break;
+    }
+
+    return code;
+
+};
+
 Blockly.JavaScript['def_agent_property'] = function(block) {
     var value_name_property = Blockly.JavaScript.valueToCode(block, 'NAME_PROPERTY', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.

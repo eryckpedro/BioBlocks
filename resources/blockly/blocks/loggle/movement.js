@@ -7,7 +7,7 @@ Blockly.Blocks['move_all_agents'] = {
         .appendField("passos");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -23,7 +23,7 @@ Blockly.Blocks['move_all_chg_heading'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -36,7 +36,7 @@ Blockly.Blocks['move_all_jump_random_left_right'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -49,7 +49,7 @@ Blockly.Blocks['move_all_jump_random_up_down'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -62,7 +62,7 @@ Blockly.Blocks['move_agent_group'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
  this.setTooltip("Move aleatoriamente o grupo de agentes especificado");
  this.setHelpUrl("");
   }

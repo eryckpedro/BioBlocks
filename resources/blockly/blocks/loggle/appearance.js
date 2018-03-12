@@ -54,6 +54,26 @@ Blockly.Blocks['aprnc_create_breed_type_agent'] = {
     }
 };
 
+Blockly.Blocks['aprnc_create_breed_type_agent2'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("criar");
+      this.appendValueInput("NUM_AGENTS")
+          .setCheck("Number");
+      this.appendDummyInput()
+          .appendField("da raça criada de:")
+          .appendField(new Blockly.FieldVariable("RAÇA"), "NAME_BREED");
+      this.appendStatementInput("VAL_PROPERTIES")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['aprnc_set_pen'] = {
   init: function() {
     this.appendDummyInput()
@@ -147,6 +167,34 @@ Blockly.Blocks['aprnc_set_size_all'] = {
       this.setOutput(true, "agent_usr_created");
       this.setColour(120);
    this.setTooltip("Tipo representando um agente denominado como uma Raça");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['agent_breed_type_wolves'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("LOBOS"), "wolf");
+      this.appendDummyInput()
+          .appendField("(RAÇA)");
+      this.setInputsInline(true);
+      this.setOutput(true, "agent_var_usr_created");
+      this.setColour(90);
+   this.setTooltip("Tipo representando um agente criado como uma Raça");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['agent_breed_type_sheep'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("OVELHAS"), "sheep");
+      this.appendDummyInput()
+          .appendField("(RAÇA)");
+      this.setInputsInline(true);
+      this.setOutput(true, "agent_var_usr_created");
+      this.setColour(90);
+   this.setTooltip("Tipo representando um agente criado como uma Raça");
    this.setHelpUrl("");
     }
 };
