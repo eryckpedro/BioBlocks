@@ -13,7 +13,8 @@
     "electron": "~1.8.2"
   },
   "dependencies": {
-    "google-closure-library": "^20180204.0.0",
-    "blockly": "file:./resources/blockly"
+    "blockly": "file:./resources/blockly",
+    "dezalgo": "^1.0.3",
+    "google-closure-library": "^20180204.0.0"
   }
 }
