@@ -88,3 +88,83 @@ Blockly.Blocks['def_global_property'] = {
     }
 };
 
+Blockly.Blocks['def_set_global_properties'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("características globais:");
+      this.appendStatementInput("GLOBAL_AGNT_VARS")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("Característica que todos os agentes tem");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['def_agent_global_property'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("característica global:");
+      this.appendValueInput("NAME_PROPERTY")
+          .setCheck("agent_global_var");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['def_agent_global_property_type'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("NOME DA CARACTERISTICA"), "NAME_PROPERTY");
+      this.setInputsInline(true);
+      this.setOutput(true, "agent_global_var");
+      this.setColour(270);
+   this.setTooltip("Mude o nome da característica com a opção \"mudar nome da variável\" clicando ao lado dela");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['def_chg_property2'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("mude o valor de:");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("NOME DA CARACTERÍSTICA"), "NAME_VAR");
+      this.appendDummyInput()
+          .appendField("para:");
+      this.appendValueInput("NEW_VAL")
+          .setCheck(["Number", "String"]);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("Modifica uma característica já criada anteriormente.");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['def_chg_property'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("mude o valor de:");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("(propriedade)"), "NAME_PROPERTY");
+      this.appendDummyInput()
+          .appendField("para:");
+      this.appendValueInput("NEW_VAL")
+          .setCheck(["Number", "String"]);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(270);
+   this.setTooltip("Modifica uma característica já criada anteriormente.");
+   this.setHelpUrl("");
+    }
+  };
+

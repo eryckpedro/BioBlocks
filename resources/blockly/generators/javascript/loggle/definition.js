@@ -64,3 +64,45 @@ Blockly.JavaScript['def_global_property'] = function(block) {
     code = code + 'turtles-own ' + '[ ' + text_name_property + ' ]\n';
     return code;
 };
+
+Blockly.JavaScript['def_set_global_properties'] = function(block) {
+    var statements_global_agnt_vars = Blockly.JavaScript.statementToCode(block, 'GLOBAL_AGNT_VARS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '_GLOBAL';
+    
+    code = code + 'turtles-own ' + '[ ' + statements_global_agnt_vars + ' ]\n';
+
+    return code;
+};
+
+Blockly.JavaScript['def_agent_global_property'] = function(block) {
+    var value_name_property = Blockly.JavaScript.valueToCode(block, 'NAME_PROPERTY', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = value_name_property;
+    return code;
+};
+
+Blockly.JavaScript['def_agent_global_property_type'] = function(block) {
+    var variable_name_property = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_PROPERTY'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble JavaScript into code variable.
+    var code = variable_name_property;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['def_chg_property2'] = function(block) {
+    var variable_name_var = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_VAR'), Blockly.Variables.NAME_TYPE);
+    var value_new_val = Blockly.JavaScript.valueToCode(block, 'NEW_VAL', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+};
+
+Blockly.JavaScript['def_chg_property'] = function(block) {
+    var text_name_property = block.getFieldValue('NAME_PROPERTY');
+    var value_new_val = Blockly.JavaScript.valueToCode(block, 'NEW_VAL', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+
+    var code = 'set ' + text_name_property + ' ' + value_new_val + '\n';
+    return code;
+};

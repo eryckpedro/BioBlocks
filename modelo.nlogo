@@ -1,36 +1,7 @@
-breed [ lobos lobo ]
-breed [ ovelhas ovelha ]
+turtles-own [   (NOME_DA_CARACTER_C3_8DSTICA) ]
 to setup
 clear-all
 reset-ticks
-set-default-shape lobos "wolf"
-set-default-shape ovelhas "sheep"
-
-create-lobos 50
-[
-set color gray
-setxy random-xcor random-ycor
-]
-create-ovelhas 100
-[
-set size 1.5
-set color pink
-setxy random-xcor random-ycor
-]
-while [ticks < 800]
-[
-ask ovelhas [   rt random 50
-lt random 50
-fd 1
-]
-ask lobos [   rt random 50
-lt random 50
-fd 1
-let prey one-of ovelhas-here
-if prey != nobody [ ask prey [die] ]
-]
-tick
-]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

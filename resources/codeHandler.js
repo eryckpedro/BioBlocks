@@ -7,6 +7,12 @@ var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
 
+Blockly.prompt = (a, b, c) => {
+    this.promptModalDesc = "Qual o novo nome da variável?"; // Message description
+    this.promptCallback = c; // Callback function
+    this.promptModal.show(); // Show a modal
+};
+
 var demoWorkspace = Blockly.inject('blocklyDiv',
     {
         media: './node_modules/blockly/media/',
