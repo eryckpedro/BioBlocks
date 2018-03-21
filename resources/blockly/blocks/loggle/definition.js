@@ -16,9 +16,9 @@ Blockly.Blocks['def_breed_agent'] = {
 Blockly.Blocks['def_breed_agent2'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("definir raça de:");
+          .appendField("definir geração de:");
       this.appendValueInput("NAME_BREED")
-          .setCheck("agent_var_usr_created");
+          .setCheck("agent_type");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

@@ -1,3 +1,35 @@
+Blockly.Blocks['agent_breed_type'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["tartaruga","turtle"], ["lobo","wolf"], ["ovelha","sheep"]]), "TYPE_AGENT");
+      this.setInputsInline(true);
+      this.setOutput(true, "agent_type");
+      this.setColour(90);
+   this.setTooltip("Tipo representando um agente criado como uma Geração");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['aprnc_create_breed_type_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("criar");
+      this.appendValueInput("NUM_AGENTS")
+          .setCheck("Number");
+      this.appendValueInput("NAME_AGENT")
+          .setCheck("agent_type")
+          .appendField("agentes do tipo:");
+      this.appendStatementInput("VAL_PROPERTIES")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(120);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
 Blockly.Blocks['aprnc_create_agent'] = {
   init: function() {
     this.appendValueInput("NUM_AGENTS")
@@ -23,26 +55,6 @@ Blockly.Blocks['aprnc_create_agent2'] = {
       this.appendDummyInput()
           .appendField("do tipo:")
           .appendField(new Blockly.FieldDropdown([["tartaruga","turtle"], ["lobo","wolf"], ["ovelha","sheep"]]), "NAME_AGENT");
-      this.appendStatementInput("VAL_PROPERTIES")
-          .setCheck(null);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(120);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['aprnc_create_breed_type_agent'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("criar");
-      this.appendValueInput("NUM_AGENTS")
-          .setCheck("Number");
-      this.appendValueInput("NAME_AGENT")
-          .setCheck("agent_usr_created")
-          .appendField("da raça criada de:");
       this.appendStatementInput("VAL_PROPERTIES")
           .setCheck(null);
       this.setInputsInline(true);

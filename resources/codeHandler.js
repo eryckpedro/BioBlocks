@@ -56,6 +56,9 @@ function generateNLCode()
 
             switch(breedType)
             {
+                case "tartarugas":
+                    breedArray.push(breedShapeCmd + breedType + " \"turtle\"");
+                    break;
                 case "lobos":
                     breedArray.push(breedShapeCmd + breedType + " \"wolf\"");
                     break;

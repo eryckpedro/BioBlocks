@@ -1,3 +1,33 @@
+Blockly.JavaScript['agent_breed_type'] = function(block) {
+  var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
+  // TODO: Assemble JavaScript into code variable.
+
+  var code = dropdown_type_agent;
+
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['aprnc_create_breed_type_agent'] = function(block) {
+  var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_val_properties = Blockly.JavaScript.statementToCode(block, 'VAL_PROPERTIES');
+  // TODO: Assemble JavaScript into code variable.
+  var code = "";
+
+  if(statements_val_properties.length == 0)
+  {
+    code = 'create-' + value_name_agent + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
+  }
+  else
+  {
+    code = 'create-' + value_name_agent + ' ' + value_num_agents + '\n[\n '
+          + statements_val_properties + '   setxy random-xcor random-ycor \n]\n';
+  }
+
+  return code;
+};
+
 Blockly.JavaScript['aprnc_create_agent'] = function(block) {
   var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
@@ -42,28 +72,6 @@ Blockly.JavaScript['aprnc_create_agent2'] = function(block) {
   }
 
   return code;
-};
-
-Blockly.JavaScript['aprnc_create_breed_type_agent'] = function(block) {
-  var value_num_agents = Blockly.JavaScript.valueToCode(block, 'NUM_AGENTS', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_val_properties = Blockly.JavaScript.statementToCode(block, 'VAL_PROPERTIES');
-  // TODO: Assemble JavaScript into code variable.
-
-  var code = "";
-
-  if(statements_val_properties.length == 0)
-  {
-    code = 'create-' + value_name_agent + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
-  }
-  else
-  {
-    code = 'create-' + value_name_agent + ' ' + value_num_agents + '\n[\n '
-          + statements_val_properties + '   setxy random-xcor random-ycor \n]\n';
-  }
-
-  return code;
-
 };
 
 Blockly.JavaScript['aprnc_create_breed_type_agent2'] = function(block) {

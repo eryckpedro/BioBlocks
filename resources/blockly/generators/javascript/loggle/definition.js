@@ -24,6 +24,9 @@ Blockly.JavaScript['def_breed_agent2'] = function(block) {
 
     switch(value_name_breed)
     {
+        case "turtle":
+            code = code + 'breed [ tartarugas tartaruga ]\n';
+            break;
         case "wolf":
             code = code + 'breed [ lobos lobo ]\n';
             break;
