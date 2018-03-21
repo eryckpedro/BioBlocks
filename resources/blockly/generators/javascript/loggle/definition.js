@@ -22,18 +22,11 @@ Blockly.JavaScript['def_breed_agent2'] = function(block) {
     
     var code = '_GLOBAL';
 
-    switch(value_name_breed)
-    {
-        case "turtle":
-            code = code + 'breed [ tartarugas tartaruga ]\n';
-            break;
-        case "wolf":
-            code = code + 'breed [ lobos lobo ]\n';
-            break;
-        case "sheep":
-            code = code + 'breed [ ovelhas ovelha ]\n';
-            break;
-    }
+    var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
+
+    var breedType = breedDict[value_name_breed];
+
+    code = code + 'breed [ ' + breedType + 's ' + breedType + ' ]\n';
 
     return code;
 

@@ -15,13 +15,15 @@ Blockly.JavaScript['aprnc_create_breed_type_agent'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = "";
 
+  var breedName = { "turtle" : "tartarugas", "wolf" : "lobos", "sheep" : "ovelhas" };
+
   if(statements_val_properties.length == 0)
   {
-    code = 'create-' + value_name_agent + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
+    code = 'create-' + breedName[value_name_agent] + ' ' + value_num_agents + ' [ setxy random-xcor random-ycor ]\n';
   }
   else
   {
-    code = 'create-' + value_name_agent + ' ' + value_num_agents + '\n[\n '
+    code = 'create-' + breedName[value_name_agent] + ' ' + value_num_agents + '\n[\n '
           + statements_val_properties + '   setxy random-xcor random-ycor \n]\n';
   }
 

@@ -54,18 +54,9 @@ function generateNLCode()
             var breedShapeCmd = 'set-default-shape ';
             var breedType = (globalsArray[i].substring(BREED_TAG.length)).split(" ",1)[0];
 
-            switch(breedType)
-            {
-                case "tartarugas":
-                    breedArray.push(breedShapeCmd + breedType + " \"turtle\"");
-                    break;
-                case "lobos":
-                    breedArray.push(breedShapeCmd + breedType + " \"wolf\"");
-                    break;
-                case "ovelhas":
-                    breedArray.push(breedShapeCmd + breedType + " \"sheep\"");
-                    break;
-            }
+            var breedDict = { "tartarugas" : " \"turtle\"", "lobos" : " \"wolf\"", "ovelhas" : " \"sheep\"" };
+            
+            breedArray.push(breedShapeCmd + breedType + breedDict[breedType]);
         }
     }
 
@@ -74,7 +65,7 @@ function generateNLCode()
          setDftShpCode = setDftShpCode + breedArray[i] + "\n";
     }
 
-    setupCode = setupCode + setDftShpCode.trimRight();
+    setupCode = setupCode + setDftShpCode;
 
     for(var i = 0; i < codeArray.length; i++)
     {

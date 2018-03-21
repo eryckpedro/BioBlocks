@@ -1,9 +1,11 @@
 Blockly.Blocks['proc_ask_turtles'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("pedir que");
+          .appendField("pedir ao grupo de agentes");
       this.appendValueInput("NAME_AGENT")
-          .setCheck("agent_usr_created");
+          .setCheck("agent_type");
+      this.appendDummyInput()
+          .appendField("que:");
       this.appendStatementInput("NAME")
           .setCheck(null);
       this.setInputsInline(true);
