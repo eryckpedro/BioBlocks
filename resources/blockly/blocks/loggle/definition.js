@@ -121,7 +121,7 @@ Blockly.Blocks['def_agent_global_property'] = {
 Blockly.Blocks['def_agent_global_property_type'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("NOME DA CARACTERISTICA"), "NAME_PROPERTY");
+          .appendField(new Blockly.FieldVariable("var_caract"), "NAME_PROPERTY");
       this.setInputsInline(true);
       this.setOutput(true, "agent_global_var");
       this.setColour(270);

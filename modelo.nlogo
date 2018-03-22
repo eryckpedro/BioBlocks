@@ -1,7 +1,9 @@
-turtles-own [   (NOME_DA_CARACTER_C3_8DSTICA) ]
 to setup
 clear-all
 reset-ticks
+
+
+NOME_DA_CARACTERISTICA;
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

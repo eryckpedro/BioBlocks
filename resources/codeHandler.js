@@ -7,10 +7,17 @@ var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
 
-Blockly.prompt = (a, b, c) => {
-    this.promptModalDesc = "Qual o novo nome da variável?"; // Message description
-    this.promptCallback = c; // Callback function
-    this.promptModal.show(); // Show a modal
+var promptReturn = function(message, defaultValue)
+{ 
+    var newVar = '';
+
+    //TODO: GET THE NEWVAR VALUE BY USING ALTERNATIVE TO WINDOW.PROMPT()
+
+    return newVar;
+} ;
+
+Blockly.prompt = function(message, defaultValue, callback) {
+    callback(promptReturn(message, defaultValue));
 };
 
 var demoWorkspace = Blockly.inject('blocklyDiv',
