@@ -1,9 +1,16 @@
+breed [ tartarugas tartaruga ]
+turtles-own [   energia  ]
 to setup
 clear-all
 reset-ticks
+set-default-shape tartarugas "turtle"
 
 
-NOME_DA_CARACTERISTICA;
+create-tartarugas 3
+[
+set energia 2 * 3
+setxy random-xcor random-ycor
+]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW

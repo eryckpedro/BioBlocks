@@ -1,0 +1,29 @@
+body 
+{
+    background-color: #fff;
+    font-family: sans-serif;
+}
+h1 
+{
+    font-weight: normal;
+    font-size: 140%;
+}
+#wrapper
+{
+    border: 1px solid white;
+}
+#blocklyDiv 
+{
+    display: inline-block;
+    height: 550px;
+    width:  650px;
+}
+#codeDiv 
+{
+    vertical-align: top;
+    display: inline-block;
+    overflow: auto;
+    height: 600px;
+    width:  400px;
+    font-size: 125%;
+}

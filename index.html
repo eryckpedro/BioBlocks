@@ -5,6 +5,8 @@
 
     <title>Loggle: Ambiente de Programação Visual para o NetLogo</title>
 
+    <link rel="stylesheet" href="./resources/styles.css">
+
     <!-- These files are the uncompressed version -->
     <script src="./node_modules/blockly/blockly_uncompressed.js"></script>
     <script src="./node_modules/blockly/generators/javascript.js"></script>
@@ -45,37 +47,6 @@
 
     <script src="./node_modules/blockly/msg/js/pt-br.js"></script>
 </head>
-<style>
-    body 
-    {
-      background-color: #fff;
-      font-family: sans-serif;
-    }
-    h1 
-    {
-      font-weight: normal;
-      font-size: 140%;
-    }
-    #wrapper
-    {
-        border: 1px solid white;
-    }
-    #blocklyDiv 
-    {
-        display: inline-block;
-        height: 550px;
-        width:  650px;
-    }
-    #codeDiv 
-    {
-        vertical-align: top;
-        display: inline-block;
-        overflow: auto;
-        height: 600px;
-        width:  400px;
-        font-size: 125%;
-    }
-</style>
 <body>
     <p>
         <button onclick="showNLCode()">Mostrar código NetLogo</button>
@@ -87,15 +58,9 @@
         <div id="codeDiv"></div>
     </div>
 
-    <!--
-    <div id="blocklyDiv" style="height: 600px; width: 800px;"></div>
-    -->
-
     <xml id="toolbox" style="display: none">
     <category name="Criação e Aparência">
         <block type="aprnc_create_breed_type_agent"></block>
-        <block type="agent_breed_type_wolves"></block>
-        <block type="agent_breed_type_sheep"></block>
         <block type="agent_breed_type"></block>
         <block type="aprnc_set_pen"></block>
         <block type="aprnc_set_size_all"></block>
@@ -108,11 +73,10 @@
         <block type="def_agent_property"></block>
         <block type="def_agent_property_type_num"></block>
         <block type="def_agent_property_type_color"></block>
-        <block type="def_global_property"></block>
         <block type="def_set_global_properties"></block>
         <block type="def_agent_global_property"></block>
         <block type="def_agent_global_property_type"></block>
-        <block type="def_chg_property"></block>
+        <block type="def_chg_property2"></block>
     </category>
     <category name="Funções">
         <block type="proc_ask_turtles"></block>
@@ -132,7 +96,6 @@
     </category>
     <category name="Matemática">
         <block type="math_number"></block>
-        <block type="math_arithmetic"></block>
         <block type="math_oper_with_properties"></block>
         <block type="math_single"></block>
     </category>

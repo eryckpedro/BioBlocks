@@ -31,7 +31,7 @@ Blockly.Blocks['def_breed_agent2'] = {
 Blockly.Blocks['def_agent_property'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("característica:");
+          .appendField("característica particular:");
       this.appendValueInput("NAME_PROPERTY")
           .setCheck("agent_property_type");
       this.setInputsInline(true);
@@ -91,7 +91,7 @@ Blockly.Blocks['def_global_property'] = {
 Blockly.Blocks['def_set_global_properties'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("características globais:");
+          .appendField("conjunto de características globais:");
       this.appendStatementInput("GLOBAL_AGNT_VARS")
           .setCheck(null);
       this.setInputsInline(true);

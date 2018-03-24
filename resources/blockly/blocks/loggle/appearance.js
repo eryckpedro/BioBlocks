@@ -19,6 +19,8 @@ Blockly.Blocks['aprnc_create_breed_type_agent'] = {
       this.appendValueInput("NAME_AGENT")
           .setCheck("agent_type")
           .appendField("agentes do tipo:");
+      this.appendDummyInput()
+          .appendField("com as características:");
       this.appendStatementInput("VAL_PROPERTIES")
           .setCheck(null);
       this.setInputsInline(true);

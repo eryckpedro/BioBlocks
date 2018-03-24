@@ -78,7 +78,7 @@ Blockly.JavaScript['def_set_global_properties'] = function(block) {
 Blockly.JavaScript['def_agent_global_property'] = function(block) {
     var value_name_property = Blockly.JavaScript.valueToCode(block, 'NAME_PROPERTY', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = value_name_property;
+    var code = value_name_property + ' ';
     return code;
 };
 
@@ -87,14 +87,14 @@ Blockly.JavaScript['def_agent_global_property_type'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
     var code = variable_name_property;
     // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['def_chg_property2'] = function(block) {
     var variable_name_var = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_VAR'), Blockly.Variables.NAME_TYPE);
     var value_new_val = Blockly.JavaScript.valueToCode(block, 'NEW_VAL', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    var code = 'set ' + variable_name_var + ' ' + value_new_val + '\n';
     return code;
 };
 
