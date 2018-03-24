@@ -1,4 +1,5 @@
 var fs = require('fs');
+var prompt = require('electron-prompt');
 
 const GLOBAL_TAG = "_GLOBAL";
 const BREED_TAG  = "breed [ ";
@@ -7,18 +8,21 @@ var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
 
-var promptReturn = function(message, defaultValue)
-{ 
-    var newVar = '';
+var renameVar = function(name)
+{
+    return name;
+}
 
-    //TODO: GET THE NEWVAR VALUE BY USING ALTERNATIVE TO WINDOW.PROMPT()
+Blockly.prompt = function(msg, defaultValue, callback)
+{
+    prompt
+    ({
+        title: 'Renomeando',
+        label: 'Renomenado para:',
+        type: 'input'
+    }).then((name)=>{callback(renameVar(name))})
+}
 
-    return newVar;
-} ;
-
-Blockly.prompt = function(message, defaultValue, callback) {
-    callback(promptReturn(message, defaultValue));
-};
 
 var demoWorkspace = Blockly.inject('blocklyDiv',
     {
