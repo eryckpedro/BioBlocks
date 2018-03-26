@@ -25,3 +25,19 @@ Blockly.JavaScript['proc_wolf_catches_sheep'] = function(block) {
 
     return code;
 };
+
+Blockly.JavaScript['proc_reproduce_given_chance'] = function(block) {
+    var value_num_cubs = Blockly.JavaScript.valueToCode(block, 'NUM_CUBS', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_rep_chance = Blockly.JavaScript.valueToCode(block, 'REP_CHANCE', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+
+    var code = 'if random-float 100 < ' + value_rep_chance + ' [ hatch ' + value_num_cubs + ' [ rt random-float 360 fd 1 ] ]';
+    return code;
+};
+
+Blockly.JavaScript['proc_kill_agent'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+
+    var code = 'die';
+    return code;
+};

@@ -49,13 +49,22 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
     return code;
  };
 
-Blockly.JavaScript['logic_check_collision'] = function(block) {
-    var value_left_val = Blockly.JavaScript.valueToCode(block, 'LEFT_VAL', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_right_val = Blockly.JavaScript.valueToCode(block, 'RIGHT_VAL', Blockly.JavaScript.ORDER_ATOMIC);
+ Blockly.JavaScript['logic_check_collision2'] = function(block) {
+    var value_name_agent_1 = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT_1', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_name_agent_2 = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT_2', Blockly.JavaScript.ORDER_ATOMIC);
+    var statements_name_statements = Blockly.JavaScript.statementToCode(block, 'NAME_STATEMENTS');
     // TODO: Assemble JavaScript into code variable.
 
-    var code = '...';
-    
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
+    var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
+
+    var nameAgent1 = breedDict[value_name_agent_1] + 's';
+    var nameAgent2 = breedDict[value_name_agent_2] + 's';
+
+    var codeAgent1 = 'let ' + 'aux_' + nameAgent1 + ' one-of ' + nameAgent1 + '-here\n';
+    var codeAgent2 = 'let ' + 'aux_' + nameAgent2 + ' one-of ' + nameAgent2 + '-here\n';
+
+    var codeIF = 'if ( ' + 'aux_' + nameAgent1 + ' != nobody and ' + 'aux_' + nameAgent2 + ' != nobody )'
+
+    var code = codeAgent1 + codeAgent2 + codeIF + '\n[\n ' + statements_name_statements + '\n]\n';
+    return code;
+  };

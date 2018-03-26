@@ -1,15 +1,13 @@
-breed [ tartarugas tartaruga ]
-turtles-own [   energia  ]
 to setup
 clear-all
 reset-ticks
-set-default-shape tartarugas "turtle"
-
-
-create-tartarugas 3
+ask lobos [   let aux_lobos one-of lobos-here
+let aux_ovelhas one-of ovelhas-here
+if ( aux_lobos != nobody and aux_ovelhas != nobody )
 [
-set energia 2 * 3
-setxy random-xcor random-ycor
+ask ovelhas [   die]
+
+]
 ]
 end
 @#$#@#$#@

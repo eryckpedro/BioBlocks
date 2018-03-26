@@ -48,18 +48,25 @@ Blockly.Blocks['logic_while_forever'] = {
     }
 };
 
-Blockly.Blocks['logic_check_collision'] = {
+Blockly.Blocks['logic_check_collision2'] = {
     init: function() {
-      this.appendValueInput("LEFT_VAL")
-          .setCheck(["agent", "agent_usr_created"]);
       this.appendDummyInput()
-          .appendField("encontra com");
-      this.appendValueInput("RIGHT_VAL")
-          .setCheck(["agent", "agent_usr_created"]);
+          .appendField("se o agente:");
+      this.appendValueInput("NAME_AGENT_1")
+          .setCheck("agent_type");
+      this.appendDummyInput()
+          .appendField("se choca com o agente:");
+      this.appendValueInput("NAME_AGENT_2")
+          .setCheck("agent_type");
+      this.appendDummyInput()
+          .appendField(":");
+      this.appendStatementInput("NAME_STATEMENTS")
+          .setCheck(null);
       this.setInputsInline(true);
-      this.setOutput(true, "Boolean");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
       this.setColour(180);
-   this.setTooltip("Teste se dois agentes se encontram");
+   this.setTooltip("Checa colisão entre 2 agentes");
    this.setHelpUrl("");
     }
-};
+  };
