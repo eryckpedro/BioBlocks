@@ -42,6 +42,6 @@ Blockly.JavaScript['proc_kill_agent'] = function(block) {
     var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
 
     // The name formula is "aux_<AgentNamePortuguese>"
-    var code = 'ask-aux_' + breedDict[value_name_agent] + ' [ die ]\n';
+    var code = 'ask aux_' + breedDict[value_name_agent] + ' [ die ]\n';
     return code;
 };

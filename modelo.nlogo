@@ -5,27 +5,18 @@ clear-all
 reset-ticks
 set-default-shape lobos "wolf"
 set-default-shape ovelhas "sheep"
-create-lobos 50
-[
-set color gray
-setxy random-xcor random-ycor
-]
-create-ovelhas 100
-[
-set color pink
-setxy random-xcor random-ycor
-]
+create-lobos 50 [ setxy random-xcor random-ycor ]
+create-ovelhas 100 [ setxy random-xcor random-ycor ]
 while [ticks < 80000]
 [
 ask lobos [   rt random 50
 lt random 50
 fd 1
-let aux_lobos one-of lobos-here
-let aux_ovelhas one-of ovelhas-here
-if ( aux_lobos != nobody and aux_ovelhas != nobody )
+let aux_lobo one-of lobos-here
+let aux_ovelha one-of ovelhas-here
+if ( aux_lobo != nobody and aux_ovelha != nobody )
 [
-ask aux_ovelhas [   die]
-
+ask-aux_ovelha [ die ]
 ]
 ]
 ask ovelhas [   rt random 50

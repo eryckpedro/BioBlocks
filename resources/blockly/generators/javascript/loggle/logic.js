@@ -45,7 +45,7 @@ Blockly.JavaScript['logic_compare2'] = function(block) {
 Blockly.JavaScript['logic_while_forever'] = function(block) {
     var statements_do_statements = Blockly.JavaScript.statementToCode(block, 'DO_STATEMENTS');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'while [ticks < 80000] \n[\n' + statements_do_statements + 'tick\n]\n';
+    var code = 'while [ticks < 300] \n[\n' + statements_do_statements + 'tick\n]\n';
     return code;
  };
 
