@@ -1,13 +1,38 @@
+breed [ lobos lobo ]
+breed [ ovelhas ovelha ]
 to setup
 clear-all
 reset-ticks
-ask lobos [   let aux_lobos one-of lobos-here
+set-default-shape lobos "wolf"
+set-default-shape ovelhas "sheep"
+create-lobos 50
+[
+set color gray
+setxy random-xcor random-ycor
+]
+create-ovelhas 100
+[
+set color pink
+setxy random-xcor random-ycor
+]
+while [ticks < 80000]
+[
+ask lobos [   rt random 50
+lt random 50
+fd 1
+let aux_lobos one-of lobos-here
 let aux_ovelhas one-of ovelhas-here
 if ( aux_lobos != nobody and aux_ovelhas != nobody )
 [
-ask ovelhas [   die]
+ask aux_ovelhas [   die]
 
 ]
+]
+ask ovelhas [   rt random 50
+lt random 50
+fd 1
+]
+tick
 ]
 end
 @#$#@#$#@

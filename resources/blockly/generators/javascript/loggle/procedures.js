@@ -36,8 +36,12 @@ Blockly.JavaScript['proc_reproduce_given_chance'] = function(block) {
 };
 
 Blockly.JavaScript['proc_kill_agent'] = function(block) {
+    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
 
-    var code = 'die';
+    var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
+
+    // The name formula is "aux_<AgentNamePortuguese>"
+    var code = 'ask-aux_' + breedDict[value_name_agent] + ' [ die ]\n';
     return code;
 };

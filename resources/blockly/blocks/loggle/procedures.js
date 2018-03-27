@@ -71,7 +71,11 @@ Blockly.Blocks['proc_reproduce_given_chance'] = {
 Blockly.Blocks['proc_kill_agent'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("morrer");
+          .appendField("pedir que o agente colidido:");
+      this.appendValueInput("NAME_AGENT")
+          .setCheck("agent_type");
+      this.appendDummyInput()
+          .appendField("morra");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -79,4 +83,4 @@ Blockly.Blocks['proc_kill_agent'] = {
    this.setTooltip("Mata o determinado agente.");
    this.setHelpUrl("");
     }
-};
+  };

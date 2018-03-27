@@ -50,23 +50,21 @@ Blockly.Blocks['logic_while_forever'] = {
 
 Blockly.Blocks['logic_check_collision2'] = {
     init: function() {
-      this.appendDummyInput()
-          .appendField("se o agente:");
       this.appendValueInput("NAME_AGENT_1")
-          .setCheck("agent_type");
-      this.appendDummyInput()
-          .appendField("se choca com o agente:");
+          .setCheck("agent_type")
+          .appendField("se algum agente do tipo:");
       this.appendValueInput("NAME_AGENT_2")
-          .setCheck("agent_type");
-      this.appendDummyInput()
-          .appendField(":");
+          .setCheck("agent_type")
+          .appendField("colidir em algum agente do tipo:");
       this.appendStatementInput("NAME_STATEMENTS")
-          .setCheck(null);
-      this.setInputsInline(true);
+          .setCheck(null)
+          .setAlign(Blockly.ALIGN_CENTRE)
+          .appendField("faça:");
+      this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(180);
    this.setTooltip("Checa colisão entre 2 agentes");
    this.setHelpUrl("");
     }
-  };
+};
