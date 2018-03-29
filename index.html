@@ -48,10 +48,15 @@
     <script src="./node_modules/blockly/msg/js/pt-br.js"></script>
 </head>
 <body>
-    <p>
-        <!--<button onclick="showNLCode()">Mostrar código NetLogo</button>-->
-        <button onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
-    </p>
+    <!-- <p>
+        <button onclick="showNLCode()">Mostrar código NetLogo</button>
+        <button id="envBtn" onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
+    </p> -->
+
+    <div id="btnList">
+        <button id="envBtn" onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
+    </div>
+
     
     <div id="wrapper">
         <div id="blocklyDiv"></div>

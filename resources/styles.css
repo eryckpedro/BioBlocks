@@ -1,23 +1,27 @@
 body 
 {
-    background-color: #fff;
+    background-color: rgb(247, 247, 218);
     font-family: sans-serif;
 }
+
 h1 
 {
     font-weight: normal;
     font-size: 140%;
 }
+
 #wrapper
 {
-    border: 1px solid white;
+    border: 1px solid transparent;
 }
+
 #blocklyDiv 
 {
     display: inline-block;
     height: 550px;
     width:  700px;
 }
+
 #codeDiv 
 {
     vertical-align: top;
@@ -28,20 +32,64 @@ h1
     font-size: 125%;
 }
 
+#btnList
+{
+    width: 700px;
+}
+
+#envBtn
+{
+    float: right;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+    font-size: 16px;
+}
+
+#envBtn:hover
+{
+    background-color: green;
+    color: white;
+}
+
 /* Blockly Stylesheet. Each :X means the Xth category from up to bottom */
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover
+{
+    background-color: transparent;
+}
 
 #\:1
 {
     background-color: green;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
 }
+
+#\:1:hover
+{
+    background-color: rgb(14, 65, 14);
+    color: white;
+}
+
 
 #\:2
 {
     background-color: purple;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:2:hover
+{
+    background-color: rgb(77, 12, 77);
+    color: white;
 }
 
 #\:3
@@ -49,6 +97,13 @@ h1
     background-color: brown;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:3:hover
+{
+    background-color: rgb(90, 12, 12);
+    color: white;
 }
 
 #\:4
@@ -56,6 +111,13 @@ h1
     background-color: goldenrod;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:4:hover
+{
+    background-color: rgb(145, 108, 16);
+    color: white;
 }
 
 #\:5
@@ -63,6 +125,13 @@ h1
     background-color: teal;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:5:hover
+{
+    background-color: rgb(13, 87, 87);
+    color: white;
 }
 
 #\:6
@@ -70,6 +139,13 @@ h1
     background-color: blue;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:6:hover
+{
+    background-color: rgb(10, 10, 143);
+    color: white;
 }
 
 #\:7
@@ -77,6 +153,13 @@ h1
     background-color: seagreen;
     color: white;
     text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:7:hover
+{
+    background-color: rgb(13, 83, 44);
+    color: white;
 }
 
 .blocklyToolboxDiv
