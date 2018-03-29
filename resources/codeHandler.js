@@ -8,6 +8,7 @@ var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
 
+// Functions to override Blockly.input because window.prompt() isn't supported by Electron
 var renameVar = function(name)
 {
     return name;
@@ -18,12 +19,13 @@ Blockly.prompt = function(msg, defaultValue, callback)
     prompt
     ({
         title: 'Renomeando',
-        label: 'Renomenado para:',
+        label: 'Renomeando para:',
         type: 'input'
     }).then((name)=>{callback(renameVar(name))})
 }
 
 
+// Injecting Blockly into the HTML file
 var demoWorkspace = Blockly.inject('blocklyDiv',
     {
         media: './node_modules/blockly/media/',
@@ -33,6 +35,7 @@ var demoWorkspace = Blockly.inject('blocklyDiv',
 Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
 
 
+// Generating and managing NetLogo code
 function generateNLCode()
 {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;

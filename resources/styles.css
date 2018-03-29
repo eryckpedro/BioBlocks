@@ -27,3 +27,68 @@ h1
     width:  400px;
     font-size: 125%;
 }
+
+/* Blockly Stylesheet. Each :X means the Xth category from up to bottom */
+
+#\:1
+{
+    background-color: green;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:2
+{
+    background-color: purple;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:3
+{
+    background-color: brown;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:4
+{
+    background-color: goldenrod;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:5
+{
+    background-color: teal;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:6
+{
+    background-color: blue;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#\:7
+{
+    background-color: seagreen;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.blocklyToolboxDiv
+{
+    background-color: #474747;
+    overflow-x: visible;
+    overflow-y: auto;
+    position: absolute;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    z-index: 70; /* so blocks go under toolbox when dragging */
+    -webkit-tap-highlight-color: transparent; /* issue #1345 */
+}
