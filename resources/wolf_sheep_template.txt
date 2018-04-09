@@ -85,6 +85,23 @@ PENS
 "default" 1.0 0 -16777216 true "" "plot count LOBOS"
 "pen-1" 1.0 0 -7500403 true "" "plot count OVELHAS"
 
+BUTTON
+101
+31
+164
+64
+NIL
+go
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
 @#$#@#$#@
 ## O QUE É?
 

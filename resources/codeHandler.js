@@ -125,7 +125,7 @@ function sendCodeToNL()
 {
     var nlCode = generateNLCode();
 
-    var template = fs.readFileSync('./resources/wolf_sheep_template.txt', 'utf8');
+    var template = fs.readFileSync('./resources/std_template.txt', 'utf8');
     var modelo_dir = './modelo.nlogo';
 
     var modelo_code = nlCode + template; //Assembling user generated code + the NetLogo builtin template

@@ -44,6 +44,23 @@ NIL
 NIL
 1
 
+BUTTON
+99
+31
+162
+64
+NIL
+go
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
 @#$#@#$#@
 ## O QUE É?
 

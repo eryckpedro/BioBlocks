@@ -18,8 +18,8 @@ h1
 #blocklyDiv 
 {
     display: inline-block;
-    height: 550px;
-    width:  700px;
+    height: 600px;
+    width:  800px;
 }
 
 #codeDiv 
@@ -34,7 +34,7 @@ h1
 
 #btnList
 {
-    width: 700px;
+    width: 800px;
 }
 
 #envBtn
