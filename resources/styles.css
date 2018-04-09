@@ -40,7 +40,7 @@ h1
 #envBtn
 {
     float: right;
-    background-color: #4CAF50;
+    background-color: coral;
     border: none;
     color: white;
     padding: 8px 8px;
@@ -52,7 +52,7 @@ h1
 
 #envBtn:hover
 {
-    background-color: green;
+    background-color: orangered;
     color: white;
 }
 

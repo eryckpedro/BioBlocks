@@ -3,10 +3,13 @@ var prompt = require('electron-prompt');
 
 const GLOBAL_TAG = "_GLOBAL";
 const BREED_TAG  = "breed [ ";
+const GO_TAG = "_GO";
+
 var breedArray = [];
 var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
+var goArray = [];
 
 // Functions to override Blockly.input because window.prompt() isn't supported by Electron
 var renameVar = function(name)
@@ -46,15 +49,20 @@ function generateNLCode()
     globalsArray.length = 0;
     codeArray.length = 0;
     breedArray.length = 0;
+    goArray.length = 0;
 
-    allCodeArray = blocksCode.split("\n");
 
-    //Searches for GLOBAL primitives that need to come first in NetLogo code
+    allCodeArray = blocksCode.split("\n"); // Contains ALL code generated 
+
+    //Searches for TAG primitives that needs to be out of the To Setup function in NetLogo
     for(var i = 0; i < allCodeArray.length; i++)
     {
         var line = allCodeArray[i];
-        if (line.startsWith(GLOBAL_TAG))
-            globalsArray.push(line.substring(GLOBAL_TAG.length));
+
+        if (line.startsWith(GLOBAL_TAG)) { globalsArray.push(line.substring(GLOBAL_TAG.length)); }
+
+        else if (line.startsWith(GO_TAG)) { goArray.push(line.substring(GO_TAG.length)); }
+
         else
         {
             if (! line.startsWith("var"))
@@ -65,7 +73,9 @@ function generateNLCode()
     var setupCode = "to setup\nclear-all\nreset-ticks\n"; // Setup function base code
     var globalCode = "";                                  // Code for globals commands to come before setup code
     var setDftShpCode = "";                               // Code for setting up the default shape of breed-type agents
+    var goCode = "";                                      // Code for To Go function that starts the simulation
 
+    // Creates the commands for setting breed shape types
     for(var i = 0; i < globalsArray.length; i++)
     {
         globalCode = globalCode + globalsArray[i] + "\n";
@@ -92,7 +102,12 @@ function generateNLCode()
         setupCode = setupCode + codeArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trim() + "\n" + "end";
+    for(var i = 0;  i< goArray.length; i++)
+    {
+        goCode = goCode + goArray[i].trim() + '\n';
+    }
+
+    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto go\n" + goCode + "\nend";
 
     return nlCode;
 }
@@ -101,9 +116,9 @@ function showNLCode()
 {
     var nlCode = generateNLCode();
 
-    document.getElementById("codeDiv").innerText = nlCode;
+    //document.getElementById("codeDiv").innerText = nlCode;
 
-    //alert(nlCode);
+    alert(nlCode);
 }
 
 function sendCodeToNL() 

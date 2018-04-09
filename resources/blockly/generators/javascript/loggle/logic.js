@@ -45,7 +45,20 @@ Blockly.JavaScript['logic_compare2'] = function(block) {
 Blockly.JavaScript['logic_while_forever'] = function(block) {
     var statements_do_statements = Blockly.JavaScript.statementToCode(block, 'DO_STATEMENTS');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'while [ticks < 300] \n[\n' + statements_do_statements + 'tick\n]\n';
+
+    var code = '_GO';
+
+    var goArrStatements = []; goArrStatements.length = 0;
+
+    arrStatements = statements_do_statements.split('\n');
+
+    for (const line of arrStatements) 
+    {
+        goArrStatements.push('_GO' + line + '\n');
+    }
+
+    code = code + 'while [ticks < 300] \n_GO[\n_GOtick\n' + goArrStatements.join("") + '\n_GO]\n';
+
     return code;
  };
 
@@ -64,23 +77,7 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
     var codeAgent1 = 'let ' + 'aux_' + nameAgent1 + ' one-of ' + nameAgent1 + 's' + '-here\n';
     var codeAgent2 = 'let ' + 'aux_' + nameAgent2 + ' one-of ' + nameAgent2 + 's' + '-here\n';
 
-    var codeIF = 'if ( ' + 'aux_' + nameAgent1 + ' != nobody and ' + 'aux_' + nameAgent2 + ' != nobody )'
-
-    // Searching for the names of the agents in statements - we need their names as it can't be checked later
-    // var statementArray = statements_name_statements.split("\n");
-    // var statementArrayMod = [];
-
-    // for (const line of statementArray) 
-    // {
-    //     if(line.indexOf('ask') != -1)
-    //     {
-    //         var targetAgent = line.replace('ask ', '').replace(' [ die ]', '').trim(); console.log(targetAgent);
-
-    //         var newCodeLine = 'ask-' + 'aux_' + breedDict[targetAgent] + 's' + ' [ die ]\n';
-
-    //         statementArrayMod.push(newCodeLine);
-    //     }
-    // }
+    var codeIF = 'if ( ' + 'aux_' + nameAgent1 + ' != nobody and ' + 'aux_' + nameAgent2 + ' != nobody )';
 
     // Assembling the final code
     var code = codeAgent1 + codeAgent2 + codeIF + '\n[\n ' + statements_name_statements + ']\n';

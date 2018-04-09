@@ -1,6 +1,41 @@
+breed [ lobos lobo ]
+breed [ ovelhas ovelha ]
 to setup
-clear-all
-reset-ticks
+  clear-all
+  reset-ticks
+  set-default-shape lobos "wolf"
+  set-default-shape ovelhas "sheep"
+  create-lobos 5
+  [
+    set color gray
+    setxy random-xcor random-ycor
+  ]
+  create-ovelhas 10
+  [
+    set color blue
+    setxy random-xcor random-ycor
+  ]
+end
+
+to go
+while [ticks < 300]
+  [
+    ask lobos [   rt random 50
+      lt random 50
+      fd 1
+    ]
+    ask ovelhas [   rt random 50
+      lt random 50
+      fd 1
+      let aux_lobo one-of lobos-here
+      let aux_ovelha one-of ovelhas-here
+      if ( aux_lobo != nobody and aux_ovelha != nobody )
+      [
+        ask aux_ovelha [ die ]
+      ]
+    ]
+  ]
+tick
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
