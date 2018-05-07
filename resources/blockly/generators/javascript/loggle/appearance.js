@@ -168,3 +168,10 @@ Blockly.JavaScript['agent_breed_type_sheep'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.JavaScript['aprnc_set_all_patch_color'] = function(block) {
+  var dropdown_col_patches = block.getFieldValue('COL_PATCHES');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'ask patches [ set pcolor ' + dropdown_col_patches + ' ]\n';
+  return code;
+};

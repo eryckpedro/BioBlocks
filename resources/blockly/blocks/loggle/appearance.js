@@ -211,3 +211,21 @@ Blockly.Blocks['agent_breed_type_sheep'] = {
    this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['aprnc_set_all_patch_color'] = {
+    init: function() {
+        this.appendDummyInput()
+        .appendField("mudar a cor do terreno para:")
+        this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["cinza","gray"], ["vermelho","red"], ["laranja","orange"], 
+                                                  ["marrom","brown"], ["amarelo","yellow"], ["verde","green"], 
+                                                  ["azul","blue"], ["violeta","violet"], ["rosa","pink"], 
+                                                  ["preto","black"],["branco","white"]]), "COL_PATCHES");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(120);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+  };

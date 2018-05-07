@@ -48,7 +48,10 @@ Blockly.Blocks['def_agent_property_type_color'] = {
       this.appendDummyInput()
           .appendField("cor =");
       this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["cinza","gray"], ["vermelho","red"], ["laranja","orange"], ["marrom","brown"], ["amarelo","yellow"], ["verde","green"], ["azul","blue"], ["violeta","violet"], ["rosa","pink"]]), "NAME_COLOR");
+          .appendField(new Blockly.FieldDropdown([["cinza","gray"], ["vermelho","red"], ["laranja","orange"], 
+                                                  ["marrom","brown"], ["amarelo","yellow"], ["verde","green"], 
+                                                  ["azul","blue"], ["violeta","violet"], ["rosa","pink"], 
+                                                  ["preto","black"],["branco","white"]]), "NAME_COLOR");
       this.setInputsInline(true);
       this.setOutput(true, "agent_property_type");
       this.setColour(270);
