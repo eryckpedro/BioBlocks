@@ -68,3 +68,16 @@ Blockly.Blocks['logic_check_collision2'] = {
    this.setHelpUrl("");
     }
 };
+
+Blockly.Blocks['logic_check_agent_qtd'] = {
+    init: function() {
+      this.appendValueInput("AGENT_QTD")
+          .setCheck("agent_type")
+          .appendField("quantidade de agentes do tipo:");
+      this.setInputsInline(true);
+      this.setOutput(true, "Number");
+      this.setColour(180);
+   this.setTooltip("Checa quantidade de um agente");
+   this.setHelpUrl("");
+    }
+  };

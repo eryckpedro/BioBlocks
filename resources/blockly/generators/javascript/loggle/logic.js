@@ -57,7 +57,7 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
         goArrStatements.push('_GO' + line + '\n');
     }
 
-    code = code + 'while [ticks < 300] \n_GO[\n_GOtick\n' + goArrStatements.join("") + '\n_GO]\n';
+    code = code + 'while [true] \n_GO[\n_GOtick\n' + goArrStatements.join("") + '\n_GO]\n';
 
     return code;
  };
@@ -82,4 +82,14 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
     // Assembling the final code
     var code = codeAgent1 + codeAgent2 + codeIF + '\n[\n ' + statements_name_statements + ']\n';
     return code;
+  };
+
+  Blockly.JavaScript['logic_check_agent_qtd'] = function(block) {
+    var value_agent_qtd = Blockly.JavaScript.valueToCode(block, 'AGENT_QTD', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
+
+    var code = 'count ' + breedDict[value_agent_qtd] + 's';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };

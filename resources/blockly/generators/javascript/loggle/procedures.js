@@ -45,3 +45,9 @@ Blockly.JavaScript['proc_kill_agent'] = function(block) {
     var code = 'ask aux_' + breedDict[value_name_agent] + ' [ die ]\n';
     return code;
 };
+
+Blockly.JavaScript['proc_stop_simulation'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'stop';
+    return code;
+  };

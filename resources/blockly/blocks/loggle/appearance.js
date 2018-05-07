@@ -19,10 +19,9 @@ Blockly.Blocks['aprnc_create_breed_type_agent'] = {
       this.appendValueInput("NAME_AGENT")
           .setCheck("agent_type")
           .appendField("agentes do tipo:");
-      this.appendDummyInput()
-          .appendField("com as características:");
       this.appendStatementInput("VAL_PROPERTIES")
-          .setCheck(null);
+          .setCheck(null)
+          .appendField("com características:");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -30,7 +29,7 @@ Blockly.Blocks['aprnc_create_breed_type_agent'] = {
    this.setTooltip("");
    this.setHelpUrl("");
     }
-  };
+};
 
 Blockly.Blocks['aprnc_create_agent'] = {
   init: function() {

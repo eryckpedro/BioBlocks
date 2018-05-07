@@ -83,4 +83,17 @@ Blockly.Blocks['proc_kill_agent'] = {
    this.setTooltip("Mata o determinado agente.");
    this.setHelpUrl("");
     }
+};
+
+Blockly.Blocks['proc_stop_simulation'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("parar simulação");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("Termina a simulação");
+   this.setHelpUrl("");
+    }
   };
