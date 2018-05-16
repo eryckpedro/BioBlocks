@@ -17,11 +17,11 @@ Blockly.JavaScript['display_monitor_num_agent'] = function(block) {
 
     //alert(JSON.stringify(monitorInfo, null, 4));
 
-    var code = monitorInfo.name + '\n' + monitorInfo.leftPos + '\n' + monitorInfo.topPos + '\n' +
-               monitorInfo.rightPos + '\n' + monitorInfo.bottomPos + '\n' + monitorInfo.displayName + '\n' +
-               monitorInfo.srcCode + '\n' + monitorInfo.precision + '\n' + monitorInfo.reserved + '\n' +
-               monitorInfo.fontsize + '\n';               
-
-    //alert(code);
+    var code = "_DSP" + 
+               monitorInfo.name + ',' + monitorInfo.leftPos + ',' + monitorInfo.topPos + ',' +
+               monitorInfo.rightPos + ',' + monitorInfo.bottomPos + ',' + monitorInfo.displayName + ',' +
+               monitorInfo.srcCode + ',' + monitorInfo.precision + ',' + monitorInfo.reserved + ',' +
+               monitorInfo.fontsize + '\n';
+               
     return code;
 };

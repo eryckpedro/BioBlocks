@@ -4,12 +4,14 @@ var prompt = require('electron-prompt');
 const GLOBAL_TAG = "_GLOBAL";
 const BREED_TAG  = "breed [ ";
 const GO_TAG = "_GO";
+const DSP_TAG = "_DSP";
 
 var breedArray = [];
 var globalsArray = [];
 var allCodeArray = [];
 var codeArray = [];
 var goArray = [];
+var dspArray = [];
 
 // Functions to override Blockly.input because window.prompt() isn't supported by Electron
 var renameVar = function(name)
@@ -50,6 +52,7 @@ function generateNLCode()
     codeArray.length = 0;
     breedArray.length = 0;
     goArray.length = 0;
+    dspArray.length = 0;
 
 
     allCodeArray = blocksCode.split("\n"); // Contains ALL code generated 
@@ -63,6 +66,8 @@ function generateNLCode()
 
         else if (line.startsWith(GO_TAG)) { goArray.push(line.substring(GO_TAG.length)); }
 
+        else if (line.startsWith(DSP_TAG)) { dspArray.push(line.substring(DSP_TAG.length)); }
+
         else
         {
             if (! line.startsWith("var"))
@@ -70,7 +75,7 @@ function generateNLCode()
         }
     }
 
-    var setupCode = "to setup\nclear-all\nreset-ticks\n"; // Setup function base code
+    var setupCode = "to preparar\nclear-all\nreset-ticks\n"; // Setup function base code
     var globalCode = "";                                  // Code for globals commands to come before setup code
     var setDftShpCode = "";                               // Code for setting up the default shape of breed-type agents
     var goCode = "";                                      // Code for To Go function that starts the simulation
@@ -107,9 +112,22 @@ function generateNLCode()
         goCode = goCode + goArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto go\n" + goCode + "\nend";
+    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
 
     return nlCode;
+}
+
+function generateNLInterfaceCode()
+{
+    var interfCode = '';
+    for(var i = 0; i < dspArray.length; i++)
+    {
+        interfCode = interfCode + dspArray.toString().replace(/,/g,'\n')
+    }
+
+    interfCode = '\n' + interfCode + '\n';
+
+    return interfCode;
 }
 
 function showNLCode() 
@@ -123,18 +141,31 @@ function showNLCode()
 
 function sendCodeToNL() 
 {
-    var nlCode = generateNLCode();
+    var nlGenMainCode = generateNLCode();
+    var nlGenInterfCode = generateNLInterfaceCode();
 
-    var template = fs.readFileSync('./resources/std_template.txt', 'utf8');
-    var modelo_dir = './modelo.nlogo';
+    var interfaceTemplate = fs.readFileSync('./resources/std_interfaceTemplate.txt', 'utf8');
+    var bottomTemplate = fs.readFileSync('./resources/std_bottomTemplate.txt', 'utf8');
 
-    var modelo_code = nlCode + template; //Assembling user generated code + the NetLogo builtin template
+    var fileDir = './modelo.nlogo';
+
+    var nlModelCode = nlGenMainCode + interfaceTemplate + nlGenInterfCode + bottomTemplate;
+
+    fs.writeFileSync(fileDir, nlModelCode);
+
+
+    // var nlCode = generateNLCode();
+
+    // var template = fs.readFileSync('./resources/std_template.txt', 'utf8');
+    // var modelo_dir = './modelo.nlogo';
+
+    // var modelo_code = nlCode + template; //Assembling user generated code + the NetLogo builtin template
     
-    fs.writeFileSync(modelo_dir, modelo_code);
+    // fs.writeFileSync(modelo_dir, modelo_code);
     
     // This is for Windows specifically to execute files
     var childProcess = require('child_process');
-    childProcess.exec('start ' + modelo_dir, function (err, stdout, stderr) {
+    childProcess.exec('start ' + fileDir, function (err, stdout, stderr) {
     if (err) {
         console.error(err);
         return;
