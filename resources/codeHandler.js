@@ -132,7 +132,7 @@ function sendCodeToNL()
     
     fs.writeFileSync(modelo_dir, modelo_code);
     
-    // This is for Windows specifically to open files
+    // This is for Windows specifically to execute files
     var childProcess = require('child_process');
     childProcess.exec('start ' + modelo_dir, function (err, stdout, stderr) {
     if (err) {
