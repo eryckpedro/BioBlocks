@@ -32,3 +32,17 @@ Blockly.JavaScript['display_monitor_num_agent'] = function(block) {
                
     return code;
 };
+
+Blockly.JavaScript['display_create_graph_num_agents'] = function(block) {
+    var statements_name_agents = Blockly.JavaScript.statementToCode(block, 'NAME_AGENTS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };
+
+  Blockly.JavaScript['display_agent_plot_variable'] = function(block) {
+    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };
