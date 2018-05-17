@@ -122,7 +122,7 @@ function generateNLInterfaceCode()
     var interfCode = '';
     for(var i = 0; i < dspArray.length; i++)
     {
-        interfCode = interfCode + dspArray.toString().replace(/,/g,'\n')
+        interfCode = interfCode + dspArray[i].replace(/,/g,'\n') + '\n\n';
     }
 
     interfCode = '\n' + interfCode + '\n';
