@@ -29,9 +29,11 @@ Blockly.Blocks['display_create_graph_num_agents'] = {
 
   Blockly.Blocks['display_agent_plot_variable'] = {
     init: function() {
+      this.appendDummyInput()
+          .appendField("agente:");
       this.appendValueInput("NAME_AGENT")
-          .setCheck("agent_type")
-          .appendField("nome do agente:");
+          .setCheck("agent_type");
+      this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(150);
