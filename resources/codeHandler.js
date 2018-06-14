@@ -89,7 +89,7 @@ function generateNLCode()
             var breedShapeCmd = 'set-default-shape ';
             var breedType = (globalsArray[i].substring(BREED_TAG.length)).split(" ",1)[0];
 
-            var breedDict = { "tartarugas" : " \"turtle\"", "lobos" : " \"wolf\"", "ovelhas" : " \"sheep\"" };
+            var breedDict = { "pessoas" : " \"person\"", "aves" : " \"bird\"", "peixes" : " \"fish\"" };
             
             breedArray.push(breedShapeCmd + breedType + breedDict[breedType]);
         }

@@ -1,3 +1,46 @@
+Blockly.Blocks['aprnc_create_agent_species'] = {
+    init: function() {
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("criar ")
+          .appendField(new Blockly.FieldNumber(0, 1, 200), "NUM_AGENTS")
+          .appendField("agente(s)");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("tipo:")
+          .appendField(new Blockly.FieldDropdown([["humano","person"], ["ave","bird"], ["peixe","fish"]]), "TYPE_AGENT");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("sexo:")
+          .appendField(new Blockly.FieldDropdown([["masculino","male"], ["feminino","female"]]), "TYPE_GEN");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("energia:")
+          .appendField(new Blockly.FieldDropdown([["infinita","inf"], ["50","50"], ["100","100"], ["250","250"], ["500","500"]]), "TYPE_ENERGY");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("reprodução:")
+          .appendField(new Blockly.FieldDropdown([["sexuada","sex"], ["assexuada","asex"]]), "TYPE_REP");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("movimentação:")
+          .appendField(new Blockly.FieldDropdown([["aleatória","rand"], ["direcionada","direc"]]), "TYPE_MOV");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("velocidade:")
+          .appendField(new Blockly.FieldDropdown([["normal","normal"], ["rápida","fast"], ["lenta","slow"]]), "TYPE_VELOC");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("tipo de visão:")
+          .appendField(new Blockly.FieldDropdown([["circular","circle"], ["quadrada","square"], ["retangular","rect"]]), "TYPE_VISION");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(120);
+   this.setTooltip("Bloco para criar uma espécie. Máximo de 200 agentes.");
+   this.setHelpUrl("");
+    }
+  };
+
 Blockly.Blocks['agent_breed_type'] = {
     init: function() {
       this.appendDummyInput()

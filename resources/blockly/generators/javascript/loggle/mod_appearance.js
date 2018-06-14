@@ -1,3 +1,36 @@
+Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
+  var number_num_agents = block.getFieldValue('NUM_AGENTS');
+  var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
+  var dropdown_type_gen = block.getFieldValue('TYPE_GEN');
+  var dropdown_type_energy = block.getFieldValue('TYPE_ENERGY');
+  var dropdown_type_rep = block.getFieldValue('TYPE_REP');
+  var dropdown_type_mov = block.getFieldValue('TYPE_MOV');
+  var dropdown_type_veloc = block.getFieldValue('TYPE_VELOC');
+  var dropdown_type_vision = block.getFieldValue('TYPE_VISION');
+  // TODO: Assemble JavaScript into code variable.
+
+  // Breed commands
+  var breedDict = { "person" : "pessoa", "bird" : "ave", "fish" : "peixe" };
+  var breedType = breedDict[dropdown_type_agent];
+
+  var breedCode = "_GLOBAL" + "breed [ " + breedType + 's ' + breedType + " ]\n";
+
+  // Create-Agent commands
+  // Globals:
+  var agentGlobalsCode = "_GLOBAL" + breedType + 's' + "-own [ genero energia reprod mov veloc visao ]\n";
+  var agentType = breedType + 's';
+  
+  var agentCode = "create-" + agentType + ' ' + number_num_agents + '[ ' + 
+                  "setxy random-xcor random-ycor\n" + "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + 
+                  "set energia " + "\"" + dropdown_type_energy + "\"" + "\n" + "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" +
+                  "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" +
+                  "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
+
+
+  var code = breedCode + agentGlobalsCode + agentCode;
+  return code;
+};
+
 Blockly.JavaScript['agent_breed_type'] = function(block) {
   var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
   // TODO: Assemble JavaScript into code variable.
