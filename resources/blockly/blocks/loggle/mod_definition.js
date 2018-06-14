@@ -1,18 +1,3 @@
-Blockly.Blocks['def_breed_agent'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("definir geração de");
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["LOBOS","wolf"], ["OVELHAS","sheep"]]), "BREED_DEF");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(270);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-};
-
 Blockly.Blocks['def_breed_agent2'] = {
     init: function() {
       this.appendDummyInput()
@@ -151,23 +136,4 @@ Blockly.Blocks['def_chg_property2'] = {
    this.setHelpUrl("");
     }
 };
-
-Blockly.Blocks['def_chg_property'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("mude o valor de:");
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldTextInput("(propriedade)"), "NAME_PROPERTY");
-      this.appendDummyInput()
-          .appendField("para:");
-      this.appendValueInput("NEW_VAL")
-          .setCheck(["Number", "String"]);
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(270);
-   this.setTooltip("Modifica uma característica já criada anteriormente.");
-   this.setHelpUrl("");
-    }
-  };
 

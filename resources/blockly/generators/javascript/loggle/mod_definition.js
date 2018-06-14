@@ -1,21 +1,3 @@
-Blockly.JavaScript['def_breed_agent'] = function(block) {
-    var dropdown_breed_def = block.getFieldValue('BREED_DEF');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '_GLOBAL';
-
-    switch(dropdown_breed_def)
-    {
-        case "wolf":
-            code = code + 'breed [ lobos lobo ]\n';
-            break;
-        case "sheep":
-            code = code + 'breed [ ovelhas ovelha ]\n';
-            break;
-    }
-
-    return code;
-};
-
 Blockly.JavaScript['def_breed_agent2'] = function(block) {
     var value_name_breed = Blockly.JavaScript.valueToCode(block, 'NAME_BREED', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
@@ -95,14 +77,5 @@ Blockly.JavaScript['def_chg_property2'] = function(block) {
     var value_new_val = Blockly.JavaScript.valueToCode(block, 'NEW_VAL', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     var code = 'set ' + variable_name_var + ' ' + value_new_val + '\n';
-    return code;
-};
-
-Blockly.JavaScript['def_chg_property'] = function(block) {
-    var text_name_property = block.getFieldValue('NAME_PROPERTY');
-    var value_new_val = Blockly.JavaScript.valueToCode(block, 'NEW_VAL', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-
-    var code = 'set ' + text_name_property + ' ' + value_new_val + '\n';
     return code;
 };
