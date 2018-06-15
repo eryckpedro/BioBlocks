@@ -7,6 +7,10 @@ Blockly.Blocks['aprnc_create_agent_species'] = {
           .appendField("agente(s)");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("nome:")
+          .appendField(new Blockly.FieldTextInput("NOME"), "NAME_AGENT");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("tipo:")
           .appendField(new Blockly.FieldDropdown([["humano","person"], ["ave","bird"], ["peixe","fish"]]), "TYPE_AGENT");
       this.appendDummyInput()
