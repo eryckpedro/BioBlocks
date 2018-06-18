@@ -1,8 +1,17 @@
 Blockly.JavaScript['logic_if'] = function(block) {
     var value_if_value = Blockly.JavaScript.valueToCode(block, 'IF_VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_then_value = Blockly.JavaScript.statementToCode(block, 'THEN_VALUE');
-    // TODO: Assemble JavaScript into code variable.
-    var code = 'if ' + value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
+    
+    var code;
+    
+    if(value_if_value.startsWith("let"))
+    {
+        code = value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
+    }
+    else
+    {
+        code = 'if ' + value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
+    }
     return code;
 };
 
@@ -93,3 +102,21 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
+
+  Blockly.JavaScript['logic_simulation_while'] = function(block) {
+    var statements_do_statements = Blockly.JavaScript.statementToCode(block, 'DO_STATEMENTS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '_GO';
+
+    var goArrStatements = []; goArrStatements.length = 0;
+
+    arrStatements = statements_do_statements.split('\n');
+
+    for (const line of arrStatements) 
+    {
+        goArrStatements.push('_GO' + line + '\n');
+    }
+
+    code = code + 'while [true] \n_GO[\n_GOtick\n' + goArrStatements.join("") + '\n_GO]\n';
+    return code;
+};

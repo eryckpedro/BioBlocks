@@ -80,4 +80,19 @@ Blockly.Blocks['logic_check_agent_qtd'] = {
    this.setTooltip("Checa quantidade de um agente");
    this.setHelpUrl("");
     }
-  };
+};
+
+Blockly.Blocks['logic_simulation_while'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("loop de simulação:");
+      this.appendStatementInput("DO_STATEMENTS")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(180);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
