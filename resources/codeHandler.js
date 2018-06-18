@@ -89,11 +89,11 @@ function generateNLCode()
         if( globalsArray[i].startsWith("breed") )
         {
             var breedShapeCmd = 'set-default-shape ';
-            var breedType = (globalsArray[i].substring(BREED_TAG.length)).split(" ",1)[0];
+            var breedNameZ = (globalsArray[i].substring(BREED_TAG.length)).split(" ",1)[0];
 
-            var breedDict = { "pessoas" : " \"person\"", "aves" : " \"bird\"", "peixes" : " \"fish\"" };
+            var breedName = breedNameZ.substring(0, breedNameZ.length-1);
             
-            breedArray.push(breedShapeCmd + breedType + breedDict[breedType]);
+            breedArray.push(breedShapeCmd + breedNameZ + ' \"' + globalMapAgentsDeclared[breedName].type + '\"');
         }
     }
 

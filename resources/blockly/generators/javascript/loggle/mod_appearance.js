@@ -20,15 +20,19 @@ Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
   var breedDict = { "person" : "pessoa", "bird" : "ave", "fish" : "peixe" };
   var breedType = breedDict[dropdown_type_agent];
 
-  var breedCode = "_GLOBAL" + "breed [ " + breedType + 's ' + breedType + " ]\n";
+  var breedCode = "_GLOBAL" + "breed [ " + text_name_agent + 'Z ' + text_name_agent + " ]\n";
 
   // Create-Agent commands
   // Globals:
-  var agentGlobalsCode = "_GLOBAL" + breedType + 's' + "-own [ nome genero energia reprod mov veloc visao ]\n";
+  var agentGlobalsCode = "_GLOBAL" + text_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao ]\n";
   var agentType = breedType + 's';
   
-  var agentCode = "create-" + agentType + ' ' + number_num_agents + '[ ' + 
-                  "setxy random-xcor random-ycor\n" + "set nome " + "\"" + text_name_agent + "\"" + "\n" + 
+  var colorCode = "set color ";
+  if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";
+  else if (dropdown_type_gen == "female") colorCode = colorCode + "red\n";
+  
+  var agentCode = "create-" + text_name_agent + 'Z' + ' ' + number_num_agents + '[ ' + 
+                  "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + text_name_agent + "\"" + "\n" + 
                   "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + "set energia " + "\"" + dropdown_type_energy + "\"" + "\n" + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
                   "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
