@@ -1,3 +1,17 @@
+Blockly.Blocks['proc_initiate_movement'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("iniciar movimentação do agente:")
+          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("Inicia o tipo de movimento do agente especificado.");
+   this.setHelpUrl("");
+    }
+  };  
+
 Blockly.Blocks['proc_ask_turtles'] = {
     init: function() {
       this.appendDummyInput()

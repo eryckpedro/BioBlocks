@@ -1,3 +1,34 @@
+Blockly.JavaScript['proc_initiate_movement'] = function(block) {
+    var text_name_agent = block.getFieldValue('NAME_AGENT');
+    // TODO: Assemble JavaScript into code variable.
+    var code;
+    var veloc;
+
+    switch(globalMapAgentsDeclared[text_name_agent].velocType)
+    {
+        case 'normal':
+            veloc = 1;
+            break;
+        case 'slow':
+            veloc = 0.5;
+            break;
+        case 'fast':
+            veloc = 2;
+            break;
+    }
+
+    if(globalMapAgentsDeclared[text_name_agent].movType == "rand")
+    {
+        code = 'ask ' + text_name_agent + 'Z [ rt random 50 lt random 50 fd ' + veloc + ' ]\n';
+    }
+    else
+    {
+        code = '...\n';
+    }
+    
+    return code;
+  };
+
 Blockly.JavaScript['proc_ask_turtles'] = function(block) {
     var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');

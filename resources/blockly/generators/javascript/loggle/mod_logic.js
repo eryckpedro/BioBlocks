@@ -4,7 +4,8 @@ Blockly.JavaScript['logic_if'] = function(block) {
     
     var code;
     
-    if(value_if_value.startsWith("let"))
+    // this checks if it's a collision detection command: it needs to add 2 aux variables before the IF statement
+    if(value_if_value.startsWith("let")) 
     {
         code = value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
     }
