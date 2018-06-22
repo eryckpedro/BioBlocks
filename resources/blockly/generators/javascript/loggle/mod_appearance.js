@@ -33,7 +33,7 @@ Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
   
   var agentCode = "create-" + text_name_agent + 'Z' + ' ' + number_num_agents + '[ ' + 
                   "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + text_name_agent + "\"" + "\n" + 
-                  "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + "set energia " + "\"" + dropdown_type_energy + "\"" + "\n" + 
+                  "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + "set energia " + dropdown_type_energy + "\n" + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
                   "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
 

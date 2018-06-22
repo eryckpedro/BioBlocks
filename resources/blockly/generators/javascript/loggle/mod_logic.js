@@ -118,6 +118,6 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
         goArrStatements.push('_GO' + line + '\n');
     }
 
-    code = code + 'while [true] \n_GO[\n_GOtick\n' + goArrStatements.join("") + '\n_GO]\n';
+    code = code + 'while [true] \n_GO[\n_GOevery ' + globalSimulationSpeed + '\n_GO[tick\n' + goArrStatements.join("") + '\n_GO]\n_GO]\n';
     return code;
 };

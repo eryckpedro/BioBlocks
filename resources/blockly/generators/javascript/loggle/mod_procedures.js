@@ -29,6 +29,18 @@ Blockly.JavaScript['proc_initiate_movement'] = function(block) {
     return code;
   };
 
+Blockly.JavaScript['proc_consume_energy'] = function(block) {
+    var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');
+    var text_name_agent = block.getFieldValue('NAME_AGENT');
+    var dropdown_interval = block.getFieldValue('INTERVAL');
+    // TODO: Assemble JavaScript into code variable.
+
+    var code =  'ask ' + text_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
+                'set energia energia - ' + dropdown_qtd_energy + ' ]\n\n]';
+
+    return code;
+  };
+
 Blockly.JavaScript['proc_ask_turtles'] = function(block) {
     var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');

@@ -10,7 +10,28 @@ Blockly.Blocks['proc_initiate_movement'] = {
    this.setTooltip("Inicia o tipo de movimento do agente especificado.");
    this.setHelpUrl("");
     }
-  };  
+  };
+  
+Blockly.Blocks['proc_consume_energy'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("remover")
+          .appendField(new Blockly.FieldDropdown([["1","1"], ["5","5"], ["10","10"]]), "QTD_ENERGY")
+          .appendField("ponto(s) de energia");
+      this.appendDummyInput()
+          .appendField("do agente:")
+          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
+      this.appendDummyInput()
+          .appendField("a cada:")
+          .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("Remove quantidade de energia do agente a cada intervalo especificado.");
+   this.setHelpUrl("");
+    }
+  };
 
 Blockly.Blocks['proc_ask_turtles'] = {
     init: function() {
