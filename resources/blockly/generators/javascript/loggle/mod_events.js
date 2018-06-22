@@ -9,6 +9,6 @@ Blockly.JavaScript['event_check_collision'] = function(block) {
     var codeIF = 'if ( ' + 'aux_' + text_name_agent_1 + ' != nobody and ' + 'aux_' + text_name_agent_2 + ' != nobody )\n';
 
     // Assembling the final code
-    var code = codeAgent1 + codeAgent2 + codeIF;
+    var code = 'ask ' + text_name_agent_1 + 'Z [\n'+ codeAgent1 + codeAgent2 + codeIF;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

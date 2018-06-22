@@ -1,3 +1,8 @@
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 Blockly.JavaScript['proc_initiate_movement'] = function(block) {
     var text_name_agent = block.getFieldValue('NAME_AGENT');
     // TODO: Assemble JavaScript into code variable.
@@ -39,7 +44,28 @@ Blockly.JavaScript['proc_consume_energy'] = function(block) {
                 'set energia energia - ' + dropdown_qtd_energy + ' ]\n\n]';
 
     return code;
-  };
+};
+
+Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
+    var number_num_cubs = block.getFieldValue('NUM_CUBS');
+    var text_name_agent_1 = block.getFieldValue('NAME_AGENT_1');
+    var text_name_agent_2 = block.getFieldValue('NAME_AGENT_2');
+    var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
+    // TODO: Assemble JavaScript into code variable.
+
+    var randomBreed;
+
+    if(randomIntFromInterval(1,100) % 2 == 0)
+        randomBreed = text_name_agent_1;
+    else
+        randomBreed = text_name_agent_2;
+
+
+    var code = 'if random-float 100 < ' + dropdown_rep_chance + ' [ hatch-' + randomBreed + 'Z ' 
+               + number_num_cubs + ' [ rt random-float 360 fd 1 ] ]';
+
+    return code;
+};
 
 Blockly.JavaScript['proc_ask_turtles'] = function(block) {
     var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
