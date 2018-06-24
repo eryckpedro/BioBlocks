@@ -80,7 +80,7 @@ h1
 
 #\:2
 {
-    background-color: purple;
+    background-color: brown;
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -88,13 +88,13 @@ h1
 
 #\:2:hover
 {
-    background-color: rgb(77, 12, 77);
+    background-color: rgb(90, 12, 12);
     color: white;
 }
 
 #\:3
 {
-    background-color: brown;
+    background-color: teal;
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -102,7 +102,7 @@ h1
 
 #\:3:hover
 {
-    background-color: rgb(90, 12, 12);
+    background-color: rgb(13, 87, 87);
     color: white;
 }
 

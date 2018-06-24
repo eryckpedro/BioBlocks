@@ -33,6 +33,22 @@ Blockly.Blocks['proc_consume_energy'] = {
     }
   };
 
+  Blockly.Blocks['proc_manage_energy'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
+          .appendField(new Blockly.FieldNumber(0, 0, 100), "QTD_ENERGY")
+          .appendField("ponto(s) de energia do agente:")
+          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("Adiciona ou remove uma quantidade de energia do agente especificado. Máximo de 100 unidades.");
+   this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['proc_reproduce_between_species'] = {
     init: function() {
       this.appendDummyInput()
@@ -54,45 +70,21 @@ Blockly.Blocks['proc_reproduce_between_species'] = {
     }
   };
 
-  Blockly.Blocks['proc_ask_turtles'] = {
+Blockly.Blocks['proc_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("pedir ao grupo de agentes");
-      this.appendValueInput("NAME_AGENT")
-          .setCheck("agent_type");
-      this.appendDummyInput()
-          .appendField("para:");
-      this.appendStatementInput("NAME")
-          .setCheck(null);
-      this.setInputsInline(true);
+          .appendField("o agente:")
+          .appendField(new Blockly.FieldTextInput("PREDADOR"), "NAME_AGENT_1")
+          .appendField("devora o agente:")
+          .appendField(new Blockly.FieldTextInput("PRESA"), "NAME_AGENT_2");
+      this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setColour(0);
-   this.setTooltip("Atribui um conjunto de funções a um determinado conjunto de agentes");
+   this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o.");
    this.setHelpUrl("");
     }
-};
-
-Blockly.Blocks['proc_reproduce_given_chance'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("gerar");
-      this.appendValueInput("NUM_CUBS")
-          .setCheck("Number");
-      this.appendDummyInput()
-          .appendField("filho(s) com chance de:");
-      this.appendValueInput("REP_CHANCE")
-          .setCheck("Number");
-      this.appendDummyInput()
-          .appendField("%");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(0);
-   this.setTooltip("Reproduz o agente mencionado com a dada probabilidade");
-   this.setHelpUrl("");
-    }
-};
+  };
 
 Blockly.Blocks['proc_kill_agent'] = {
     init: function() {

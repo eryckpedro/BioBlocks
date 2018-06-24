@@ -25,15 +25,20 @@ Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
   // Create-Agent commands
   // Globals:
   var agentGlobalsCode = "_GLOBAL" + text_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao ]\n";
-  var agentType = breedType + 's';
   
   var colorCode = "set color ";
   if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";
   else if (dropdown_type_gen == "female") colorCode = colorCode + "red\n";
+
+  var energyCode;
+  if(dropdown_type_energy == "inf")
+      energyCode = "set emergia -1";
+  else
+      energyCode = "set energia " + dropdown_type_energy;
   
   var agentCode = "create-" + text_name_agent + 'Z' + ' ' + number_num_agents + '[ ' + 
                   "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + text_name_agent + "\"" + "\n" + 
-                  "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + "set energia " + dropdown_type_energy + "\n" + 
+                  "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + energyCode + "\n" + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
                   "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
 

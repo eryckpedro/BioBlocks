@@ -55,7 +55,7 @@
     
     <div id="btnList">
         <button onclick="showNLCode()">Mostrar código NetLogo</button>
-        <button id="envBtn" onclick="sendCodeToNL()">Enviar código ao NetLogo</button>
+        <button id="envBtn" onclick="sendCodeToNL()">Iniciar Simulação</button>
     </div>
 
     
@@ -67,9 +67,6 @@
     <xml id="toolbox" style="display: none">
     <category name="Criação e Aparência">
         <block type="aprnc_create_agent_species"></block>
-        <block type="aprnc_create_breed_type_agent"></block>
-        <block type="agent_breed_type"></block>
-        <block type="aprnc_set_pen"></block>
         <block type="aprnc_set_all_patch_color"></block>
     </category>
     <!--
@@ -86,18 +83,14 @@
     <category name="Funções">
         <block type="proc_initiate_movement"></block>
         <block type="proc_consume_energy"></block>
+        <block type="proc_manage_energy"></block>
+        <block type="proc_consume_agent"></block>
         <block type="proc_reproduce_between_species"></block>
-        <block type="proc_reproduce_given_chance"></block>
-        <block type="proc_kill_agent"></block>
         <block type="proc_stop_simulation"></block>
     </category>
     <category name="Lógica">
-        <block type="logic_check_agent_qtd"></block>
-        <block type="logic_if"></block>
-        <block type="logic_compare2"></block>
-        <block type="logic_check_collision2"></block>
-        <block type="logic_while_forever"></block>
         <block type="logic_simulation_while"></block>
+        <block type="logic_if"></block>
     </category>
     <category name="Eventos">
         <block type="event_check_collision"></block>

@@ -46,6 +46,23 @@ Blockly.JavaScript['proc_consume_energy'] = function(block) {
     return code;
 };
 
+Blockly.JavaScript['proc_manage_energy'] = function(block) {
+    var dropdown_action_type = block.getFieldValue('ACTION_TYPE');
+    var number_qtd_energy = block.getFieldValue('QTD_ENERGY');
+    var text_name_agent = block.getFieldValue('NAME_AGENT');
+    // TODO: Assemble JavaScript into code variable.
+
+    var actionCode;
+
+    if(dropdown_action_type == "add")
+        actionCode = ' + ';
+    else
+        actionCode = ' - ';
+
+    var code = 'ask ' + text_name_agent + 'Z [ set energia energia' + actionCode + number_qtd_energy + ']\n';
+    return code;
+};
+
 Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
     var text_name_agent_1 = block.getFieldValue('NAME_AGENT_1');
@@ -67,24 +84,16 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     return code;
 };
 
-Blockly.JavaScript['proc_ask_turtles'] = function(block) {
-    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
-    var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
-    // TODO: Assemble JavaScript into code variable.
-    var breedName = { "turtle" : "tartarugas", "wolf" : "lobos", "sheep" : "ovelhas" };
-
-    var code = 'ask ' + breedName[value_name_agent] + ' [ ' + statements_name + ']\n';
-    return code;
-};
-
-Blockly.JavaScript['proc_reproduce_given_chance'] = function(block) {
-    var value_num_cubs = Blockly.JavaScript.valueToCode(block, 'NUM_CUBS', Blockly.JavaScript.ORDER_ATOMIC);
-    var value_rep_chance = Blockly.JavaScript.valueToCode(block, 'REP_CHANCE', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['proc_consume_agent'] = function(block) {
+    var text_name_agent_1 = block.getFieldValue('NAME_AGENT_1');
+    var text_name_agent_2 = block.getFieldValue('NAME_AGENT_2');
     // TODO: Assemble JavaScript into code variable.
 
-    var code = 'if random-float 100 < ' + value_rep_chance + ' [ hatch ' + value_num_cubs + ' [ rt random-float 360 fd 1 ] ]';
+    var dyingAgent = "aux_" + text_name_agent_2;
+    var code = "ask " + dyingAgent + ' [ die ]\n';
+    
     return code;
-};
+  };
 
 Blockly.JavaScript['proc_kill_agent'] = function(block) {
     var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
