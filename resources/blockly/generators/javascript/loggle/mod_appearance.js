@@ -32,7 +32,7 @@ Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
 
   var energyCode;
   if(dropdown_type_energy == "inf")
-      energyCode = "set emergia -1";
+      energyCode = "set energia -1";
   else
       energyCode = "set energia " + dropdown_type_energy;
   
