@@ -250,33 +250,46 @@
     <field name="INLINE">INT</field>
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
-      <block type="input_value" id="!,R~ro{WDFvKPM_j``Dr">
-        <field name="INPUTNAME">NUM_AGENTS</field>
+      <block type="input_dummy" id="Ys8IC80~?e3hWHc`b,(Z">
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
-          <block type="field_static" id="dB=;_SyXz(Tu_~8nsBAY">
+          <block type="field_static" id="`aDL;RVfm3[rX=*=],nr">
             <field name="TEXT">criar</field>
           </block>
         </statement>
-        <value name="TYPE">
-          <shadow type="type_null" id="Q/v{@17dg;7Rkm@;B+KF"></shadow>
-          <block type="type_number" id="?R^bCg@Q!)m]wAwZ7x(x"></block>
-        </value>
         <next>
-          <block type="input_dummy" id="IgAW1SMliDl]AuU6u[7]">
+          <block type="input_value" id=":l}PwBOn~RhzU6gnilB[">
+            <field name="INPUTNAME">NUM_AGENTS</field>
             <field name="ALIGN">LEFT</field>
-            <statement name="FIELDS">
-              <block type="field_dropdown" id="M/q]Hgb1Hff4|:K!d=]]">
-                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
-                <field name="FIELDNAME">TYPE_AGENT</field>
-                <field name="USER0">tartaruga</field>
-                <field name="CPU0">turtle</field>
-                <field name="USER1">lobo</field>
-                <field name="CPU1">wolf</field>
-                <field name="USER2">ovelha</field>
-                <field name="CPU2">sheep</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="I-,Eo`W3bau(.9in~OyK"></shadow>
+              <block type="type_number" id="Dx?/gR_7XiQA:DA]4Uyi"></block>
+            </value>
+            <next>
+              <block type="input_dummy" id="i$_+@S(B!F_)lj6z8p:^">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id=",|sU2Pl=ZCcxFjq:f:Nu">
+                    <field name="TEXT">da raça criada de:</field>
+                    <next>
+                      <block type="field_variable" id="x$[S3yWulu,Qy:0}a-BI">
+                        <field name="TEXT">RAÇA</field>
+                        <field name="FIELDNAME">NAME_BREED</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_statement" id="%zFQa(g_?CR@m4zH:RZ_">
+                    <field name="INPUTNAME">VAL_PROPERTIES</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="xxG]#jK/}a9/HAbkVkdC"></shadow>
+                    </value>
+                  </block>
+                </next>
               </block>
-            </statement>
+            </next>
           </block>
         </next>
       </block>
@@ -1058,7 +1071,7 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="ZlBFUfQ.7[ba,HP^TW!2">
-            <field name="TEXT">pedir que</field>
+            <field name="TEXT">pedir ao grupo de agentes</field>
           </block>
         </statement>
         <next>
@@ -1068,16 +1081,26 @@
             <value name="TYPE">
               <shadow type="type_null" id="PU_FA;Q^mtOUj}bd;N5`"></shadow>
               <block type="type_other" id="j5fn,U,:rgAkL73QJt0/">
-                <field name="TYPE">agent_usr_created</field>
+                <field name="TYPE">agent_type</field>
               </block>
             </value>
             <next>
-              <block type="input_statement" id="f)u-n{zYk2[~V7-R+h5Z">
-                <field name="INPUTNAME">NAME</field>
+              <block type="input_dummy" id="=wp=Wp1]Uzq7eie)Rr{N">
                 <field name="ALIGN">LEFT</field>
-                <value name="TYPE">
-                  <shadow type="type_null" id="Gw!~=Y%!jQdJH}|zL;B("></shadow>
-                </value>
+                <statement name="FIELDS">
+                  <block type="field_static" id=":,k;a+)4!0_5v[N65c:)">
+                    <field name="TEXT">que:</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_statement" id="f)u-n{zYk2[~V7-R+h5Z">
+                    <field name="INPUTNAME">NAME</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="Gw!~=Y%!jQdJH}|zL;B("></shadow>
+                    </value>
+                  </block>
+                </next>
               </block>
             </next>
           </block>
@@ -1208,19 +1231,24 @@
                 <field name="ALIGN">LEFT</field>
                 <statement name="FIELDS">
                   <block type="field_static" id=",|sU2Pl=ZCcxFjq:f:Nu">
-                    <field name="TEXT">da raça criada de:</field>
+                    <field name="TEXT">agentes do tipo:</field>
                   </block>
                 </statement>
                 <value name="TYPE">
                   <shadow type="type_null" id="I-,Eo`W3bau(.9in~OyK"></shadow>
                   <block type="type_other" id="Xg-$(!BO5`;W)ION#y]p">
-                    <field name="TYPE">agent_usr_created</field>
+                    <field name="TYPE">agent_type</field>
                   </block>
                 </value>
                 <next>
                   <block type="input_statement" id="%zFQa(g_?CR@m4zH:RZ_">
                     <field name="INPUTNAME">VAL_PROPERTIES</field>
                     <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="=[WG4,NzCEcN39duQKlS">
+                        <field name="TEXT">com características:</field>
+                      </block>
+                    </statement>
                     <value name="TYPE">
                       <shadow type="type_null" id="xxG]#jK/}a9/HAbkVkdC"></shadow>
                     </value>
@@ -1305,43 +1333,6 @@
         <field name="HUE">180</field>
       </block>
     </value>
-  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
-    <mutation connections="BOTH"></mutation>
-    <field name="NAME">proc_wolf_catches_sheep</field>
-    <field name="INLINE">INT</field>
-    <field name="CONNECTIONS">BOTH</field>
-    <statement name="INPUTS">
-      <block type="input_dummy" id="t[=LxV3[U^w`{Xxfc8(U">
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="D`L[J1o:5@86=S$d.;S$">
-            <field name="TEXT">quando um lobo pegar uma ovelha, coma-a</field>
-          </block>
-        </statement>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
-        <field name="TEXT">Atribui um conjunto de funções a um determinado conjunto de agentes</field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="TOPTYPE">
-      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
-    </value>
-    <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
-        <mutation colour="#a55b5b"></mutation>
-        <field name="HUE">0</field>
-      </block>
-    </value>
   </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">def_breed_agent2</field>
@@ -1352,7 +1343,7 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="t?l4[a+J6n)#v=8PsQ@x">
-            <field name="TEXT">definir raça de:</field>
+            <field name="TEXT">definir geração de:</field>
           </block>
         </statement>
         <next>
@@ -1362,7 +1353,7 @@
             <value name="TYPE">
               <shadow type="type_null" id="92,$)3|MbtAvMC_K|$V$"></shadow>
               <block type="type_other" id="/YxmKP-70(8f9{=@W[:C">
-                <field name="TYPE">agent_var_usr_created</field>
+                <field name="TYPE">agent_type</field>
               </block>
             </value>
           </block>
@@ -1614,6 +1605,1656 @@
       <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
         <mutation colour="#a55b5b"></mutation>
         <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">agent_breed_type</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="bgQpdO|?V1dsf}wcp9db">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_dropdown" id="uw$Q-6Z0}mu$n5T7lkl~">
+            <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+            <field name="FIELDNAME">TYPE_AGENT</field>
+            <field name="USER0">tartaruga</field>
+            <field name="CPU0">turtle</field>
+            <field name="USER1">lobo</field>
+            <field name="CPU1">wolf</field>
+            <field name="USER2">ovelha</field>
+            <field name="CPU2">sheep</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Tipo representando um agente criado como uma Geração</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="^cS]x4Jd}L)Cskp($Y80"></shadow>
+      <block type="type_other" id="L6eu3[Do.YY-]X_8|O0)">
+        <field name="TYPE">agent_type</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="uL7(0G`?e$.occLoCg)R">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">def_chg_property</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">mude o valor de:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="8ZRK@W-xl_c{cxyfe9vd">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_input" id="%@4HY2)G6A*?k6Y%-2mb">
+                <field name="TEXT">(propriedade)</field>
+                <field name="FIELDNAME">NAME_PROPERTY</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id="Ba.OeW4MXT0|nnzrJ,YB">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="q@]a4#slLr.7qW!@=ulQ">
+                    <field name="TEXT">para:</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_value" id="Lapb((~Dr5*xjp]l8W#k">
+                    <field name="INPUTNAME">NEW_VAL</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="C1(Z/CA4E]TT0HF$KI{^"></shadow>
+                      <block type="type_group" id="39?8UMBezcQ%RztU3$4Y">
+                        <mutation types="2"></mutation>
+                        <value name="TYPE0">
+                          <block type="type_number" id="!l=T/yUXx){-G~R~!Uj|"></block>
+                        </value>
+                        <value name="TYPE1">
+                          <block type="type_string" id="?VWs*tbdNMG76}Lllu=|"></block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT">Modifica uma característica já criada anteriormente.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">math_oper_with_properties</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="c0mYUN%2sqmIa:G1ATM4">
+        <field name="INPUTNAME">LEFT_VAL</field>
+        <field name="ALIGN">LEFT</field>
+        <value name="TYPE">
+          <shadow type="type_null" id="gs;b*vpcyEc`z-*V*GtX"></shadow>
+          <block type="type_group" id="l9}_n-oI*XQ#q^g{y*Fq">
+            <mutation types="2"></mutation>
+            <value name="TYPE0">
+              <block type="type_number" id="lUVQpvvdkE)2lA^m|cZH"></block>
+            </value>
+            <value name="TYPE1">
+              <block type="type_string" id="drq4.ty{jlQWdyGSjZ+R"></block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="input_dummy" id="IjvjC]P=}xvo29vXfH:?">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_dropdown" id="i93o=LlO|^X2pxyCP5ks">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">OPER_VAL</field>
+                <field name="USER0">+</field>
+                <field name="CPU0">+</field>
+                <field name="USER1">-</field>
+                <field name="CPU1">-</field>
+                <field name="USER2">x</field>
+                <field name="CPU2">*</field>
+                <field name="USER3">÷</field>
+                <field name="CPU3">/</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_value" id="E1nCy.hZ8xJ.47Kp1}8)">
+                <field name="INPUTNAME">RIGHT_VAL</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                  <shadow type="type_null" id="H^rJ340+[e*,]BI/fCno"></shadow>
+                  <block type="type_group" id="9;7sL(H]+P_%.7ad@AEr">
+                    <mutation types="2"></mutation>
+                    <value name="TYPE0">
+                      <block type="type_number" id="y`UoxfF~V+,|N19Jt1(9"></block>
+                    </value>
+                    <value name="TYPE1">
+                      <block type="type_string" id="5L9sVtIsqIg-;M)/,hA~"></block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id=";q?rlx@m-D~[J(qWLl`r"></shadow>
+      <block type="type_number" id="^@LLeP@(*r+aU2j48S);"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#5b6da5"></mutation>
+        <field name="HUE">225</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">def_set_global_properties</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">características globais:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="AQGb077US6fI,VJ-]ppT">
+            <field name="INPUTNAME">GLOBAL_AGNT_VARS</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="{V0mbenYTG?7#h~tbs%t"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT">Característica que todos os agentes tem</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">def_agent_global_property</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">característica global:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="TCcrnF5^-2M-STXv,WB8">
+            <field name="INPUTNAME">NAME_PROPERTY</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="9_/]CFdySKP3-~HcsQA;"></shadow>
+              <block type="type_other" id="!~@On-s0YGO9W!gQH0du">
+                <field name="TYPE">agent_global_var</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">def_agent_global_property_type</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="x^1Q:Y_6m9@CKHr4]Rqr">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_variable" id="%`s~OY(}7p_m!^%@/|LJ">
+            <field name="TEXT">NOME DA CARACTERÍSTICA</field>
+            <field name="FIELDNAME">NAME_PROPERTY</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="e5~GBWtjO2IX`:}eZ3%F"></shadow>
+      <block type="type_other" id="1V9L0~PmE$??b6Xl$}EB">
+        <field name="TYPE">agent_global_var</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">def_chg_property2</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">mude o valor de:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="8ZRK@W-xl_c{cxyfe9vd">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_variable" id="*V+9w~UH^SU$+Wg]:Y1n">
+                <field name="TEXT">NOME DA CARACTERÍSTICA</field>
+                <field name="FIELDNAME">NAME_VAR</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id="Ba.OeW4MXT0|nnzrJ,YB">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="q@]a4#slLr.7qW!@=ulQ">
+                    <field name="TEXT">para:</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_value" id="Lapb((~Dr5*xjp]l8W#k">
+                    <field name="INPUTNAME">NEW_VAL</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="C1(Z/CA4E]TT0HF$KI{^"></shadow>
+                      <block type="type_group" id="39?8UMBezcQ%RztU3$4Y">
+                        <mutation types="2"></mutation>
+                        <value name="TYPE0">
+                          <block type="type_number" id="!l=T/yUXx){-G~R~!Uj|"></block>
+                        </value>
+                        <value name="TYPE1">
+                          <block type="type_string" id="?VWs*tbdNMG76}Lllu=|"></block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT">Modifica uma característica já criada anteriormente.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_reproduce_given_chance</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="t[=LxV3[U^w`{Xxfc8(U">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="D`L[J1o:5@86=S$d.;S$">
+            <field name="TEXT">gerar</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="Rog07-82NC!6m+n3_aAE">
+            <field name="INPUTNAME">NUM_CUBS</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="{^19NUO5XIAcX7F8)+?I"></shadow>
+              <block type="type_number" id="={16pX85w)D+*Yhh?x?H"></block>
+            </value>
+            <next>
+              <block type="input_dummy" id="wD3UP)H6osXZhr:E5c*}">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="aH!mYp(]_lk?9v^]G{0]">
+                    <field name="TEXT">filho(s) com chance de:</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_value" id="[u%X$eq?w;jTmRG%/_IA">
+                    <field name="INPUTNAME">REP_CHANCE</field>
+                    <field name="ALIGN">LEFT</field>
+                    <value name="TYPE">
+                      <shadow type="type_null" id="{^19NUO5XIAcX7F8)+?I"></shadow>
+                      <block type="type_number" id="w#Nal;r0e:C%{JdP/@rj"></block>
+                    </value>
+                    <next>
+                      <block type="input_dummy" id="(C5c[[kwq)j%^G.}TXA]">
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id="FIO^yJ%f5Cu{M#EZ%c=a">
+                            <field name="TEXT">%</field>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Reproduz o agente mencionado com a dada probabilidade</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_kill_agent</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="wD3UP)H6osXZhr:E5c*}">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="aH!mYp(]_lk?9v^]G{0]">
+            <field name="TEXT">pedir que o agente colidido:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="y4zk+U5@T?z@c@NKe^]7">
+            <field name="INPUTNAME">NAME_AGENT</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="daA%DL:_#_KHHms]M8Lv"></shadow>
+              <block type="type_other" id="U((b/#-CZ(LI$mQyf38s">
+                <field name="TYPE">agent_type</field>
+              </block>
+            </value>
+            <next>
+              <block type="input_dummy" id="+MX;m!nTAjrjwbp_D^p?">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="Qx|3Awy;gU/hQkza5!o{">
+                    <field name="TEXT">morra</field>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Mata o determinado agente.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">logic_check_collision2</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="Y/;!j^[eQ}_oBZq)5|(N">
+        <field name="INPUTNAME">NAME_AGENT_1</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="}]ZoDagxI{X-8Kh/44)r">
+            <field name="TEXT">se algum agente do tipo:</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="+~$4-6fzjY+XGNE=N}.@"></shadow>
+          <block type="type_other" id="%1msJgJYK(#.rH;2et31">
+            <field name="TYPE">agent_type</field>
+          </block>
+        </value>
+        <next>
+          <block type="input_value" id="ziOQo+]G^3+Q7G5K[t~A">
+            <field name="INPUTNAME">NAME_AGENT_2</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="3649]`Uek$27dtGDQc^/">
+                <field name="TEXT">colidir em algum agente do tipo:</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="}kA]I0Eg.L[{{sy`7~u!"></shadow>
+              <block type="type_other" id="$xjxBZY#8Y$L*WjJ.xc9">
+                <field name="TYPE">agent_type</field>
+              </block>
+            </value>
+            <next>
+              <block type="input_statement" id="^Z]kv~Ra(}%Z.}`2wFH2">
+                <field name="INPUTNAME">NAME_STATEMENTS</field>
+                <field name="ALIGN">CENTRE</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id=":N]+Q8]l3}bH$E]!e1[f">
+                    <field name="TEXT">faça:</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="ucn~ZyJ#O5!T/=C`I(#x"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Checa colisão entre 2 agentes</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="*4IRU.%EMoOi`3-tItSV"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="0E5=t91*G-(DZOK+|37E"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">logic_check_agent_qtd</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id=".zVUdg4k}97U#HoOETD/">
+        <field name="INPUTNAME">AGENT_QTD</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="^^J(;[__DC+61P5q`!GL">
+            <field name="TEXT">quantidade de agentes do tipo:</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="tc$A;H;`/_6QN]PpE[V["></shadow>
+          <block type="type_other" id="X91vok-nt;^{mwDDco[j">
+            <field name="TYPE">agent_type</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Checa quantidade de um agente</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="l~)%K`7QA+j$cl$*C*/W"></shadow>
+      <block type="type_number" id="4?vCPgZ_iir/V-+5,)0C"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_stop_simulation</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="wD3UP)H6osXZhr:E5c*}">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="aH!mYp(]_lk?9v^]G{0]">
+            <field name="TEXT">parar simulação</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Termina a simulação</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="~4q4oz5667}SGweJv,%p" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">aprnc_set_all_patch_color</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="PvNL^SGT^`F[Dz*swGVS">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="hclt?}S;(9SyAe;I@r_(">
+            <field name="TEXT">mudar a cor do terreno para:</field>
+            <next>
+              <block type="field_dropdown" id="PHBk-C%[1xIeZfKJT%QO">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">COL_PATCHES</field>
+                <field name="USER0">option</field>
+                <field name="CPU0">OPTIONNAME</field>
+                <field name="USER1">option</field>
+                <field name="CPU1">OPTIONNAME</field>
+                <field name="USER2">option</field>
+                <field name="CPU2">OPTIONNAME</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="DLO4@FtMihUswZ^)A{2B" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="O%QFR)#~oo4C={K~;bFJ" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="NR.#fO*2ivRpxiepd[`}"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="c:V-Cn|An[=n}..Y;mD|"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="XHVssON1f|VBz~7w:8wm">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="_dL]y`3e7dQ]ttVkl1hR" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">display_monitor_num_agent</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="UA*Hsn@P8ax9g`o`R_pF">
+        <field name="INPUTNAME">NAME_AGENT</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="w^RtQGFU5YWTJ-W26:gb">
+            <field name="TEXT">Mostrar numa janela o total de agentes do tipo:</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="?rS^Ap?70irVb/[dV0hQ"></shadow>
+          <block type="type_other" id="/4L/{_gEQP)f8-lFEUrv">
+            <field name="TYPE">agent_type</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="queqnSui^#1m~FJbt0(e" deletable="false" movable="false">
+        <field name="TEXT">Adiciona na interface uma janela com o número total do tipo de agente.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="J6j;]i[1E5[Fc1orT0gC" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=",_vpl.8$r)g=Bl1nh-bc"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="@9C%7=C/Oq^CImG)uhuw"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=".xUnxrD8Vu_rSJkum9XP">
+        <mutation colour="#5ba580"></mutation>
+        <field name="HUE">150</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="2mS$FjgLW7qWc1UM{,uo" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">display_agent_plot_variable</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="`z!c5QK|W[H(|Hr^N~fW">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GJ;.05QU7f)-C];1m$yC">
+            <field name="TEXT">exibir contagem do agente:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_value" id="TCcrnF5^-2M-STXv,WB8">
+            <field name="INPUTNAME">NAME_PROPERTY</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="9_/]CFdySKP3-~HcsQA;"></shadow>
+              <block type="type_other" id="!~@On-s0YGO9W!gQH0du">
+                <field name="TYPE">agent_type</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Bh^TXssMjhAD`e/G8n_Z" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="kqTx8*:OyUh7UsXHWpw%" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="hRV_Ba]$Z`2]j.H|njq$"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="Sw1pcF|q9,HuK-7myh@^"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4IRBGXZHfVXjT{aJ/:S-">
+        <mutation colour="#5ba580"></mutation>
+        <field name="HUE">150</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="1|WOLfe%0@c]v9Q^Gp74" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">aprnc_create_agent_species</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="cRYMrrp94}g-.8Og[`@j">
+        <field name="ALIGN">RIGHT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="T[|z3*vE@KL9[KND/CS)">
+            <field name="TEXT">criar </field>
+            <next>
+              <block type="field_number" id="/u51f4r/nh$VvoyvOJ6z">
+                <field name="VALUE">0</field>
+                <field name="FIELDNAME">NUM_AGENTS</field>
+                <field name="MIN">1</field>
+                <field name="MAX">200</field>
+                <field name="PRECISION">0</field>
+                <next>
+                  <block type="field_static" id="a-BJp2CR`a=t$oFbLH+i">
+                    <field name="TEXT">agente(s)</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="-u|P(%*:5?=E48U2iR#k">
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="T0G`Qt@aDA[m?LSCN|32">
+                <field name="TEXT">nome:</field>
+                <next>
+                  <block type="field_input" id="ey+^[s-gP`kz{n7Ddglu">
+                    <field name="TEXT">NOME</field>
+                    <field name="FIELDNAME">NAME_AGENT</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id="{]pjo]o1nHhlKZEAAFtB">
+                <field name="ALIGN">RIGHT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="DkOds[sCr8Gucz5]g`Su">
+                    <field name="TEXT">tipo:</field>
+                    <next>
+                      <block type="field_dropdown" id="tMZ`-r(8^x0tUvchdtFd">
+                        <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                        <field name="FIELDNAME">TYPE_AGENT</field>
+                        <field name="USER0">humano</field>
+                        <field name="CPU0">person</field>
+                        <field name="USER1">ave</field>
+                        <field name="CPU1">bird</field>
+                        <field name="USER2">peixe</field>
+                        <field name="CPU2">fish</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_dummy" id="r-Rfu~VX5AHNIl2(l+pK">
+                    <field name="ALIGN">RIGHT</field>
+                    <statement name="FIELDS">
+                      <block type="field_static" id="wyLQPQE%{yz0phOr`U/2">
+                        <field name="TEXT">sexo:</field>
+                        <next>
+                          <block type="field_dropdown" id="KsSAgj4r,lw!;eA}/IJB">
+                            <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                            <field name="FIELDNAME">TYPE_GEN</field>
+                            <field name="USER0">masculino</field>
+                            <field name="CPU0">male</field>
+                            <field name="USER1">feminino</field>
+                            <field name="CPU1">female</field>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="input_dummy" id="NtD74/f0g|-Fxajz,9XR">
+                        <field name="ALIGN">RIGHT</field>
+                        <statement name="FIELDS">
+                          <block type="field_static" id="9K=!=NF`]4uhwO9;|,Cy">
+                            <field name="TEXT">energia:</field>
+                            <next>
+                              <block type="field_dropdown" id="BdE3),5q2,7}CUTL)B6V">
+                                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                <field name="FIELDNAME">TYPE_ENERGY</field>
+                                <field name="USER0">infinita</field>
+                                <field name="CPU0">inf</field>
+                                <field name="USER1">50</field>
+                                <field name="CPU1">50</field>
+                                <field name="USER2">100</field>
+                                <field name="CPU2">100</field>
+                                <field name="USER3">250</field>
+                                <field name="CPU3">250</field>
+                                <field name="USER4">500</field>
+                                <field name="CPU4">500</field>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="input_dummy" id="VLRh[|g69~gzUBRVE|F3">
+                            <field name="ALIGN">RIGHT</field>
+                            <statement name="FIELDS">
+                              <block type="field_static" id="@my.rfmTy|SdD=iDR)uE">
+                                <field name="TEXT">reprodução:</field>
+                                <next>
+                                  <block type="field_dropdown" id="{{Y3(9};oCDm+7$nAJ-0">
+                                    <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                    <field name="FIELDNAME">TYPE_REP</field>
+                                    <field name="USER0">sexuada</field>
+                                    <field name="CPU0">sex</field>
+                                    <field name="USER1">assexuada</field>
+                                    <field name="CPU1">asex</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="input_dummy" id="Dmb[zM4@%:@qcBMDB$/(">
+                                <field name="ALIGN">RIGHT</field>
+                                <statement name="FIELDS">
+                                  <block type="field_static" id="Ty]zXvQb?Gq@Q*#2!=,~">
+                                    <field name="TEXT">movimentação:</field>
+                                    <next>
+                                      <block type="field_dropdown" id="!nU:QviBJqsb+){iX_G*">
+                                        <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                        <field name="FIELDNAME">TYPE_MOV</field>
+                                        <field name="USER0">aleatória</field>
+                                        <field name="CPU0">rand</field>
+                                        <field name="USER1">direcionada</field>
+                                        <field name="CPU1">direc</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="input_dummy" id="?$A`P#TwHjY2wiPH:EJK">
+                                    <field name="ALIGN">RIGHT</field>
+                                    <statement name="FIELDS">
+                                      <block type="field_static" id="*:[:zSyD)V=YsQe9,;TQ">
+                                        <field name="TEXT">velocidade:</field>
+                                        <next>
+                                          <block type="field_dropdown" id="I$wl]kHTAt:bo##q/y4u">
+                                            <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                            <field name="FIELDNAME">TYPE_VELOC</field>
+                                            <field name="USER0">normal</field>
+                                            <field name="CPU0">normal</field>
+                                            <field name="USER1">rápida</field>
+                                            <field name="CPU1">fast</field>
+                                            <field name="USER2">lenta</field>
+                                            <field name="CPU2">slow</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="input_dummy" id="f-5E7_VMP~M1M.Je^tYI">
+                                        <field name="ALIGN">RIGHT</field>
+                                        <statement name="FIELDS">
+                                          <block type="field_static" id="H|c0OQ2d#(.E|8T/,I#g">
+                                            <field name="TEXT">tipo de visão:</field>
+                                            <next>
+                                              <block type="field_dropdown" id="Z+nE]$WrP^-^elrPDA44">
+                                                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                                                <field name="FIELDNAME">TYPE_VISION</field>
+                                                <field name="USER0">circular</field>
+                                                <field name="CPU0">circle</field>
+                                                <field name="USER1">quadrada</field>
+                                                <field name="CPU1">square</field>
+                                                <field name="USER2">retangular</field>
+                                                <field name="CPU2">rect</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=":b81m#$cqc12%itKXao;" deletable="false" movable="false">
+        <field name="TEXT">Bloco para criar uma espécie. Máximo de 200 agentes.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="|i+IHevk;pT:NIZV!Q[r" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="ka~(k#FARzt*I{LP`,.j"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="1PIqqtUnbL*;+pTb^Txn"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="T4ol60d6Gf(aGGq:j(C9">
+        <mutation colour="#5ba55b"></mutation>
+        <field name="HUE">120</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">logic_simulation_while</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="ufaA!(u`rLC}+!T;Gcz-">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="}]ZoDagxI{X-8Kh/44)r">
+            <field name="TEXT">loop de simulação:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="wa0Q;nuq5N$B3$l#0dkn">
+            <field name="INPUTNAME">DO_STATEMENTS</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="+?HLnpT4nJ=,]`8I!R]O"></shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="*4IRU.%EMoOi`3-tItSV"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="0E5=t91*G-(DZOK+|37E"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">event_check_collision</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="ufaA!(u`rLC}+!T;Gcz-">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="}]ZoDagxI{X-8Kh/44)r">
+            <field name="TEXT">o agente:</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="NegY)6t{^3^lPM^0c](8">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_input" id="lQnk%xZ~_{M!9{`X98~p">
+                <field name="TEXT">AGENTE 1</field>
+                <field name="FIELDNAME">NAME_AGENT_1</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id=")]Qf(}9CFePc%BA$g)Aa">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="C/Nek*Xf#/PWGp-hhwIg">
+                    <field name="TEXT">colidir com o agente:</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="input_dummy" id=":TK1F$3*dq(p[Wns(p/9">
+                    <field name="ALIGN">LEFT</field>
+                    <statement name="FIELDS">
+                      <block type="field_input" id="{U[4,Rl*0KxwLI1}/S)B">
+                        <field name="TEXT">AGENTE 2</field>
+                        <field name="FIELDNAME">NAME_AGENT_2</field>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="iP{qD[J$G+lhVoiuSYlo"></shadow>
+      <block type="type_boolean" id="Km_UXX)X?~FGdaIu?]G!"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#a5a55b"></mutation>
+        <field name="HUE">60</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_initiate_movement</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=z(!JknZ}[_|!A|I).6h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="1KJ+uVO4_c*cL#0WT$K;">
+            <field name="TEXT">iniciar movimentação do agente:</field>
+            <next>
+              <block type="field_input" id="#%KPEjf^9/3~fLR}8Ir!">
+                <field name="TEXT">AGENTE</field>
+                <field name="FIELDNAME">NAME_AGENT</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Inicia o tipo de movimento do agente especificado.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_consume_energy</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=z(!JknZ}[_|!A|I).6h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="1KJ+uVO4_c*cL#0WT$K;">
+            <field name="TEXT">remover</field>
+            <next>
+              <block type="field_dropdown" id="Bzi.Cj5?|FI}EA-aqZ(6">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">QTD_ENERGY</field>
+                <field name="USER0">1</field>
+                <field name="CPU0">1</field>
+                <field name="USER1">5</field>
+                <field name="CPU1">5</field>
+                <field name="USER2">10</field>
+                <field name="CPU2">10</field>
+                <next>
+                  <block type="field_static" id="S71a0m/=hu6Ulz#jVlyJ">
+                    <field name="TEXT">ponto(s) de energia</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="vBZi8!e#Ec7I3)KTF6Od">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="%v/R*aU;r_sPb`?wG[iu">
+                <field name="TEXT">do agente:</field>
+                <next>
+                  <block type="field_input" id="V)*3/aD]:aCIPjVQHK{g">
+                    <field name="TEXT">AGENTE</field>
+                    <field name="FIELDNAME">NAME_AGENT</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="input_dummy" id=":L?(Voj%F)fjThio@U+l">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id="4Gmz,{$Gvb|T9OsbJ$X-">
+                    <field name="TEXT">a cada:</field>
+                    <next>
+                      <block type="field_dropdown" id="LK$t?.hGvAhFhcIL/AKA">
+                        <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                        <field name="FIELDNAME">INTERVAL</field>
+                        <field name="USER0"> 10 segundos</field>
+                        <field name="CPU0">10</field>
+                        <field name="USER1">25 segundos</field>
+                        <field name="CPU1">25</field>
+                        <field name="USER2">50 segundos</field>
+                        <field name="CPU2">50</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Remove quantidade de energia do agente a cada intervalo especificado.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_reproduce_between_species</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=z(!JknZ}[_|!A|I).6h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="1KJ+uVO4_c*cL#0WT$K;">
+            <field name="TEXT">gerar</field>
+            <next>
+              <block type="field_number" id="p-{rLifh!*r*BU3rGF^a">
+                <field name="VALUE">0</field>
+                <field name="FIELDNAME">NUM_CUBS</field>
+                <field name="MIN">1</field>
+                <field name="MAX">20</field>
+                <field name="PRECISION">0</field>
+                <next>
+                  <block type="field_static" id="S71a0m/=hu6Ulz#jVlyJ">
+                    <field name="TEXT">filho(s) entre os agentes:</field>
+                    <next>
+                      <block type="field_input" id="NJCJ%mczGSYw;3tB2z7v">
+                        <field name="TEXT">AGENTE 1</field>
+                        <field name="FIELDNAME">NAME_AGENT_1</field>
+                        <next>
+                          <block type="field_static" id="~=r=4[R+0:0F[c#E-(R~">
+                            <field name="TEXT">e</field>
+                            <next>
+                              <block type="field_input" id="M(a{_aC0M4~gJbzF?B%U">
+                                <field name="TEXT">AGENTE 2</field>
+                                <field name="FIELDNAME">NAME_AGENT_2</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="E)Hx8DQDM9.--!f!l67*">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="W^S_uBu#@o8CC^(4$_/S">
+                <field name="TEXT">com chance de:</field>
+                <next>
+                  <block type="field_dropdown" id="AilD%v/.#.U9mW,;$Ku_">
+                    <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                    <field name="FIELDNAME">REP_CHANCE</field>
+                    <field name="USER0">100%</field>
+                    <field name="CPU0">100</field>
+                    <field name="USER1">50%</field>
+                    <field name="CPU1">50</field>
+                    <field name="USER2">25%</field>
+                    <field name="CPU2">25</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_consume_agent</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=z(!JknZ}[_|!A|I).6h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="1KJ+uVO4_c*cL#0WT$K;">
+            <field name="TEXT">o agente:</field>
+            <next>
+              <block type="field_input" id="NJCJ%mczGSYw;3tB2z7v">
+                <field name="TEXT">PREDADOR</field>
+                <field name="FIELDNAME">NAME_AGENT_1</field>
+                <next>
+                  <block type="field_static" id="~=r=4[R+0:0F[c#E-(R~">
+                    <field name="TEXT">devora o agente:</field>
+                    <next>
+                      <block type="field_input" id="M(a{_aC0M4~gJbzF?B%U">
+                        <field name="TEXT">PRESA</field>
+                        <field name="FIELDNAME">NAME_AGENT_2</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Cria uma interação em que um agente devora o outro, matando-o.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="`[3~nr.YThjNx=GuGhbv" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">proc_manage_energy</field>
+    <field name="INLINE">EXT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=z(!JknZ}[_|!A|I).6h">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_dropdown" id="Bzi.Cj5?|FI}EA-aqZ(6">
+            <mutation options="[&quot;text&quot;,&quot;text&quot;]"></mutation>
+            <field name="FIELDNAME">ACTION_TYPE</field>
+            <field name="USER0">adiconar</field>
+            <field name="CPU0">add</field>
+            <field name="USER1">remover</field>
+            <field name="CPU1">rem</field>
+            <next>
+              <block type="field_number" id="rE8npAVs$Vf[|r~y4p-4">
+                <field name="VALUE">0</field>
+                <field name="FIELDNAME">QTD_ENERGY</field>
+                <field name="MIN">0</field>
+                <field name="MAX">100</field>
+                <field name="PRECISION">0</field>
+                <next>
+                  <block type="field_static" id="S71a0m/=hu6Ulz#jVlyJ">
+                    <field name="TEXT">ponto(s) de energia do agente:</field>
+                    <next>
+                      <block type="field_input" id="V)*3/aD]:aCIPjVQHK{g">
+                        <field name="TEXT">AGENTE</field>
+                        <field name="FIELDNAME">NAME_AGENT</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="t[wcFJih4)H~,wm8`6ob" deletable="false" movable="false">
+        <field name="TEXT">Adiciona ou remove uma quantidade de energia do agente especificado. Máximo de 100 unidades.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id=",cykrythQF=)I!C=DrF9" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="6Y%_os*(De}UH$!{g.$,"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="-To{K)OXzH6S[jC!FtYl"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="8.G5]HIg.!]mulYJ^Z?{">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">event_check_agent_qtd</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="(`5r..1?dt)n/@ke8?fC">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="^^J(;[__DC+61P5q`!GL">
+            <field name="TEXT">a quantidade de agentes do tipo:</field>
+            <next>
+              <block type="field_input" id="ZzMlx1aVCXHd;=oAa#YT">
+                <field name="TEXT">AGENTE</field>
+                <field name="FIELDNAME">NAME_AGENT</field>
+                <next>
+                  <block type="field_dropdown" id="-bIBnxo~K|4ask=7:m|+">
+                    <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                    <field name="FIELDNAME">TYPE_COMPARE</field>
+                    <field name="USER0">=</field>
+                    <field name="CPU0">equal</field>
+                    <field name="USER1">&gt;</field>
+                    <field name="CPU1">gt</field>
+                    <field name="USER2">&lt;</field>
+                    <field name="CPU2">lt</field>
+                    <field name="USER3">≥</field>
+                    <field name="CPU3">gte</field>
+                    <field name="USER4">≤</field>
+                    <field name="CPU4">lte</field>
+                    <field name="USER5">≠</field>
+                    <field name="CPU5">diff</field>
+                    <next>
+                      <block type="field_number" id="C!,jL!u]mn:Ep}xl$-*s">
+                        <field name="VALUE">0</field>
+                        <field name="FIELDNAME">NUM_COMPARED</field>
+                        <field name="MIN">-Infinity</field>
+                        <field name="MAX">Infinity</field>
+                        <field name="PRECISION">0</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Faz a comparação da quantidade de agentes de um tipo com um número.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="l~)%K`7QA+j$cl$*C*/W"></shadow>
+      <block type="type_boolean" id="ye]qv7bi]9RNvMSnX~Dj"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#a5a55b"></mutation>
+        <field name="HUE">60</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="4sln?h/)/Lx6$xx,-S93" deletable="false" movable="false" x="0" y="0">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">event_check_agent_energy</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="(`5r..1?dt)n/@ke8?fC">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="^^J(;[__DC+61P5q`!GL">
+            <field name="TEXT">a quantidade de energia de um agente do tipo:</field>
+            <next>
+              <block type="field_input" id="ZzMlx1aVCXHd;=oAa#YT">
+                <field name="TEXT">AGENTE</field>
+                <field name="FIELDNAME">NAME_AGENT</field>
+                <next>
+                  <block type="field_dropdown" id="-bIBnxo~K|4ask=7:m|+">
+                    <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                    <field name="FIELDNAME">TYPE_COMPARE</field>
+                    <field name="USER0">=</field>
+                    <field name="CPU0">equal</field>
+                    <field name="USER1">&gt;</field>
+                    <field name="CPU1">gt</field>
+                    <field name="USER2">&lt;</field>
+                    <field name="CPU2">lt</field>
+                    <field name="USER3">≥</field>
+                    <field name="CPU3">gte</field>
+                    <field name="USER4">≤</field>
+                    <field name="CPU4">lte</field>
+                    <field name="USER5">≠</field>
+                    <field name="CPU5">diff</field>
+                    <next>
+                      <block type="field_number" id="C!,jL!u]mn:Ep}xl$-*s">
+                        <field name="VALUE">0</field>
+                        <field name="FIELDNAME">NUM_COMPARED</field>
+                        <field name="MIN">-Infinity</field>
+                        <field name="MAX">Infinity</field>
+                        <field name="PRECISION">0</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4x|i}2`8BM5]K1rWCFVE" deletable="false" movable="false">
+        <field name="TEXT">Faz a comparação da quantidade de energia de um agente de um tipo em relação a um número.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="-@X7AzG$q,PVllTAUzB]" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="l~)%K`7QA+j$cl$*C*/W"></shadow>
+      <block type="type_boolean" id="ye]qv7bi]9RNvMSnX~Dj"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=";[w6nUiTxU7QU33Jgj9q">
+        <mutation colour="#a5a55b"></mutation>
+        <field name="HUE">60</field>
       </block>
     </value>
   </block></xml>
