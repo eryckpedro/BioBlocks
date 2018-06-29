@@ -84,8 +84,8 @@ Blockly.Blocks['aprnc_create_agent_species'] = {
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("tipo de visão:")
           .appendField(new Blockly.FieldDropdown([["circular","circle"], ["quadrada","square"], ["retangular","rect"]]), "TYPE_VISION");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "definition");
+      this.setNextStatement(true, ["definition", "loopSim"]);
       this.setColour(120);
    this.setTooltip("Bloco para criar uma espécie. Máximo de 200 agentes.");
    this.setHelpUrl("");

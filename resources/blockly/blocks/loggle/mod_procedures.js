@@ -12,7 +12,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
   
-Blockly.Blocks['proc_consume_energy'] = {
+  Blockly.Blocks['proc_consume_energy'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("remover")
@@ -25,15 +25,15 @@ Blockly.Blocks['proc_consume_energy'] = {
           .appendField("a cada:")
           .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Remove quantidade de energia do agente a cada intervalo especificado.");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks['proc_manage_energy'] = {
+Blockly.Blocks['proc_manage_energy'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
@@ -41,15 +41,15 @@ Blockly.Blocks['proc_consume_energy'] = {
           .appendField("ponto(s) de energia do agente:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Adiciona ou remove uma quantidade de energia do agente especificado. Máximo de 100 unidades.");
    this.setHelpUrl("");
     }
   };
 
-Blockly.Blocks['proc_reproduce_between_species'] = {
+  Blockly.Blocks['proc_reproduce_between_species'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("gerar")
@@ -62,15 +62,15 @@ Blockly.Blocks['proc_reproduce_between_species'] = {
           .appendField("com chance:")
           .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório.");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks['proc_consume_agent'] = {
+Blockly.Blocks['proc_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("o agente:")
@@ -78,8 +78,8 @@ Blockly.Blocks['proc_reproduce_between_species'] = {
           .appendField("devora o agente:")
           .appendField(new Blockly.FieldVariable("NOME PRESA"), "NAME_AGENT_2");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o.");
    this.setHelpUrl("");
@@ -108,8 +108,8 @@ Blockly.Blocks['proc_stop_simulation'] = {
       this.appendDummyInput()
           .appendField("parar simulação");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Termina a simulação");
    this.setHelpUrl("");

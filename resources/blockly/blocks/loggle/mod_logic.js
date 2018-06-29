@@ -4,16 +4,16 @@ Blockly.Blocks['logic_if'] = {
           .setCheck("Boolean")
           .appendField("se");
       this.appendStatementInput("THEN_VALUE")
-          .setCheck(null)
+          .setCheck("procedure")
           .appendField("então");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
       this.setColour(180);
    this.setTooltip("");
    this.setHelpUrl("");
     }
-};
+  };
 
 Blockly.Blocks['logic_compare2'] = {
     init: function() {
@@ -87,12 +87,11 @@ Blockly.Blocks['logic_simulation_while'] = {
       this.appendDummyInput()
           .appendField("loop de simulação:");
       this.appendStatementInput("DO_STATEMENTS")
-          .setCheck(null);
+          .setCheck("procedure");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "definition");
       this.setColour(180);
    this.setTooltip("");
    this.setHelpUrl("");
     }
-};
+  };
