@@ -48,6 +48,56 @@ Blockly.JavaScript['aprnc_create_agent_species'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
+  var number_num_agents = block.getFieldValue('NUM_AGENTS');
+  var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+  var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
+  var dropdown_type_gen = block.getFieldValue('TYPE_GEN');
+  var dropdown_type_energy = block.getFieldValue('TYPE_ENERGY');
+  var dropdown_type_rep = block.getFieldValue('TYPE_REP');
+  var dropdown_type_mov = block.getFieldValue('TYPE_MOV');
+  var dropdown_type_veloc = block.getFieldValue('TYPE_VELOC');
+  var dropdown_type_vision = block.getFieldValue('TYPE_VISION');
+  
+  // Assembling the Species Struct
+  var agentStruct = { 'name' : variable_name_agent, 'initialNum' : number_num_agents, 'type' : dropdown_type_agent,
+                      'gender' : dropdown_type_gen, 'initialEnergy' : dropdown_type_energy, 'reprodType' : dropdown_type_rep,
+                      'movType' : dropdown_type_mov, 'velocType' : dropdown_type_veloc, 'visType' : dropdown_type_vision
+                    }
+
+  // Breed commands
+  var breedDict = { "person" : "pessoa", "bird" : "ave", "fish" : "peixe" };
+  var breedType = breedDict[dropdown_type_agent];
+
+  var breedCode = "_GLOBAL" + "breed [ " + variable_name_agent + 'Z ' + variable_name_agent + " ]\n";
+
+  // Create-Agent commands
+  // Globals:
+  var agentGlobalsCode = "_GLOBAL" + variable_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao ]\n";
+  
+  var colorCode = "set color ";
+  if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";
+  else if (dropdown_type_gen == "female") colorCode = colorCode + "red\n";
+
+  var energyCode;
+  if(dropdown_type_energy == "inf")
+      energyCode = "set energia -1";
+  else
+      energyCode = "set energia " + dropdown_type_energy;
+  
+  var agentCode = "create-" + variable_name_agent + 'Z' + ' ' + number_num_agents + '[ ' + 
+                  "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + variable_name_agent + "\"" + "\n" + 
+                  "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + energyCode + "\n" + 
+                  "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
+                  "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
+
+
+  globalMapAgentsDeclared[variable_name_agent] = agentStruct;
+  var code = breedCode + agentGlobalsCode + agentCode;
+
+  return code;
+};
+
 Blockly.JavaScript['agent_breed_type'] = function(block) {
   var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
   // TODO: Assemble JavaScript into code variable.

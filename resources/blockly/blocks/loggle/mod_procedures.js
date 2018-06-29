@@ -20,7 +20,7 @@ Blockly.Blocks['proc_consume_energy'] = {
           .appendField("ponto(s) de energia");
       this.appendDummyInput()
           .appendField("do agente:")
-          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.appendDummyInput()
           .appendField("a cada:")
           .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
@@ -39,7 +39,7 @@ Blockly.Blocks['proc_consume_energy'] = {
           .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
           .appendField(new Blockly.FieldNumber(0, 0, 100), "QTD_ENERGY")
           .appendField("ponto(s) de energia do agente:")
-          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -47,7 +47,7 @@ Blockly.Blocks['proc_consume_energy'] = {
    this.setTooltip("Adiciona ou remove uma quantidade de energia do agente especificado. Máximo de 100 unidades.");
    this.setHelpUrl("");
     }
-};
+  };
 
 Blockly.Blocks['proc_reproduce_between_species'] = {
     init: function() {
@@ -55,12 +55,12 @@ Blockly.Blocks['proc_reproduce_between_species'] = {
           .appendField("gerar")
           .appendField(new Blockly.FieldNumber(0, 1, 20), "NUM_CUBS")
           .appendField("filho(s) entre os agentes:")
-          .appendField(new Blockly.FieldTextInput("AGENTE 1"), "NAME_AGENT_1")
+          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1")
           .appendField("e")
-          .appendField(new Blockly.FieldTextInput("AGENTE 2"), "NAME_AGENT_2");
+          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
       this.appendDummyInput()
-          .appendField("com chance de:")
-          .appendField(new Blockly.FieldDropdown([["100%","100"], ["50%","50"], ["25%","25"]]), "REP_CHANCE");
+          .appendField("com chance:")
+          .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE");
       this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
@@ -70,13 +70,13 @@ Blockly.Blocks['proc_reproduce_between_species'] = {
     }
   };
 
-Blockly.Blocks['proc_consume_agent'] = {
+  Blockly.Blocks['proc_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("o agente:")
-          .appendField(new Blockly.FieldTextInput("PREDADOR"), "NAME_AGENT_1")
+          .appendField(new Blockly.FieldVariable("NOME PREDADOR"), "NAME_AGENT_1")
           .appendField("devora o agente:")
-          .appendField(new Blockly.FieldTextInput("PRESA"), "NAME_AGENT_2");
+          .appendField(new Blockly.FieldVariable("NOME PRESA"), "NAME_AGENT_2");
       this.setInputsInline(false);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);

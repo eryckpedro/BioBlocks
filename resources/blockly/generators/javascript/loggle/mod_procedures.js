@@ -34,13 +34,13 @@ Blockly.JavaScript['proc_initiate_movement'] = function(block) {
     return code;
   };
 
-Blockly.JavaScript['proc_consume_energy'] = function(block) {
+  Blockly.JavaScript['proc_consume_energy'] = function(block) {
     var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');
-    var text_name_agent = block.getFieldValue('NAME_AGENT');
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_interval = block.getFieldValue('INTERVAL');
     // TODO: Assemble JavaScript into code variable.
 
-    var code =  'ask ' + text_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
+    var code =  'ask ' + variable_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
                 'set energia energia - ' + dropdown_qtd_energy + ' ]\n\n]';
 
     return code;
@@ -49,7 +49,7 @@ Blockly.JavaScript['proc_consume_energy'] = function(block) {
 Blockly.JavaScript['proc_manage_energy'] = function(block) {
     var dropdown_action_type = block.getFieldValue('ACTION_TYPE');
     var number_qtd_energy = block.getFieldValue('QTD_ENERGY');
-    var text_name_agent = block.getFieldValue('NAME_AGENT');
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     // TODO: Assemble JavaScript into code variable.
 
     var actionCode;
@@ -59,23 +59,23 @@ Blockly.JavaScript['proc_manage_energy'] = function(block) {
     else
         actionCode = ' - ';
 
-    var code = 'ask ' + text_name_agent + 'Z [ set energia energia' + actionCode + number_qtd_energy + ']\n';
+    var code = 'ask ' + variable_name_agent + 'Z [ set energia energia' + actionCode + number_qtd_energy + ']\n';
     return code;
 };
 
 Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
-    var text_name_agent_1 = block.getFieldValue('NAME_AGENT_1');
-    var text_name_agent_2 = block.getFieldValue('NAME_AGENT_2');
+    var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
     var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
     // TODO: Assemble JavaScript into code variable.
 
     var randomBreed;
 
     if(randomIntFromInterval(1,100) % 2 == 0)
-        randomBreed = text_name_agent_1;
+        randomBreed = variable_name_agent_1;
     else
-        randomBreed = text_name_agent_2;
+        randomBreed = variable_name_agent_2;
 
 
     var code = 'if random-float 100 < ' + dropdown_rep_chance + ' [ hatch-' + randomBreed + 'Z ' 
@@ -85,11 +85,10 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
 };
 
 Blockly.JavaScript['proc_consume_agent'] = function(block) {
-    var text_name_agent_1 = block.getFieldValue('NAME_AGENT_1');
-    var text_name_agent_2 = block.getFieldValue('NAME_AGENT_2');
-    // TODO: Assemble JavaScript into code variable.
+    var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
 
-    var dyingAgent = "aux_" + text_name_agent_2;
+    var dyingAgent = "aux_" + variable_name_agent_2;
     var code = "ask " + dyingAgent + ' [ die ]\n';
     
     return code;
