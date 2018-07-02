@@ -84,6 +84,25 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     return code;
 };
 
+Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(block) {
+    var number_num_cubs = block.getFieldValue('NUM_CUBS');
+    var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
+    var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
+    var statements_mutations = Blockly.JavaScript.statementToCode(block, 'MUTATIONS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+};
+
+Blockly.JavaScript['proc_mutation_type_chance'] = function(block) {
+    var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
+    var dropdown_agent_property = block.getFieldValue('AGENT_PROPERTY');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };
+
 Blockly.JavaScript['proc_consume_agent'] = function(block) {
     var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
     var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
