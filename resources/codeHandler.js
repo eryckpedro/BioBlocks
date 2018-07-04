@@ -6,9 +6,6 @@ const BREED_TAG  = "breed [ ";
 const GO_TAG = "_GO";
 const DSP_TAG = "_DSP";
 
-var globalMapAgentsDeclared = {}; // This Dictionary maps all species created by the user
-var globalSimulationSpeed = 0.7; // NetLogo simulation speed in seconds
-
 var breedArray = [];
 var globalsArray = [];
 var allCodeArray = [];
@@ -117,8 +114,6 @@ function generateNLCode()
 
     var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
 
-
-    console.log(globalMapAgentsDeclared);
     return nlCode;
 }
 

@@ -83,30 +83,16 @@ Blockly.Blocks['proc_manage_energy'] = {
       this.appendDummyInput()
           .appendField("com chance")
           .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE")
-          .appendField("de reprodução, com as seguintes mutações:");
-      this.appendStatementInput("MUTATIONS")
-          .setCheck("proc_agt_mut");
+          .appendField("de reprodução e com chance")
+          .appendField(new Blockly.FieldDropdown([["alta","50"], ["média","25"], ["baixa","10"]]), "MUT_CHANCE");
+      this.appendDummyInput()
+          .appendField("de mutação na propriedade")
+          .appendField(new Blockly.FieldDropdown([["energia","energy"], ["movimentação","movement"], ["velocidade","velocity"], ["tipo de visão","vision"]]), "MUT_PROPERTY");
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(0);
-   this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação em característica(s). O gênero será aleatório.");
-   this.setHelpUrl("");
-    }
-  };
-  
-  Blockly.Blocks['proc_mutation_type_chance'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("chance")
-          .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE")
-          .appendField("na característica:")
-          .appendField(new Blockly.FieldDropdown([["energia","energy"], ["movimentação","movement"], ["velocidade","velocity"], ["tipo de visão","vision"]]), "AGENT_PROPERTY");
-      this.setInputsInline(false);
-      this.setPreviousStatement(true, "proc_agt_mut");
-      this.setNextStatement(true, "proc_agt_mut");
-      this.setColour(0);
-   this.setTooltip("Diz uma chance de ocorrer mutação num filho resultante da reprodução entre dois agentes.");
+   this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório.");
    this.setHelpUrl("");
     }
   };

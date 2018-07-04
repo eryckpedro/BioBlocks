@@ -1,3 +1,5 @@
+var globalMutationAgentBreed = '';
+
 function randomIntFromInterval(min,max)
 {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -70,16 +72,9 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
     // TODO: Assemble JavaScript into code variable.
 
-    var randomBreed;
-
-    if(randomIntFromInterval(1,100) % 2 == 0)
-        randomBreed = variable_name_agent_1;
-    else
-        randomBreed = variable_name_agent_2;
-
-
-    var code = 'if random-float 100 < ' + dropdown_rep_chance + ' [ hatch-' + randomBreed + 'Z ' 
-               + number_num_cubs + ' [ rt random-float 360 fd 1 ] ]';
+    var code = 'let rnd random-float 100\n' + 
+               'if rnd < ' + dropdown_rep_chance + '[ hatch ' + number_num_cubs + 
+               ' [ set breed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z) rt random-float 360 fd 1 ] ]';
 
     return code;
 };
@@ -89,17 +84,47 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
     var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
     var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
     var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
-    var statements_mutations = Blockly.JavaScript.statementToCode(block, 'MUTATIONS');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
-    return code;
-};
+    var dropdown_mut_chance = block.getFieldValue('MUT_CHANCE');
+    var dropdown_mut_property = block.getFieldValue('MUT_PROPERTY');
 
-Blockly.JavaScript['proc_mutation_type_chance'] = function(block) {
-    var dropdown_rep_chance = block.getFieldValue('REP_CHANCE');
-    var dropdown_agent_property = block.getFieldValue('AGENT_PROPERTY');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    var listEnergy = "[\"inf\" 500 250 100 50]";
+    var listMovement = "[\"rand\" \"direc\"]";
+    var listVeloc = "[\"normal\" \"fast\" \"slow\"]";
+    var listVision = "[\"circle\" \"square\" \"cone\"]";
+    var attCode;
+    var propValue;
+
+    switch(dropdown_mut_property)
+    {
+        case 'energy':
+            attCode = listEnergy;
+            propValue = "energia";
+            break;
+        
+        case 'movement':
+            attCode = listMovement;
+            propValue = "mov";
+            break;
+        
+        case 'velocity':
+            attCode = listVeloc;
+            propValue = "veloc";
+            break;
+
+        case 'vision':
+            attCode = listVision;
+            propValue = "visao";
+            break;
+    }
+
+    var code =  'let dftPropList ' + attCode + '\n' + 
+                'let rnd random-float 100\n' + 
+                'if rnd < ' + dropdown_rep_chance + '[ hatch ' + number_num_cubs + 
+                ' [ let rndBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
+                'set breed rndBreed ' + 'if rnd < ' + dropdown_mut_chance + 
+                ' [ set color green set dftPropList remove (list ' + "[" + propValue + "] of one-of rndBreed) dftPropList " +
+                'set ' + propValue + ' one-of dftPropList rt random-float 360 fd 1 ] ] ]';
+    
     return code;
   };
 
