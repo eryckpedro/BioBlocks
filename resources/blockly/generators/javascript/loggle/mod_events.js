@@ -44,7 +44,7 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     }
 
     
-    var code = 'count ' + text_name_agent + 'Z ' + compareType + ' ' + number_num_compared;
+    var code = 'count ' + variable_name_agent + 'Z ' + compareType + ' ' + number_num_compared;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 

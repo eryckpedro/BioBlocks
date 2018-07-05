@@ -110,6 +110,7 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
     var code = '_GO';
 
     var goArrStatements = []; goArrStatements.length = 0;
+    var movStatements = []; movStatements.length = 0;
 
     arrStatements = statements_do_statements.split('\n');
 
@@ -118,6 +119,13 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
         goArrStatements.push('_GO' + line + '\n');
     }
 
-    code = code + 'while [true] \n_GO[\n_GOevery ' + globalSimulationSpeed + '\n_GO[tick\n' + goArrStatements.join("") + '\n_GO]\n_GO]\n';
+    for (const line of globalAgentsMovementCode)
+    {
+        movStatements.push('_GO' + line + '\n');
+    }
+
+    code = code + 'while [true] \n_GO[\n_GOevery ' + globalSimulationSpeed + '\n_GO[tick\n' + 
+           movStatements.join("") + goArrStatements.join("") + '\n_GO]\n_GO]\n';
+
     return code;
 };

@@ -55,7 +55,7 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
     var dropdown_mut_property = block.getFieldValue('MUT_PROPERTY');
 
     var listEnergy = "[\"inf\" 500 250 100 50]";
-    var listMovement = "[\"rand\" \"direc\"]";
+    var listMovement = "[\"rand\" \"horiz\" \"vert\" \"diag\"]";
     var listVeloc = "[\"normal\" \"fast\" \"slow\"]";
     var listVision = "[\"circle\" \"square\" \"cone\"]";
     var attCode;
@@ -83,6 +83,10 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
             propValue = "visao";
             break;
     }
+
+    var listHoriz = "(list 90 270)";
+    var listVert = "(list 0 180)";
+    var listDiag = "(list 45 135 225 315)";
 
     var code =  'let dftPropList ' + attCode + '\n' + 
                 'let rnd random-float 100\n' + 
