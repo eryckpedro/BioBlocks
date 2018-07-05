@@ -40,8 +40,12 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
 
     var code = 'let rnd random-float 100\n' + 
-               'if rnd < ' + dropdown_rep_chance + '[ hatch ' + number_num_cubs + 
-               ' [ set breed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z) rt random-float 360 fd 1 ] ]';
+               'if rnd < ' + dropdown_rep_chance + 
+               '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
+               'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
+               ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
+               ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+               ' set heading [heading] of parent\n' + ' rt random-float 360 fd 1 ] ]';
 
     return code;
 };
