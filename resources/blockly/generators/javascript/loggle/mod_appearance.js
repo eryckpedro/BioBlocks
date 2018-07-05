@@ -79,6 +79,46 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
   if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";
   else if (dropdown_type_gen == "female") colorCode = colorCode + "red\n";
 
+  // Managing agent's movement code
+  var headingCode;
+  var agentMovCode;
+  var veloc;
+  switch(dropdown_type_veloc)
+  {
+    case 'normal':
+      veloc = 1;
+      break;
+    case 'slow':
+      veloc = 0.5;
+      break;
+    case 'fast':
+      veloc = 2;
+      break;
+  }
+
+  switch(dropdown_type_mov)
+  {
+    case 'rand':
+      agentMovCode = 'ask ' + variable_name_agent + 'Z [ rt random 50 lt random 50 fd ' + veloc + ' ]\n';
+      headingCode = "(list 0)";
+      break;
+    case 'horiz':
+      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
+      headingCode = "(list 90 270)";
+      break;
+    case 'vert':
+      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
+      headingCode = "(list 0 180)";
+      break;
+    case 'diag':
+      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
+      headingCode = "(list 45 135 225 315)";
+      break;
+
+  }
+
+  globalAgentsMovementCode.push(agentMovCode);
+
   var energyCode;
   if(dropdown_type_energy == "inf")
       energyCode = "set energia -1";
@@ -89,7 +129,8 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
                   "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + variable_name_agent + "\"" + "\n" + 
                   "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + energyCode + "\n" + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
-                  "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + ' ]\n';
+                  "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + "\n" + 
+                  "set heading one-of " + headingCode + " ]\n";
 
 
   globalMapAgentsDeclared[variable_name_agent] = agentStruct;

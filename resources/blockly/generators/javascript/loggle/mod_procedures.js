@@ -1,40 +1,7 @@
-var globalMutationAgentBreed = '';
-
 function randomIntFromInterval(min,max)
 {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-Blockly.JavaScript['proc_initiate_movement'] = function(block) {
-    var text_name_agent = block.getFieldValue('NAME_AGENT');
-    // TODO: Assemble JavaScript into code variable.
-    var code;
-    var veloc;
-
-    switch(globalMapAgentsDeclared[text_name_agent].velocType)
-    {
-        case 'normal':
-            veloc = 1;
-            break;
-        case 'slow':
-            veloc = 0.5;
-            break;
-        case 'fast':
-            veloc = 2;
-            break;
-    }
-
-    if(globalMapAgentsDeclared[text_name_agent].movType == "rand")
-    {
-        code = 'ask ' + text_name_agent + 'Z [ rt random 50 lt random 50 fd ' + veloc + ' ]\n';
-    }
-    else
-    {
-        code = '...\n';
-    }
-    
-    return code;
-  };
 
   Blockly.JavaScript['proc_consume_energy'] = function(block) {
     var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');

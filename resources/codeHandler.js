@@ -112,7 +112,9 @@ function generateNLCode()
         goCode = goCode + goArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
+    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + 
+                 globalAgentsMovementCode.toString().replace(/,/g,'') + goCode + "\nend";
+    globalAgentsMovementCode = [];
 
     return nlCode;
 }

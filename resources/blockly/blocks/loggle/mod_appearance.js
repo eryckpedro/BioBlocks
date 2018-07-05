@@ -75,7 +75,7 @@ Blockly.Blocks['aprnc_create_agent_species'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("movimentação:")
-          .appendField(new Blockly.FieldDropdown([["aleatória","rand"], ["direcionada","direc"]]), "TYPE_MOV");
+          .appendField(new Blockly.FieldDropdown([["aleatória","rand"], ["horizontal","horiz"], ["vertical","vert"], ["diagonal","diag"]]), "TYPE_MOV");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("velocidade:")
@@ -83,7 +83,7 @@ Blockly.Blocks['aprnc_create_agent_species'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("tipo de visão:")
-          .appendField(new Blockly.FieldDropdown([["circular","circle"], ["quadrada","square"], ["cônica","cone"]]), "TYPE_VISION");
+          .appendField(new Blockly.FieldDropdown([["circular","circle"], ["quadrada","square"], ["retangular","rect"]]), "TYPE_VISION");
       this.setPreviousStatement(true, "definition");
       this.setNextStatement(true, ["definition", "loopSim"]);
       this.setColour(120);
