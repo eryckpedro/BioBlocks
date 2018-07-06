@@ -96,22 +96,21 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
       break;
   }
 
+  agentMovCode = 'ask ' + variable_name_agent + 'Z [ifelse mov = "rand" [ rt random 50 lt random 50 fd ' +
+                 veloc + ' ] [ fd ' + veloc + ' ]]\n';
+
   switch(dropdown_type_mov)
   {
     case 'rand':
-      agentMovCode = 'ask ' + variable_name_agent + 'Z [ rt random 50 lt random 50 fd ' + veloc + ' ]\n';
       headingCode = "(list 0)";
       break;
     case 'horiz':
-      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
       headingCode = "(list 90 270)";
       break;
     case 'vert':
-      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
       headingCode = "(list 0 180)";
       break;
     case 'diag':
-      agentMovCode = 'ask ' + variable_name_agent + 'Z [ fd ' + veloc + ' ]\n';
       headingCode = "(list 45 135 225 315)";
       break;
 

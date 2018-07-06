@@ -88,18 +88,19 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
             break;
     }
 
-    var listHoriz = "(list 90 270)";
-    var listVert = "(list 0 180)";
-    var listDiag = "(list 45 135 225 315)";
-
-    var code =  'let dftPropList ' + attCode + '\n' + 
-                'let rnd random-float 100\n' + 
-                'if rnd < ' + dropdown_rep_chance + '[ hatch ' + number_num_cubs + 
-                ' [ let rndBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
-                'set breed rndBreed ' + 'if rnd < ' + dropdown_mut_chance + 
-                ' [ set color green set dftPropList remove (list ' + "[" + propValue + "] of one-of rndBreed) dftPropList " +
-                'set ' + propValue + ' one-of dftPropList rt random-float 360 fd 1 ] ] ]';
-    
+    var code =  'let rnd random-float 100\n' + 'let dftPropList ' + attCode + '\n' +
+                'if rnd < ' + dropdown_rep_chance + 
+                '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
+                'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
+                ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
+                ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+                ' set heading [heading] of parent\n' +
+                'if rnd < ' + dropdown_mut_chance + ' [ set color green set dftPropList remove (list ' + 
+                '[' + propValue + "] of parent) dftPropList " + 'set ' + propValue + ' one-of dftPropList\n' +
+                'if ' + propValue + ' = \"horiz\" [set heading one-of (list 0 180)]\n' +
+                'if ' + propValue + ' = \"vert\" [set heading one-of (list 90 270)]\n' + 
+                'if ' + propValue + ' = \"fiag\" [set heading one-of (list 45 135 225 315)]\n' + '] ] ]';
+                
     return code;
   };
 
