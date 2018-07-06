@@ -87,7 +87,7 @@ Blockly.Blocks['proc_manage_energy'] = {
           .appendField(new Blockly.FieldDropdown([["alta","50"], ["média","25"], ["baixa","10"]]), "MUT_CHANCE");
       this.appendDummyInput()
           .appendField("de mutação na propriedade")
-          .appendField(new Blockly.FieldDropdown([["energia","energy"], ["movimentação","movement"], ["velocidade","velocity"], ["tipo de visão","vision"]]), "MUT_PROPERTY");
+          .appendField(new Blockly.FieldDropdown([["tamanho","size"], ["energia","energy"], ["movimentação","movement"], ["velocidade","velocity"], ["tipo de visão","vision"]]), "MUT_PROPERTY");
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");

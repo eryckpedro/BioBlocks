@@ -53,6 +53,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
   var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
   var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
   var dropdown_type_gen = block.getFieldValue('TYPE_GEN');
+  var dropdown_type_size = block.getFieldValue('TYPE_SIZE');
   var dropdown_type_energy = block.getFieldValue('TYPE_ENERGY');
   var dropdown_type_rep = block.getFieldValue('TYPE_REP');
   var dropdown_type_mov = block.getFieldValue('TYPE_MOV');
@@ -62,7 +63,8 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
   // Assembling the Species Struct
   var agentStruct = { 'name' : variable_name_agent, 'initialNum' : number_num_agents, 'type' : dropdown_type_agent,
                       'gender' : dropdown_type_gen, 'initialEnergy' : dropdown_type_energy, 'reprodType' : dropdown_type_rep,
-                      'movType' : dropdown_type_mov, 'velocType' : dropdown_type_veloc, 'visType' : dropdown_type_vision
+                      'movType' : dropdown_type_mov, 'velocType' : dropdown_type_veloc, 'visType' : dropdown_type_vision,
+                      'size' : dropdown_type_size
                     }
 
   // Breed commands
@@ -118,6 +120,20 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
 
   globalAgentsMovementCode.push(agentMovCode);
 
+  var sizeCode;
+  switch(dropdown_type_size)
+  {
+    case 'normal':
+      sizeCode = "set size 1.5\n";
+      break;
+    case 'small':
+      sizeCode = "set size 1\n";
+      break;
+    case 'large':
+      sizeCode = "set size 2\n";
+      break;
+  }
+
   var energyCode;
   if(dropdown_type_energy == "inf")
       energyCode = "set energia -1";
@@ -125,7 +141,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
       energyCode = "set energia " + dropdown_type_energy;
   
   var agentCode = "create-" + variable_name_agent + 'Z' + ' ' + number_num_agents + '[ ' + 
-                  "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + variable_name_agent + "\"" + "\n" + 
+                  "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + variable_name_agent + "\"" + "\n" + sizeCode + 
                   "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + energyCode + "\n" + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
                   "set veloc " + "\"" + dropdown_type_veloc + "\"" + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + "\n" + 

@@ -44,7 +44,7 @@ Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
                '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
                'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
                ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
-               ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+               ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent set size [size] of parent' + 
                ' set heading [heading] of parent\n' + ' rt random-float 360 fd 1 ] ]';
 
     return code;
@@ -58,6 +58,7 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
     var dropdown_mut_chance = block.getFieldValue('MUT_CHANCE');
     var dropdown_mut_property = block.getFieldValue('MUT_PROPERTY');
 
+    var listSize = "[1 1.5 2]";
     var listEnergy = "[\"inf\" 500 250 100 50]";
     var listMovement = "[\"rand\" \"horiz\" \"vert\" \"diag\"]";
     var listVeloc = "[\"normal\" \"fast\" \"slow\"]";
@@ -67,6 +68,11 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
 
     switch(dropdown_mut_property)
     {
+        case 'size':
+            attCode = listSize;
+            propValue = "size";
+            break;
+
         case 'energy':
             attCode = listEnergy;
             propValue = "energia";
@@ -93,14 +99,14 @@ Blockly.JavaScript['proc_reproduce_between_species_with_mutation'] = function(bl
                 '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
                 'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
                 ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
-                ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+                ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent set size [size] of parent' + 
                 ' set heading [heading] of parent\n' +
                 'if rnd < ' + dropdown_mut_chance + ' [ set color green set dftPropList remove (list ' + 
                 '[' + propValue + "] of parent) dftPropList " + 'set ' + propValue + ' one-of dftPropList\n' +
                 'if ' + propValue + ' = \"horiz\" [set heading one-of (list 0 180)]\n' +
                 'if ' + propValue + ' = \"vert\" [set heading one-of (list 90 270)]\n' + 
                 'if ' + propValue + ' = \"fiag\" [set heading one-of (list 45 135 225 315)]\n' + '] ] ]';
-                
+
     return code;
   };
 

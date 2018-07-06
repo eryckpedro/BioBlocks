@@ -66,6 +66,10 @@ Blockly.Blocks['aprnc_create_agent_species'] = {
           .appendField(new Blockly.FieldDropdown([["masculino","male"], ["feminino","female"]]), "TYPE_GEN");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("tamanho:")
+          .appendField(new Blockly.FieldDropdown([["normal","normal"], ["pequeno","small"], ["grande","large"]]), "TYPE_SIZE");
+      this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("energia:")
           .appendField(new Blockly.FieldDropdown([["infinita","inf"], ["500","500"], ["250","250"], ["100","100"], ["50","50"]]), "TYPE_ENERGY");
       this.appendDummyInput()
