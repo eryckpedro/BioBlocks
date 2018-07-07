@@ -5,13 +5,31 @@ Blockly.Blocks['event_check_collision'] = {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1");
       this.appendDummyInput()
-          .appendField("colidir com o agente:");
+          .appendField("esbarra com o agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
       this.setInputsInline(true);
       this.setOutput(true, "Boolean");
       this.setColour(60);
-   this.setTooltip("");
+   this.setTooltip("Checa se o agente NOME 1 esbarra no agente NOME 2.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['event_check_agent_in_proximity'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("o agente:");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1");
+      this.appendDummyInput()
+          .appendField("avistar o agente:");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
+      this.setInputsInline(true);
+      this.setOutput(true, "Boolean");
+      this.setColour(60);
+   this.setTooltip("Checa se o agente NOME 2 está no campo de visão do agente NOME 1.");
    this.setHelpUrl("");
     }
   };

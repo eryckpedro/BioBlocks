@@ -13,6 +13,34 @@ Blockly.JavaScript['event_check_collision'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.JavaScript['event_check_agent_in_proximity'] = function(block) {
+    var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
+    
+    var awareAgentVisType = globalMapAgentsDeclared[variable_name_agent_1].visType;
+    var DEFAULT_CONE_ANGLE = 60;
+
+    var code;
+
+    switch(awareAgentVisType)
+    {
+        case 'circle':
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
+                   variable_name_agent_2 + 'Z in-radius visRadius ' + '\n';
+            break;
+        
+        case 'cone':
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
+                   variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
+            break;
+        
+        case 'square':
+            code = '...'
+    }
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
+
 Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');

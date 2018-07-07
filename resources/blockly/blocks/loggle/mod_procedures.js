@@ -49,6 +49,20 @@ Blockly.Blocks['proc_manage_energy'] = {
     }
   };
 
+  Blockly.Blocks['proc_agent_flee'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("iniciar fuga do agente:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, "procedure_IF");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Inicia um processo de tentativa de fuga do agente. Somente usado após detecção de um agente pelo outro.");
+   this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['proc_reproduce_between_species'] = {
     init: function() {
       this.appendDummyInput()

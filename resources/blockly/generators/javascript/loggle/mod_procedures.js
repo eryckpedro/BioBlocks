@@ -32,6 +32,13 @@ Blockly.JavaScript['proc_manage_energy'] = function(block) {
     return code;
 };
 
+Blockly.JavaScript['proc_agent_flee'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'rt 180\n';
+    return code;
+  };
+
 Blockly.JavaScript['proc_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
     var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);

@@ -4,7 +4,7 @@ Blockly.Blocks['logic_if'] = {
           .setCheck("Boolean")
           .appendField("se");
       this.appendStatementInput("THEN_VALUE")
-          .setCheck("procedure")
+          .setCheck(["procedure", "procedure_IF"])
           .appendField("então");
       this.setInputsInline(true);
       this.setPreviousStatement(true, "procedure");
