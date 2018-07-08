@@ -43,11 +43,11 @@ h1
     background-color: coral;
     border: none;
     color: white;
-    padding: 8px 8px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     text-shadow: 1px 1px black;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 #envBtn:hover

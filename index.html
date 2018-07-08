@@ -56,7 +56,7 @@
     
     <div id="btnList">
         <button onclick="showNLCode()">Mostrar código NetLogo</button>
-        <button id="envBtn" onclick="sendCodeToNL()">Iniciar Simulação</button>
+        <button id="envBtn" onclick="sendCodeToNL()">►</button>
     </div>
 
     
@@ -111,6 +111,10 @@
         <block type="display_create_graph_num_agents"></block>
         <block type="display_agent_plot_variable"></block>
     </category>-->
+    </xml>
+
+    <xml id="startBlocks" style="display: none">
+        <block type="logic_simulation_while"></block>
     </xml>
 
     <script src="./resources/codeHandler.js"></script>
