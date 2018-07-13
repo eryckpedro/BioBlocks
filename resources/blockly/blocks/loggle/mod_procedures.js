@@ -12,7 +12,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
 
-  Blockly.Blocks['procInd_stop_simulation'] = {
+  Blockly.Blocks['proc_ind_stop_simulation'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("parar simulação");
@@ -25,7 +25,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
   
-  Blockly.Blocks['procInd_consume_energy_over_time'] = {
+  Blockly.Blocks['proc_ind_consume_energy_over_time'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("remover")
@@ -46,7 +46,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
 
-Blockly.Blocks['procInd_manage_energy'] = {
+  Blockly.Blocks['proc_ind_manage_energy'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
@@ -62,7 +62,7 @@ Blockly.Blocks['procInd_manage_energy'] = {
     }
   };
 
-  Blockly.Blocks['procDep_agent_flee'] = {
+  Blockly.Blocks['proc_dep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("iniciar fuga do agente:")
@@ -76,29 +76,29 @@ Blockly.Blocks['procInd_manage_energy'] = {
     }
   };
 
-  Blockly.Blocks['procDep_reproduce_between_species'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("gerar")
-          .appendField(new Blockly.FieldNumber(0, 1, 20), "NUM_CUBS")
-          .appendField("filho(s) entre os agentes:")
-          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1")
-          .appendField("e")
-          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
-      this.appendDummyInput()
-          .appendField("com chance")
-          .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE")
-          .appendField("de reprodução");
-      this.setInputsInline(false);
-      this.setPreviousStatement(true, "procedure");
-      this.setNextStatement(true, "procedure");
-      this.setColour(30);
-   this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório.");
-   this.setHelpUrl("");
-    }
-  };
+  Blockly.Blocks['proc_dep_reproduce_between_species'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("gerar")
+        .appendField(new Blockly.FieldNumber(0, 1, 20), "NUM_CUBS")
+        .appendField("filho(s) entre os agentes:")
+        .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1")
+        .appendField("e")
+        .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
+    this.appendDummyInput()
+        .appendField("com chance")
+        .appendField(new Blockly.FieldDropdown([["alta","100"], ["média","50"], ["baixa","25"]]), "REP_CHANCE")
+        .appendField("de reprodução");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, "procedure_IF");
+    this.setNextStatement(true, "procedure");
+    this.setColour(30);
+ this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório. Somente usado como consequência de evento.");
+ this.setHelpUrl("");
+  }
+};
 
-  Blockly.Blocks['procDep_reproduce_between_species_with_mutation'] = {
+Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("gerar")
@@ -116,15 +116,15 @@ Blockly.Blocks['procInd_manage_energy'] = {
           .appendField("de mutação na propriedade")
           .appendField(new Blockly.FieldDropdown([["tamanho","size"], ["energia","energy"], ["movimentação","movement"], ["velocidade","velocity"], ["tipo de visão","vision"]]), "MUT_PROPERTY");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, "procedure");
+      this.setPreviousStatement(true, "procedure_IF");
       this.setNextStatement(true, "procedure");
       this.setColour(30);
-   this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório.");
+   this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
   };
 
-Blockly.Blocks['procDep_consume_agent'] = {
+  Blockly.Blocks['proc_dep_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("o agente:")
@@ -132,10 +132,10 @@ Blockly.Blocks['procDep_consume_agent'] = {
           .appendField("devora o agente:")
           .appendField(new Blockly.FieldVariable("NOME PRESA"), "NAME_AGENT_2");
       this.setInputsInline(false);
-      this.setPreviousStatement(true, "procedure");
+      this.setPreviousStatement(true, "procedure_IF");
       this.setNextStatement(true, "procedure");
       this.setColour(30);
-   this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o.");
+   this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
   };
