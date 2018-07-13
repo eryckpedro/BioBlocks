@@ -124,8 +124,8 @@ Blockly.JavaScript['logic_while_forever'] = function(block) {
         movStatements.push('_GO' + line + '\n');
     }
 
-    code = code + 'while [true] \n_GO[\n_GOevery ' + globalSimulationSpeed + '\n_GO[tick\n' + 
-           movStatements.join("") + goArrStatements.join("") + '\n_GO]\n_GO]\n';
+    code = code + 'every ' + globalSimulationSpeed + '\n_GO[tick\n' + 
+           movStatements.join("") + goArrStatements.join("") + '\n_GO]\n';
 
     return code;
 };

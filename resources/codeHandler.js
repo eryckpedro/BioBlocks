@@ -153,16 +153,6 @@ function sendCodeToNL()
     var nlModelCode = nlGenMainCode + interfaceTemplate + nlGenInterfCode + bottomTemplate;
 
     fs.writeFileSync(fileDir, nlModelCode);
-
-
-    // var nlCode = generateNLCode();
-
-    // var template = fs.readFileSync('./resources/std_template.txt', 'utf8');
-    // var modelo_dir = './modelo.nlogo';
-
-    // var modelo_code = nlCode + template; //Assembling user generated code + the NetLogo builtin template
-    
-    // fs.writeFileSync(modelo_dir, modelo_code);
     
     // This is for Windows specifically to execute files
     var childProcess = require('child_process');

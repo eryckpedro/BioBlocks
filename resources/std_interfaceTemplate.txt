@@ -51,7 +51,7 @@ BUTTON
 64
 iniciar
 iniciar
-NIL
+T
 1
 T
 OBSERVER

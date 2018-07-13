@@ -94,7 +94,7 @@ h1
 
 #\:3
 {
-    background-color: teal;
+    background-color: rgb(165, 128, 91);
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -102,25 +102,11 @@ h1
 
 #\:3:hover
 {
-    background-color: rgb(13, 87, 87);
+    background-color: rgb(131, 87, 42);
     color: white;
 }
 
 #\:4
-{
-    background-color: goldenrod;
-    color: white;
-    text-shadow: 2px 2px black;
-    padding: 2px;
-}
-
-#\:4:hover
-{
-    background-color: rgb(145, 108, 16);
-    color: white;
-}
-
-#\:5
 {
     background-color: teal;
     color: white;
@@ -128,9 +114,23 @@ h1
     padding: 2px;
 }
 
-#\:5:hover
+#\:4:hover
 {
     background-color: rgb(13, 87, 87);
+    color: white;
+}
+
+#\:5
+{
+    background-color: goldenrod;
+    color: white;
+    text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:5:hover
+{
+    background-color: rgb(145, 108, 16);
     color: white;
 }
 

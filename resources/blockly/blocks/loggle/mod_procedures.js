@@ -11,8 +11,21 @@ Blockly.Blocks['proc_initiate_movement'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['procInd_stop_simulation'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("parar simulação");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Termina a simulação");
+   this.setHelpUrl("");
+    }
+  };
   
-  Blockly.Blocks['proc_consume_energy'] = {
+  Blockly.Blocks['procInd_consume_energy_over_time'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("remover")
@@ -33,7 +46,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
 
-Blockly.Blocks['proc_manage_energy'] = {
+Blockly.Blocks['procInd_manage_energy'] = {
     init: function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
@@ -49,7 +62,7 @@ Blockly.Blocks['proc_manage_energy'] = {
     }
   };
 
-  Blockly.Blocks['proc_agent_flee'] = {
+  Blockly.Blocks['procDep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("iniciar fuga do agente:")
@@ -57,13 +70,13 @@ Blockly.Blocks['proc_manage_energy'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure_IF");
       this.setNextStatement(true, "procedure");
-      this.setColour(0);
+      this.setColour(30);
    this.setTooltip("Inicia um processo de tentativa de fuga do agente. Somente usado após detecção de um agente pelo outro.");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks['proc_reproduce_between_species'] = {
+  Blockly.Blocks['procDep_reproduce_between_species'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("gerar")
@@ -79,13 +92,13 @@ Blockly.Blocks['proc_manage_energy'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
-      this.setColour(0);
+      this.setColour(30);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório.");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks['proc_reproduce_between_species_with_mutation'] = {
+  Blockly.Blocks['procDep_reproduce_between_species_with_mutation'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("gerar")
@@ -105,13 +118,13 @@ Blockly.Blocks['proc_manage_energy'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
-      this.setColour(0);
+      this.setColour(30);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório.");
    this.setHelpUrl("");
     }
   };
 
-Blockly.Blocks['proc_consume_agent'] = {
+Blockly.Blocks['procDep_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("o agente:")
@@ -121,7 +134,7 @@ Blockly.Blocks['proc_consume_agent'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
-      this.setColour(0);
+      this.setColour(30);
    this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o.");
    this.setHelpUrl("");
     }
@@ -143,17 +156,4 @@ Blockly.Blocks['proc_kill_agent'] = {
    this.setHelpUrl("");
     }
 };
-
-Blockly.Blocks['proc_stop_simulation'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("parar simulação");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, "procedure");
-      this.setNextStatement(true, "procedure");
-      this.setColour(0);
-   this.setTooltip("Termina a simulação");
-   this.setHelpUrl("");
-    }
-  };
 

@@ -81,14 +81,16 @@
         <block type="def_agent_global_property_type"></block>
         <block type="def_chg_property2"></block>
     </category>-->
-    <category name="Ações">
-        <block type="proc_consume_energy"></block>
-        <block type="proc_manage_energy"></block>
-        <block type="proc_agent_flee"></block>
-        <block type="proc_consume_agent"></block>
-        <block type="proc_reproduce_between_species"></block>
-        <block type="proc_reproduce_between_species_with_mutation"></block>
-        <block type="proc_stop_simulation"></block>
+    <category name="Ações Livres">
+        <block type="procInd_consume_energy_over_time"></block>
+        <block type="procInd_manage_energy"></block>
+        <block type="procInd_stop_simulation"></block>
+    </category>
+    <category name="Ações de Evento">
+        <block type="procDep_agent_flee"></block>
+        <block type="procDep_consume_agent"></block>
+        <block type="procDep_reproduce_between_species"></block>
+        <block type="procDep_reproduce_between_species_with_mutation"></block>
     </category>
     <category name="Controle">
         <block type="logic_simulation_while"></block>
