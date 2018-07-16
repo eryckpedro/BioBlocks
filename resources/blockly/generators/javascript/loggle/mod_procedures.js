@@ -80,8 +80,9 @@ Blockly.JavaScript['proc_dep_reproduce_between_species'] = function(block) {
                    '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
                    'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
                    ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
-                   ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent set size [size] of parent' + 
-                   ' set heading [heading] of parent\n' + ' rt random-float 360 fd 1 ] ]';
+                   ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' +  
+                   ' set size [size] of parent ' + 'set visRadius [visRadius] of parent ' + 'set heading [heading] of parent\n' + 
+                   ' rt random-float 360 fd 1 ] ]';
     }
 
     return code;
@@ -144,8 +145,8 @@ Blockly.JavaScript['proc_dep_reproduce_between_species_with_mutation'] = functio
                     '[ let childBreed one-of (list ' + variable_name_agent_1 + 'Z ' + variable_name_agent_2 + 'Z)\n' +
                     'let parent one-of (childBreed)\n' + 'hatch ' + number_num_cubs +
                     ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
-                    ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent set size [size] of parent' + 
-                    ' set heading [heading] of parent\n' +
+                    ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+                    ' set size [size] of parent ' + 'set visRadius [visRadius] of parent\n' + 'set heading [heading] of parent\n' +
                     'if rnd < ' + dropdown_mut_chance + ' [ set color green set dftPropList remove (list ' + 
                     '[' + propValue + "] of parent) dftPropList " + 'set ' + propValue + ' one-of dftPropList\n' +
                     'if ' + propValue + ' = \"horiz\" [set heading one-of (list 0 180)]\n' +
