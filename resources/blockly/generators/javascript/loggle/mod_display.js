@@ -3,12 +3,9 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-Blockly.JavaScript['display_monitor_num_agent'] = function(block) {
-    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-
-    var breedName = { "turtle" : "tartarugas", "wolf" : "lobos", "sheep" : "ovelhas" };
-
+Blockly.JavaScript['display_monitor_num_agent2'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
     var randTopPos = randomIntFromInterval(0, 500);
 
     var monitorInfo = {"name": "MONITOR", 
@@ -17,12 +14,9 @@ Blockly.JavaScript['display_monitor_num_agent'] = function(block) {
                        "displayName": "", "srcCode": "",                     //user inputs
                        "precision": 17, "reserved": 1, "fontsize": 11       //netlogo default
                     };
-    
-    monitorInfo.displayName = breedName[value_name_agent];
-    monitorInfo.srcCode = "count " + monitorInfo.displayName;
 
-
-    //alert(JSON.stringify(monitorInfo, null, 4));
+    monitorInfo.displayName = variable_name_agent;
+    monitorInfo.srcCode = "count " + monitorInfo.displayName + 'Z';
 
     var code = "_DSP" + 
                monitorInfo.name + ',' + monitorInfo.leftPos + ',' + monitorInfo.topPos + ',' +
@@ -31,13 +25,12 @@ Blockly.JavaScript['display_monitor_num_agent'] = function(block) {
                monitorInfo.fontsize + '\n';
                
     return code;
+
 };
 
-Blockly.JavaScript['display_create_graph_num_agents'] = function(block) {
+Blockly.JavaScript['display_plot_graphic_agents_time'] = function(block) {
     var statements_name_agents = Blockly.JavaScript.statementToCode(block, 'NAME_AGENTS');
-    // TODO: Assemble JavaScript into code variable.
     
-    var breedName = { "turtle" : "tartarugas", "wolf" : "lobos", "sheep" : "ovelhas" };
     var randTopPos = randomIntFromInterval(0, 500);
 
     var graphInfo = {"name": "PLOT",
@@ -54,14 +47,13 @@ Blockly.JavaScript['display_create_graph_num_agents'] = function(block) {
 
     arrAgents = statements_name_agents.split("\n");
 
-
     for(var i = 0; i < arrAgents.length -1; i++)
     {
-        var defaultPenLine = "\"pen-" + randomIntFromInterval(0, 20) + "\" " + "1.0 " + "0 " + "0 " + "true " + "\"\" ";
+        var defaultPenLine = "\"pen-" + randomIntFromInterval(0, 20) + "\" " + "1.0 " + "0 " + "-16777216 " + "true " + "\"\" ";
         var agentOrigName = arrAgents[i];
-        var agentName = breedName[agentOrigName.trim()];
+        var agentName = agentOrigName.trim();
 
-        arrPenLines.push(defaultPenLine + "\"plot count " + agentName + "\"");
+        arrPenLines.push(defaultPenLine + "\"plot count " + agentName + "Z\"");
     }
 
     var code = "_DSP" + 
@@ -82,10 +74,9 @@ Blockly.JavaScript['display_create_graph_num_agents'] = function(block) {
     return code;
   };
 
-  Blockly.JavaScript['display_agent_plot_variable'] = function(block) {
-    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-
-    var code = value_name_agent + "\n";
+Blockly.JavaScript['display_agent_axis_variable'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    var code = variable_name_agent + '\n';
     return code;
   };
