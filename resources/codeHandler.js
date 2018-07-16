@@ -43,6 +43,7 @@ Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace
 // Generating and managing NetLogo code
 function generateNLCode()
 {
+    globalValidationMode = true;
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     var blocksCode = Blockly.JavaScript.workspaceToCode(demoWorkspace);
 
@@ -153,12 +154,15 @@ function sendCodeToNL()
     var nlModelCode = nlGenMainCode + interfaceTemplate + nlGenInterfCode + bottomTemplate;
 
     fs.writeFileSync(fileDir, nlModelCode);
-    
-    // This is for Windows specifically to execute files
-    var childProcess = require('child_process');
-    childProcess.exec('start ' + fileDir, function (err, stdout, stderr) {
-    if (err) {
-        console.error(err);
-        return;
-    }});
+
+    if(globalValidationMode)
+    {
+        // This is for Windows specifically to execute files
+        var childProcess = require('child_process');
+        childProcess.exec('start ' + fileDir, function (err, stdout, stderr) {
+        if (err) {
+            console.error(err);
+            return;
+        }});
+    }
 }

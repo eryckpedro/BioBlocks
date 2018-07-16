@@ -62,6 +62,27 @@ Blockly.Blocks['proc_initiate_movement'] = {
     }
   };
 
+  Blockly.Blocks['proc_ind_reproduce_assex_agents'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("gerar")
+          .appendField(new Blockly.FieldNumber(0, 1, 20), "NUM_CUBS")
+          .appendField("filho(s) do agente")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.appendDummyInput()
+          .appendField("reproduzindo-se assexuadamente");
+      this.appendDummyInput()
+          .appendField("a cada:")
+          .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Gera filhos de um agente com reprodução assexuada a cada intervalo de tempo especificado. Máximo de 20 filhos.");
+   this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['proc_dep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()
