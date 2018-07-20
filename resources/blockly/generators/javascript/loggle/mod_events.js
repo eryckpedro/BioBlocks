@@ -34,8 +34,9 @@ Blockly.JavaScript['event_check_agent_in_proximity'] = function(block) {
                    variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
             break;
         
-        case 'square':
-            code = '...'
+        case 'blind':
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
+                    variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
     }
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];

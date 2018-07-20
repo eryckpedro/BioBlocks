@@ -36,6 +36,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
   var headingCode;
   var agentMovCode;
   var veloc;
+
   switch(dropdown_type_veloc)
   {
     case 'normal':
@@ -49,8 +50,8 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
       break;
   }
 
-  agentMovCode = 'ask ' + variable_name_agent + 'Z [ifelse mov = "rand" [ rt random 50 lt random 50 fd ' +
-                 veloc + ' ] [ fd ' + veloc + ' ]]\n';
+  if(dropdown_type_mov == "immobile")
+    veloc = 0;
 
   switch(dropdown_type_mov)
   {
@@ -66,8 +67,13 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
     case 'diag':
       headingCode = "(list 45 135 225 315)";
       break;
-
+    case 'immobile':
+      headingCode = "(list 0)";
+      break;
   }
+
+  agentMovCode = 'ask ' + variable_name_agent + 'Z [ifelse mov = "rand" [ rt random 50 lt random 50 fd ' +
+                 veloc + ' ] [ fd ' + veloc + ' ]]\n';
 
   globalAgentsMovementCode.push(agentMovCode);
 
@@ -100,6 +106,9 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
       visionRadCode = "set visRadius 6\n";
       break;
   }
+
+  if(dropdown_type_vision == "blind")
+    visionRadCode = "set visRadius 0\n";
 
   // Managing agent's energy code
   var energyCode;
