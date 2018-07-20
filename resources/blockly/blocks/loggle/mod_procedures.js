@@ -1,18 +1,4 @@
-Blockly.Blocks['proc_initiate_movement'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("iniciar movimentação do agente:")
-          .appendField(new Blockly.FieldTextInput("AGENTE"), "NAME_AGENT");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(0);
-   this.setTooltip("Inicia o tipo de movimento do agente especificado.");
-   this.setHelpUrl("");
-    }
-  };
-
-  Blockly.Blocks['proc_ind_stop_simulation'] = {
+Blockly.Blocks['proc_ind_stop_simulation'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("parar simulação");
@@ -32,7 +18,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
           .appendField(new Blockly.FieldDropdown([["1","1"], ["5","5"], ["10","10"]]), "QTD_ENERGY")
           .appendField("ponto(s) de energia");
       this.appendDummyInput()
-          .appendField("do agente:")
+          .appendField("de todos agentes:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.appendDummyInput()
           .appendField("a cada:")
@@ -41,7 +27,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(0);
-   this.setTooltip("Remove quantidade de energia do agente a cada intervalo especificado.");
+   this.setTooltip("Remove quantidade de energia de todos agentes do tipo especificado a cada intervalo.");
    this.setHelpUrl("");
     }
   };
@@ -51,26 +37,26 @@ Blockly.Blocks['proc_initiate_movement'] = {
       this.appendDummyInput()
           .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
           .appendField(new Blockly.FieldNumber(0, 0, 100), "QTD_ENERGY")
-          .appendField("ponto(s) de energia do agente:")
+          .appendField("ponto(s) de energia de todos agentes:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(0);
-   this.setTooltip("Adiciona ou remove uma quantidade de energia do agente especificado. Máximo de 100 unidades.");
+   this.setTooltip("Adiciona ou remove uma quantidade de energia de todos agentes do tipo especificado. Máximo de 100 unidades.");
    this.setHelpUrl("");
     }
   };
 
-  Blockly.Blocks['proc_ind_reproduce_assex_agents'] = {
+  Blockly.Blocks['proc_ind_reproduce_assex_agents_over_time'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("gerar")
           .appendField(new Blockly.FieldNumber(0, 1, 20), "NUM_CUBS")
-          .appendField("filho(s) do agente")
-          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+          .appendField("filho(s), assexuadamente,");
       this.appendDummyInput()
-          .appendField("reproduzindo-se assexuadamente");
+          .appendField("de todos os agentes do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
       this.appendDummyInput()
           .appendField("a cada:")
           .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
@@ -78,7 +64,7 @@ Blockly.Blocks['proc_initiate_movement'] = {
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(0);
-   this.setTooltip("Gera filhos de um agente com reprodução assexuada a cada intervalo de tempo especificado. Máximo de 20 filhos.");
+   this.setTooltip("Gera filhos de todos os agentes do tipo especificado, com reprodução assexuada, a cada intervalo de tempo especificado. Máximo de 20 filhos.");
    this.setHelpUrl("");
     }
   };

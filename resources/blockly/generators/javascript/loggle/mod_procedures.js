@@ -32,7 +32,7 @@ Blockly.JavaScript['proc_ind_manage_energy'] = function(block) {
     return code;
 };
 
-Blockly.JavaScript['proc_ind_reproduce_assex_agents'] = function(block) {
+Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_interval = block.getFieldValue('INTERVAL');

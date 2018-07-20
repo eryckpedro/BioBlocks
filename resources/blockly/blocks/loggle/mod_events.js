@@ -5,13 +5,13 @@ Blockly.Blocks['event_check_collision'] = {
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1");
       this.appendDummyInput()
-          .appendField("esbarra com o agente:");
+          .appendField("encontrar com o agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
       this.setInputsInline(true);
       this.setOutput(true, "Boolean");
       this.setColour(60);
-   this.setTooltip("Checa se o agente NOME 1 esbarra no agente NOME 2.");
+   this.setTooltip("Checa se o agente NOME 1 colide no agente NOME 2.");
    this.setHelpUrl("");
     }
   };

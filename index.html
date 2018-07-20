@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>VisualNLogo: Ambiente de Programação Visual para o NetLogo</title>
+    <title>BioBlocks: Ambiente de Programação Visual para o NetLogo</title>
 
     <script src="./resources/globals.js"></script>
     <link rel="stylesheet" href="./resources/styles.css">
@@ -70,22 +70,11 @@
         <block type="aprnc_create_agent_species2"></block>
         <block type="aprnc_set_all_patch_color"></block>
     </category>
-    <!--
-    <category name="Definição">
-        <block type="def_breed_agent2"></block>
-        <block type="def_agent_property"></block>
-        <block type="def_agent_property_type_num"></block>
-        <block type="def_agent_property_type_color"></block>
-        <block type="def_set_global_properties"></block>
-        <block type="def_agent_global_property"></block>
-        <block type="def_agent_global_property_type"></block>
-        <block type="def_chg_property2"></block>
-    </category>-->
     <category name="Ações Livres">
         <block type="proc_ind_consume_energy_over_time"></block>
         <block type="proc_ind_manage_energy"></block>
+        <block type="proc_ind_reproduce_assex_agents_over_time"></block>
         <block type="proc_ind_stop_simulation"></block>
-        <block type="proc_ind_reproduce_assex_agents"></block>
     </category>
     <category name="Ações de Evento">
         <block type="proc_dep_agent_flee"></block>
@@ -108,17 +97,6 @@
         <block type="display_plot_graphic_agents_time"></block>
         <block type="display_agent_axis_variable"></block>
     </category>
-    <!--
-    <category name="Matemática">
-        <block type="math_number"></block>
-        <block type="math_oper_with_properties"></block>
-        <block type="math_single"></block>
-    </category>
-    <category name="Display">
-        <block type="display_monitor_num_agent"></block>
-        <block type="display_create_graph_num_agents"></block>
-        <block type="display_agent_plot_variable"></block>
-    </category>-->
     </xml>
 
     <xml id="startBlocks" style="display: none">
