@@ -77,10 +77,9 @@ h1
     color: white;
 }
 
-
 #\:2
 {
-    background-color: brown;
+    background-color: seagreen;
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -88,27 +87,19 @@ h1
 
 #\:2:hover
 {
-    background-color: rgb(90, 12, 12);
+    background-color: rgb(13, 83, 44);
     color: white;
 }
 
-#\:3
+#\:3 /*separator*/
 {
-    background-color: rgb(165, 128, 91);
-    color: white;
-    text-shadow: 2px 2px black;
-    padding: 2px;
-}
-
-#\:3:hover
-{
-    background-color: rgb(131, 87, 42);
-    color: white;
+    background-color: rgb(47,47,47);
+    padding: 4px;
 }
 
 #\:4
 {
-    background-color: teal;
+    background-color: brown;
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -116,13 +107,13 @@ h1
 
 #\:4:hover
 {
-    background-color: rgb(13, 87, 87);
+    background-color: rgb(90, 12, 12);
     color: white;
 }
 
 #\:5
 {
-    background-color: goldenrod;
+    background-color: rgb(165, 128, 91);
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -130,13 +121,13 @@ h1
 
 #\:5:hover
 {
-    background-color: rgb(145, 108, 16);
+    background-color: rgb(131, 87, 42);
     color: white;
 }
 
 #\:6
 {
-    background-color: seagreen;
+    background-color: teal;
     color: white;
     text-shadow: 2px 2px black;
     padding: 2px;
@@ -144,11 +135,25 @@ h1
 
 #\:6:hover
 {
-    background-color: rgb(13, 83, 44);
+    background-color: rgb(13, 87, 87);
     color: white;
 }
 
 #\:7
+{
+    background-color: goldenrod;
+    color: white;
+    text-shadow: 2px 2px black;
+    padding: 2px;
+}
+
+#\:7:hover
+{
+    background-color: rgb(145, 108, 16);
+    color: white;
+}
+
+#\:8
 {
     background-color: seagreen;
     color: white;
@@ -156,7 +161,7 @@ h1
     padding: 2px;
 }
 
-#\:7:hover
+#\:8:hover
 {
     background-color: rgb(13, 83, 44);
     color: white;
