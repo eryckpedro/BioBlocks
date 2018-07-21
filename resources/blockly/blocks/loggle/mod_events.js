@@ -1,11 +1,11 @@
 Blockly.Blocks['event_check_collision'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("o agente:");
+          .appendField("um agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1");
       this.appendDummyInput()
-          .appendField("encontrar com o agente:");
+          .appendField("encontrar com um agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
       this.setInputsInline(true);
@@ -19,11 +19,11 @@ Blockly.Blocks['event_check_collision'] = {
   Blockly.Blocks['event_check_agent_in_proximity'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("o agente:");
+          .appendField("um agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_1");
       this.appendDummyInput()
-          .appendField("avistar o agente:");
+          .appendField("avistar um agente:");
       this.appendDummyInput()
           .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_2");
       this.setInputsInline(true);

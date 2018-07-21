@@ -72,13 +72,14 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
   Blockly.Blocks['proc_dep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("iniciar fuga do agente:")
-          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+          .appendField("esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
+          .appendField("foge");
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure_IF");
       this.setNextStatement(true, "procedure");
       this.setColour(30);
-   this.setTooltip("Inicia um processo de tentativa de fuga do agente. Somente usado após detecção de um agente pelo outro.");
+   this.setTooltip("Processo de tentativa de fuga do agente especificado no evento. Somente usado após detecção de um agente pelo outro.");
    this.setHelpUrl("");
     }
   };
@@ -134,15 +135,14 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
   Blockly.Blocks['proc_dep_consume_agent'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("o agente:")
-          .appendField(new Blockly.FieldVariable("NOME PREDADOR"), "NAME_AGENT_1")
-          .appendField("devora o agente:")
-          .appendField(new Blockly.FieldVariable("NOME PRESA"), "NAME_AGENT_2");
+          .appendField("esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT_2")
+          .appendField("morre");
       this.setInputsInline(false);
       this.setPreviousStatement(true, "procedure_IF");
       this.setNextStatement(true, "procedure");
       this.setColour(30);
-   this.setTooltip("Cria uma interação em que um agente devora o outro, matando-o. Somente usado como consequência de evento.");
+   this.setTooltip("Procedimento em que o agente, especificado pelo evento, morre. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
   };

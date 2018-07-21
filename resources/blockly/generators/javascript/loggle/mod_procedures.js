@@ -158,7 +158,6 @@ Blockly.JavaScript['proc_dep_reproduce_between_species_with_mutation'] = functio
   };
 
 Blockly.JavaScript['proc_dep_consume_agent'] = function(block) {
-    var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
     var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
 
     var dyingAgent = "aux_" + variable_name_agent_2;
