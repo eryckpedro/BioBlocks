@@ -157,25 +157,23 @@ Blockly.JavaScript['proc_dep_reproduce_between_species_with_mutation'] = functio
     return code;
   };
 
-Blockly.JavaScript['proc_dep_consume_agent'] = function(block) {
-    var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
+Blockly.JavaScript['proc_dep_kill_specific_agent'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var code;
 
-    var dyingAgent = "aux_" + variable_name_agent_2;
-    var code = "ask " + dyingAgent + ' [ die ]\n';
-    
+    var auxVar = globalListAuxVarInfo.pop();
+    code = 'ask ' + auxVar[variable_name_agent] + ' [ die ]\n';
+
     return code;
   };
 
-Blockly.JavaScript['proc_kill_agent'] = function(block) {
-    var value_name_agent = Blockly.JavaScript.valueToCode(block, 'NAME_AGENT', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
+Blockly.JavaScript['proc_ind_kill_all_agents'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    var code = 'ask ' + variable_name_agent + 'Z [ die ]\n';
 
-    var breedDict = { "turtle" : "tartaruga", "wolf" : "lobo", "sheep" : "ovelha" };
-
-    // The name formula is "aux_<AgentNamePortuguese>"
-    var code = 'ask aux_' + breedDict[value_name_agent] + ' [ die ]\n';
     return code;
-};
+  };
 
 Blockly.JavaScript['proc_ind_stop_simulation'] = function(block) {
     // TODO: Assemble JavaScript into code variable.

@@ -69,6 +69,20 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
     }
   };
 
+  Blockly.Blocks['proc_ind_kill_all_agents'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("matar todos os agentes do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Mata todos os agentes do tipo especificado.");
+   this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['proc_dep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()
@@ -128,6 +142,20 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setNextStatement(true, "procedure");
       this.setColour(30);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['proc_dep_kill_specific_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("matar esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, "procedure_IF");
+      this.setNextStatement(true, "procedure");
+      this.setColour(30);
+   this.setTooltip("Procedimento que mata o agente especificado pelo evento. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
   };

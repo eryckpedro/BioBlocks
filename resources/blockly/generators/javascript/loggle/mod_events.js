@@ -3,13 +3,29 @@ Blockly.JavaScript['event_check_collision'] = function(block) {
     var variable_name_agent_2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_2'), Blockly.Variables.NAME_TYPE);
     
     // Creating auxiliary variables that will perform the collision check
-    var codeAgent1 = 'let ' + 'aux_' + variable_name_agent_1 + ' one-of ' + variable_name_agent_1 + 'Z' + '-here\n';
-    var codeAgent2 = 'let ' + 'aux_' + variable_name_agent_2 + ' one-of ' + variable_name_agent_2 + 'Z' + '-here\n';
+    globalCounterAuxVarNames++;
+    var nameAuxVar1 = 'aux_' + variable_name_agent_1 + '_' + globalCounterAuxVarNames;
 
-    var codeIF = 'if ( ' + 'aux_' + variable_name_agent_1 + ' != nobody and ' + 'aux_' + variable_name_agent_2 + ' != nobody )\n';
+    globalCounterAuxVarNames++;
+    var nameAuxVar2 = 'aux_' + variable_name_agent_2 + '_' + globalCounterAuxVarNames;
+
+    var codeAgent1 = 'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + 'Z' + '-here\n';
+    var codeAgent2 = 'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z' + '-here\n';
+
+    var codeIF = 'if ( ' + nameAuxVar1 + ' != nobody and ' + nameAuxVar2 + ' != nobody )\n';
 
     // Assembling the final code
     var code = 'ask ' + variable_name_agent_1 + 'Z [\n'+ codeAgent1 + codeAgent2 + codeIF;
+
+    var auxVarInfo = {};
+
+    auxVarInfo[variable_name_agent_1] = nameAuxVar1;
+    auxVarInfo[variable_name_agent_2] = nameAuxVar2;
+
+    console.log(auxVarInfo);
+
+    globalListAuxVarInfo.push(auxVarInfo);
+
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
