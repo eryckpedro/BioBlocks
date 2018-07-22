@@ -4,3 +4,13 @@ var globalCounterAuxVarNames = 0;   // This guarantees no NetLogo created aux va
 var globalListAuxVarInfo = [];      // This keeps a record of all NetLogo created aux variables' info struct
 var globalValidationMode = true;    // This boolean decides if NetLogo can run with the following code
 var globalAgentsMovementCode = [];  // This array maintains the code that keeps the agents moving accordingly
+
+function resetGlobalVariables()
+{
+    var globalMapAgentsDeclared = {};   
+    var globalSimulationSpeed = 0.7;    
+    var globalCounterAuxVarNames = 0;   
+    var globalListAuxVarInfo = [];      
+    var globalValidationMode = true;    
+    var globalAgentsMovementCode = [];  
+}

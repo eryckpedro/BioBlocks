@@ -9,6 +9,10 @@ Blockly.JavaScript['logic_if'] = function(block) {
     {
         code = value_if_value + ' [ ' + statements_then_value.trim() + ' ]]\n';
     }
+    else if(value_if_value.startsWith("let"))
+    {
+        code = value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
+    }
     else
     {
         code = 'if ' + value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';

@@ -155,6 +155,8 @@ function sendCodeToNL()
 
     fs.writeFileSync(fileDir, nlModelCode);
 
+    resetGlobalVariables();
+
     if(globalValidationMode)
     {
         // This is for Windows specifically to execute files

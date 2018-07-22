@@ -22,8 +22,6 @@ Blockly.JavaScript['event_check_collision'] = function(block) {
     auxVarInfo[variable_name_agent_1] = nameAuxVar1;
     auxVarInfo[variable_name_agent_2] = nameAuxVar2;
 
-    console.log(auxVarInfo);
-
     globalListAuxVarInfo.push(auxVarInfo);
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -38,22 +36,40 @@ Blockly.JavaScript['event_check_agent_in_proximity'] = function(block) {
 
     var code;
 
+    globalCounterAuxVarNames++;
+    var nameAuxVar1 = 'aux_' + variable_name_agent_1 + '_' + globalCounterAuxVarNames;
+
+    globalCounterAuxVarNames++;
+    var nameAuxVar2 = 'aux_' + variable_name_agent_2 + '_' + globalCounterAuxVarNames;
+
     switch(awareAgentVisType)
     {
         case 'circle':
-            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
-                   variable_name_agent_2 + 'Z in-radius visRadius ' + '\n';
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 
+                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + 'Z-here\n' +
+                   'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-radius visRadius\n' + 
+                   'if any? ' + variable_name_agent_2 + 'Z in-radius visRadius ' + '\n';
             break;
         
         case 'cone':
-            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
-                   variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 
+                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + '-here\n' +
+                   'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-cone visRadius' + DEFAULT_CONE_ANGLE + '\n' +
+                   'if any? ' + variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
             break;
         
         case 'blind':
-            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 'if any? ' + 
-                    variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
+            code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 
+                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + '-here\n' +
+                   'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-radius visRadius\n' + 
+                   'if any? ' + variable_name_agent_2 + 'Z in-radius visRadius ' + '\n';
     }
+
+    var auxVarInfo = {};
+
+    auxVarInfo[variable_name_agent_1] = nameAuxVar1;
+    auxVarInfo[variable_name_agent_2] = nameAuxVar2;
+    globalListAuxVarInfo.push(auxVarInfo);
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -121,6 +137,19 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
             break;
     }
 
-    var code = 'any? ' + variable_name_agent + 'Z with [ energia ' + compareType + ' ' + number_num_compared + ' ]';
-    return [code, Blockly.JavaScript.ORDER_NONE];
+    globalCounterAuxVarNames++;
+    var nameAuxVar = 'aux_' + variable_name_agent + '_' + globalCounterAuxVarNames;
+
+    var codeSetVal = 'let ' + nameAuxVar + ' ' + variable_name_agent + 'Z with [ energia ' + compareType + ' ' + number_num_compared + ' ]\n';
+    var codeIF = 'if count ' + nameAuxVar + ' > 0 ';
+
+    var code = codeSetVal + codeIF;
+
+    var auxVarInfo = {};
+
+    auxVarInfo[variable_name_agent] = nameAuxVar;
+    globalListAuxVarInfo.push(auxVarInfo);
+
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };

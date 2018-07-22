@@ -55,8 +55,11 @@ Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block
 
 Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    // TODO: Assemble JavaScript into code variable.
-    var code = 'rt 180\n';
+    var code;
+
+    var auxVar = globalListAuxVarInfo.pop();
+    code = 'ask ' + auxVar[variable_name_agent] + ' [ rt 180 ]\n';
+
     return code;
   };
 
