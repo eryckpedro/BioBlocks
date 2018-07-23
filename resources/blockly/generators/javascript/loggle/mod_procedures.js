@@ -3,7 +3,21 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-  Blockly.JavaScript['proc_ind_consume_energy_over_time'] = function(block) {
+Blockly.JavaScript['proc_ind_kill_all_agents'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    var code = 'ask ' + variable_name_agent + 'Z [ die ]\n';
+
+    return code;
+  };
+
+Blockly.JavaScript['proc_ind_stop_simulation'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'stop';
+    return code;
+  };
+
+Blockly.JavaScript['proc_ind_consume_energy_over_time'] = function(block) {
     var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_interval = block.getFieldValue('INTERVAL');
@@ -49,16 +63,6 @@ Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block
         code =  'ask ' + variable_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
                 'hatch ' + number_num_cubs + ' ]\n\n]';
     }
-
-    return code;
-  };
-
-Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
-    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    var code;
-
-    var auxVar = globalListAuxVarInfo.pop();
-    code = 'ask ' + auxVar[variable_name_agent] + ' [ rt 180 ]\n';
 
     return code;
   };
@@ -160,26 +164,47 @@ Blockly.JavaScript['proc_dep_reproduce_between_species_with_mutation'] = functio
     return code;
   };
 
+Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var code;
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar[variable_name_agent] + ' [ rt 180 ]\n';
+
+    return code;
+  };
+
 Blockly.JavaScript['proc_dep_kill_specific_agent'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var code;
+    var listCopy = [];
 
-    var auxVar = globalListAuxVarInfo.pop();
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
     code = 'ask ' + auxVar[variable_name_agent] + ' [ die ]\n';
 
     return code;
   };
 
-Blockly.JavaScript['proc_ind_kill_all_agents'] = function(block) {
+Blockly.JavaScript['proc_dep_manage_energy_specific'] = function(block) {
+    var dropdown_action_type = block.getFieldValue('ACTION_TYPE');
+    var number_qtd_energy = block.getFieldValue('QTD_ENERGY');
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     
-    var code = 'ask ' + variable_name_agent + 'Z [ die ]\n';
+    var actionCode;
 
-    return code;
-  };
+    if(dropdown_action_type == "add")
+        actionCode = ' + ';
+    else
+        actionCode = ' - ';
 
-Blockly.JavaScript['proc_ind_stop_simulation'] = function(block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = 'stop';
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    var code = 'ask ' + auxVar[variable_name_agent] + ' [ set energia energia' + actionCode + number_qtd_energy + ']\n';
+
     return code;
   };

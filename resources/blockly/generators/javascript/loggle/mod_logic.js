@@ -17,6 +17,7 @@ Blockly.JavaScript['logic_if'] = function(block) {
     {
         code = 'if ' + value_if_value + ' [ ' + statements_then_value.trim() + ' ]\n';
     }
+
     return code;
 };
 
