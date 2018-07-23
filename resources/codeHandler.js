@@ -155,7 +155,7 @@ function sendCodeToNL()
 
     fs.writeFileSync(fileDir, nlModelCode);
 
-    //resetGlobalVariables();
+    resetGlobalVariables();
 
     if(globalValidationMode)
     {

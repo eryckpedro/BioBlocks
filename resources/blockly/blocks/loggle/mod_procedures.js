@@ -83,6 +83,22 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
     }
   };
 
+  Blockly.Blocks['proc_ind_hatch_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("gerar")
+          .appendField(new Blockly.FieldNumber(0, 0, 20), "NUM_AGENTS")
+          .appendField("agente(s) do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Adiciona à simulação uma quantidade do tipo de agentes especificado. Eles surgirão em posições aleatórias. Máximo de 20 agentes.");
+   this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['proc_dep_agent_flee'] = {
     init: function() {
       this.appendDummyInput()

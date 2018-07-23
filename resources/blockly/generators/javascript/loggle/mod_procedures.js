@@ -67,6 +67,18 @@ Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block
     return code;
   };
 
+
+  Blockly.JavaScript['proc_ind_hatch_agent'] = function(block) {
+    var number_num_agents = block.getFieldValue('NUM_AGENTS');
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    globalCounterAuxVarNames++;
+    var code = 'let aux' + globalCounterAuxVarNames + ' one-of ' + variable_name_agent + 'Z\n' + 
+               'ask aux' + globalCounterAuxVarNames + ' [hatch-' + variable_name_agent + 'Z ' + number_num_agents + ']\n';
+
+    return code;
+  };
+
 Blockly.JavaScript['proc_dep_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
     var variable_name_agent_1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_1'), Blockly.Variables.NAME_TYPE);
