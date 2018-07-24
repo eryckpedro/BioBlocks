@@ -1,13 +1,14 @@
-# Loggle
+# BioBlocks
 Ambiente de Programação Visual para o software NetLogo
 
 # Objetivos
 Abstração da linguagem de programação do NetLogo, software de Modelagem Baseada em Agentes, 
-para difundir o uso a mais possíveis usuários e possibilitar mais formas de exploração como 
-Pensamento Computacional e noções de Sistemas Complexos.
+para difundir o uso a professores e alunos do Ensino Fundamental II no ensino/aprendizagem
+de biologia. Possibilita expanções de seu uso a áreas como Pensamento Computacional e
+Noções de Sistemas Complexos.
 
 # Arquitetura
-Feito em JavaScript com NodeJS e Electron.
+Feito em JavaScript com Google Blockly, NodeJS e Electron.
 
 # Requisitos para compilação
 Software NetLogo (disponível em: http://ccl.northwestern.edu/netlogo/)
