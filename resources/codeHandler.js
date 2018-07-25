@@ -143,8 +143,16 @@ function showNLCode()
 
 function sendCodeToNL() 
 {
-    var nlGenMainCode = generateNLCode();
-    var nlGenInterfCode = generateNLInterfaceCode();
+    try 
+    {
+        var nlGenMainCode = generateNLCode();
+        var nlGenInterfCode = generateNLInterfaceCode();
+    } 
+    catch (error) 
+    {
+        alert(error);
+        globalValidationMode = false;
+    }
 
     var interfaceTemplate = fs.readFileSync('./resources/std_interfaceTemplate.txt', 'utf8');
     var bottomTemplate = fs.readFileSync('./resources/std_bottomTemplate.txt', 'utf8');
@@ -154,6 +162,10 @@ function sendCodeToNL()
     var nlModelCode = nlGenMainCode + interfaceTemplate + nlGenInterfCode + bottomTemplate;
 
     fs.writeFileSync(fileDir, nlModelCode);
+
+    var modelTxt = fs.readFileSync('./modelo.nlogo', 'utf8');
+    var lastErrorCheck = modelTxt.search('undefined');
+    if(lastErrorCheck != -1) { alert("Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
 
     resetGlobalVariables();
 

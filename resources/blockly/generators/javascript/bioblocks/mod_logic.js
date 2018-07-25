@@ -3,6 +3,12 @@ Blockly.JavaScript['logic_if'] = function(block) {
     var statements_then_value = Blockly.JavaScript.statementToCode(block, 'THEN_VALUE');
     
     var code;
+
+    if(value_if_value == '')
+    {
+        alert("Erro: condição do bloco IF está vazia.");
+        globalValidationMode = false;
+    }
     
     // this checks if it's a collision detection command: it needs to add 2 aux variables before the IF statement
     if(value_if_value.startsWith("ask")) 

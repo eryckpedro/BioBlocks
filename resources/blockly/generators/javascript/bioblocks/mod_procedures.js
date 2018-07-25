@@ -17,18 +17,6 @@ Blockly.JavaScript['proc_ind_stop_simulation'] = function(block) {
     return code;
   };
 
-Blockly.JavaScript['proc_ind_consume_energy_over_time'] = function(block) {
-    var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');
-    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    var dropdown_interval = block.getFieldValue('INTERVAL');
-    // TODO: Assemble JavaScript into code variable.
-
-    var code =  'ask ' + variable_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
-                'set energia energia - ' + dropdown_qtd_energy + ' ]\n\n]';
-
-    return code;
-};
-
 Blockly.JavaScript['proc_ind_manage_energy'] = function(block) {
     var dropdown_action_type = block.getFieldValue('ACTION_TYPE');
     var number_qtd_energy = block.getFieldValue('QTD_ENERGY');
@@ -36,6 +24,12 @@ Blockly.JavaScript['proc_ind_manage_energy'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
 
     var actionCode;
+
+    if(globalMapAgentsDeclared[variable_name_agent].initialEnergy == 'inf')
+    {
+        alert("Erro: o agente " + variable_name_agent + " possui energia infinita.");
+        globalValidationMode = false;
+    }
 
     if(dropdown_action_type == "add")
         actionCode = ' + ';
@@ -45,6 +39,29 @@ Blockly.JavaScript['proc_ind_manage_energy'] = function(block) {
     var code = 'ask ' + variable_name_agent + 'Z [ set energia energia' + actionCode + number_qtd_energy + ']\n';
     return code;
 };
+
+Blockly.JavaScript['proc_ind_manage_energy_over_time'] = function(block) {
+    var dropdown_action_type = block.getFieldValue('ACTION_TYPE');
+    var dropdown_qtd_energy = block.getFieldValue('QTD_ENERGY');
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var dropdown_interval = block.getFieldValue('INTERVAL');
+    
+    if(globalMapAgentsDeclared[variable_name_agent].initialEnergy == 'inf')
+    {
+        alert("Erro: o agente " + variable_name_agent + " possui energia infinita.");
+        globalValidationMode = false;
+    }
+
+    var actionCode;
+    if(dropdown_action_type == "add")
+        actionCode = ' + ';
+    else
+        actionCode = ' - ';
+
+    var code =  'ask ' + variable_name_agent + 'Z [\n' + 'if ticks mod ' + dropdown_interval + ' = 0 [\n' + 
+                'set energia energia' + actionCode + dropdown_qtd_energy + ' ]\n\n]';
+    return code;
+  };
 
 Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');

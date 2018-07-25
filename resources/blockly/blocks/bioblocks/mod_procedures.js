@@ -10,27 +10,6 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
    this.setHelpUrl("");
     }
   };
-  
-  Blockly.Blocks['proc_ind_consume_energy_over_time'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("remover")
-          .appendField(new Blockly.FieldDropdown([["1","1"], ["5","5"], ["10","10"]]), "QTD_ENERGY")
-          .appendField("ponto(s) de energia");
-      this.appendDummyInput()
-          .appendField("de todos agentes:")
-          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
-      this.appendDummyInput()
-          .appendField("a cada:")
-          .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
-      this.setInputsInline(false);
-      this.setPreviousStatement(true, "procedure");
-      this.setNextStatement(true, "procedure");
-      this.setColour(0);
-   this.setTooltip("Remove quantidade de energia de todos agentes do tipo especificado a cada intervalo.");
-   this.setHelpUrl("");
-    }
-  };
 
   Blockly.Blocks['proc_ind_manage_energy'] = {
     init: function() {
@@ -44,6 +23,27 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
       this.setNextStatement(true, "procedure");
       this.setColour(0);
    this.setTooltip("Adiciona ou remove uma quantidade de energia de todos agentes do tipo especificado. Máximo de 100 unidades.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['proc_ind_manage_energy_over_time'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["adicionar","add"], ["remover","rem"]]), "ACTION_TYPE")
+          .appendField(new Blockly.FieldDropdown([["1","1"], ["5","5"], ["10","10"]]), "QTD_ENERGY")
+          .appendField("ponto(s) de energia");
+      this.appendDummyInput()
+          .appendField("de todos agentes:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.appendDummyInput()
+          .appendField("a cada:")
+          .appendField(new Blockly.FieldDropdown([[" 10 segundos","10"], ["25 segundos","25"], ["50 segundos","50"]]), "INTERVAL");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(0);
+   this.setTooltip("Remove quantidade de energia do agente a cada intervalo especificado.");
    this.setHelpUrl("");
     }
   };
