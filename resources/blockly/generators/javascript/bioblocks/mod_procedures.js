@@ -68,7 +68,7 @@ Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block
   };
 
 
-  Blockly.JavaScript['proc_ind_hatch_agent'] = function(block) {
+Blockly.JavaScript['proc_ind_hatch_agent'] = function(block) {
     var number_num_agents = block.getFieldValue('NUM_AGENTS');
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     
@@ -77,7 +77,64 @@ Blockly.JavaScript['proc_ind_reproduce_assex_agents_over_time'] = function(block
                'ask aux' + globalCounterAuxVarNames + ' [hatch-' + variable_name_agent + 'Z ' + number_num_agents + ']\n';
 
     return code;
-  };
+};
+
+Blockly.JavaScript['proc_ind_hatch_agent_with_mutation'] = function(block) {
+    var number_num_agents = block.getFieldValue('NUM_AGENTS');
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var dropdown_mut_chance = block.getFieldValue('MUT_CHANCE');
+    var dropdown_mut_property = block.getFieldValue('MUT_PROPERTY');
+    
+    var listSize = "[1 1.5 2]";
+    var listEnergy = "[\"inf\" 500 250 100 50]";
+    var listMovement = "[\"rand\" \"horiz\" \"vert\" \"diag\"]";
+    var listVeloc = "[\"normal\" \"fast\" \"slow\"]";
+    var listVision = "[\"circle\" \"square\" \"cone\"]";
+    var attCode;
+    var propValue;
+
+    switch(dropdown_mut_property)
+    {
+        case 'size':
+            attCode = listSize;
+            propValue = "size";
+            break;
+
+        case 'energy':
+            attCode = listEnergy;
+            propValue = "energia";
+            break;
+        
+        case 'movement':
+            attCode = listMovement;
+            propValue = "mov";
+            break;
+        
+        case 'velocity':
+            attCode = listVeloc;
+            propValue = "veloc";
+            break;
+
+        case 'vision':
+            attCode = listVision;
+            propValue = "visao";
+            break;
+    }
+
+    var code =  'let rnd random-float 100\n' + 'let dftPropList ' + attCode + '\n' + 
+                'let childBreed one-of ' + variable_name_agent + 'Z\n' +
+                'let parent (childBreed)\n' + 'hatch ' + number_num_agents +
+                ' [ set breed [breed] of parent set nome [nome] of parent set genero [genero] of parent set energia [energia] of parent' + 
+                ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
+                ' set size [size] of parent ' + 'set visRadius [visRadius] of parent\n' + 'set heading [heading] of parent\n' +
+                'if rnd < ' + dropdown_mut_chance + ' [ set color green set dftPropList remove (list ' + 
+                '[' + propValue + "] of parent) dftPropList " + 'set ' + propValue + ' one-of dftPropList\n' +
+                'if ' + propValue + ' = \"horiz\" [set heading one-of (list 0 180)]\n' +
+                'if ' + propValue + ' = \"vert\" [set heading one-of (list 90 270)]\n' + 
+                'if ' + propValue + ' = \"fiag\" [set heading one-of (list 45 135 225 315)]\n' + '] ]';
+
+    return code;
+};
 
 Blockly.JavaScript['proc_dep_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');
