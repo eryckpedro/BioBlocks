@@ -212,3 +212,19 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['proc_dep_move_towards_specific'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("mover esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT1")
+          .appendField("em direção ao agente:")
+          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT2");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento em que o agente NOME 1 se move em direção ao NOME 2. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };

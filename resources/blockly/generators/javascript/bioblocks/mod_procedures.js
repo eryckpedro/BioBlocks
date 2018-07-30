@@ -294,3 +294,18 @@ Blockly.JavaScript['proc_dep_manage_energy_specific'] = function(block) {
 
     return code;
   };
+
+Blockly.JavaScript['proc_dep_move_towards_specific'] = function(block) {
+    var variable_name_agent1 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT1'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent2 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT2'), Blockly.Variables.NAME_TYPE);
+
+    var listCopy = [];
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+
+    var code = 'ask ' + auxVar[variable_name_agent1] + ' [ set heading towards ' + auxVar[variable_name_agent2] + 
+               ' fd [veloc] of ' + auxVar[variable_name_agent1] + ' ]\n';
+
+
+    return code;
+  };
