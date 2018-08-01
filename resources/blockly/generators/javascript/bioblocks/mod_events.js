@@ -109,6 +109,69 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
+  Blockly.JavaScript['event_check_agent_qtd_in_vicinity'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');
+    var number_num_compared = block.getFieldValue('NUM_COMPARED');
+    
+    var compareType;
+    switch(dropdown_type_compare)
+    {
+        case 'equal':
+            compareType = '=';
+            break;
+        case 'gt':
+            compareType = '>';
+            break;
+        case 'lt':
+            compareType = '<';
+            break;
+        case 'gte':
+            compareType = '>=';
+            break;
+        case 'lte':
+            compareType = '<=';
+            break;
+        case 'diff':
+            compareType = '!=';
+            break;
+    }
+
+    var awareAgentVisType = globalMapAgentsDeclared[variable_name_agent].visType;
+    var DEFAULT_CONE_ANGLE = 60;
+    var code;
+
+    globalCounterAuxVarNames++;
+    var nameAuxVar = 'aux_' + variable_name_agent + '_' + globalCounterAuxVarNames;
+
+    switch(awareAgentVisType)
+    {
+        case 'circle':
+            code = 'ask ' + variable_name_agent + 'Z [\n' + 
+                   'let ' + nameAuxVar + ' one-of ' + variable_name_agent+ 'Z-here\n' +
+                   'if count turtles in-radius visRadius ' + compareType + ' ' + number_num_compared + '\n';
+            break;
+        
+        case 'cone':
+            code = 'ask ' + variable_name_agent + 'Z [\n' + 
+                   'let ' + nameAuxVar + ' one-of ' + variable_name_agent + 'Z-here\n' +
+                   'if count turtles in-cone visRadius ' + DEFAULT_CONE_ANGLE + compareType + ' ' + number_num_compared + '\n';
+            break;
+        
+        case 'blind':
+            code = 'ask ' + variable_name_agent + 'Z [\n' + 
+                   'let ' + nameAuxVar + ' one-of ' + variable_name_agent + 'Z-here\n' +
+                   'if count turtles in-radius visRadius ' + compareType + ' ' + number_num_compared + '\n';
+    }
+
+    var auxVarInfo = {};
+
+    auxVarInfo[variable_name_agent] = nameAuxVar;
+    globalListAuxVarInfo.push(auxVarInfo);
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
+
   Blockly.JavaScript['event_check_agent_energy'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');
