@@ -109,7 +109,7 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
-  Blockly.JavaScript['event_check_agent_qtd_in_vicinity'] = function(block) {
+  Blockly.JavaScript['event_check_agent_qtd_in_agent_vicinity'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');
     var number_num_compared = block.getFieldValue('NUM_COMPARED');
@@ -170,6 +170,23 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     globalListAuxVarInfo.push(auxVarInfo);
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
+
+  Blockly.JavaScript['event_check_agent_qtd_in_patch_vicinity'] = function(block) {
+    var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');
+    var number_num_compared = block.getFieldValue('NUM_COMPARED');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
+  };
+
+  Blockly.JavaScript['event_check_status_agent_or_patch'] = function(block) {
+    var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
   };
 
   Blockly.JavaScript['event_check_agent_energy'] = function(block) {

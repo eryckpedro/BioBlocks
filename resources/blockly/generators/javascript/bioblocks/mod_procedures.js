@@ -309,3 +309,23 @@ Blockly.JavaScript['proc_dep_move_towards_specific'] = function(block) {
 
     return code;
   };
+
+  Blockly.JavaScript['proc_dep_mark_specific_agent'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };
+
+  Blockly.JavaScript['proc_dep_mark_specific_patch'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };
+
+  Blockly.JavaScript['proc_dep_hatch_in_patch_specific'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...;\n';
+    return code;
+  };

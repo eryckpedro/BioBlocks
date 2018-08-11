@@ -228,3 +228,45 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['proc_dep_mark_specific_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("marcar esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento que marca o agente especificado pelo evento, afim de aplicar um efeito sobre o mesmo posteriormente. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['proc_dep_mark_specific_patch'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("marcar esse espaço vazio");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento que marca o espaço vazio especificado pelo evento, afim de aplicar um efeito sobre o mesmo posteriormente. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['proc_dep_hatch_in_patch_specific'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("gerar um agente do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
+          .appendField("nesse espaço vazio");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento que gera um agente do tipo especificado no espaço vazio marcado. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
