@@ -77,16 +77,28 @@ Blockly.Blocks['event_check_collision'] = {
     }
   };
 
-  Blockly.Blocks['event_check_status_agent_or_patch'] = {
+  Blockly.Blocks['event_check_status_agent'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("um")
-          .appendField(new Blockly.FieldDropdown([["agente","agent"], ["espaço vazio","patch"]]), "TYPE_AGENT")
+          .appendField("um agente do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
           .appendField("está marcado");
       this.setInputsInline(true);
       this.setOutput(true, "Boolean");
       this.setColour(60);
-   this.setTooltip("Checa se um agente ou espaço vazio está marcado.");
+   this.setTooltip("Checa se um agente do tipo especificado está marcado.");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['event_check_status_patch'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("um espaço vazio está marcado");
+      this.setInputsInline(true);
+      this.setOutput(true, "Boolean");
+      this.setColour(60);
+   this.setTooltip("Checa se um espaço vazio está marcado.");
    this.setHelpUrl("");
     }
   };

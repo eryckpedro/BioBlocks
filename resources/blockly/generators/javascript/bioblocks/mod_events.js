@@ -175,18 +175,81 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
   Blockly.JavaScript['event_check_agent_qtd_in_patch_vicinity'] = function(block) {
     var dropdown_type_compare = block.getFieldValue('TYPE_COMPARE');
     var number_num_compared = block.getFieldValue('NUM_COMPARED');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+
+    var compareType;
+    switch(dropdown_type_compare)
+    {
+        case 'equal':
+            compareType = '=';
+            break;
+        case 'gt':
+            compareType = '>';
+            break;
+        case 'lt':
+            compareType = '<';
+            break;
+        case 'gte':
+            compareType = '>=';
+            break;
+        case 'lte':
+            compareType = '<=';
+            break;
+        case 'diff':
+            compareType = '!=';
+            break;
+    }
+
+    globalCounterAuxVarNames++;
+    var nameAuxVar = 'aux_patch' + '_' + globalCounterAuxVarNames;
+    
+    var code = 'ask patches [\n' + 
+               'let ' + nameAuxVar + ' self\n' + 
+               'if (count turtles in-here = 0) and ' + //Checks if the patch is empty
+               '(count turtles in-radius ' + globalPatchVisRadius + ' ' + compareType + ' ' + number_num_compared + ')\n';
+    
+    
+    var auxVarInfo = {};
+
+    auxVarInfo['PATCH' + globalCounterAuxVarNames] = nameAuxVar;
+    globalListAuxVarInfo.push(auxVarInfo);
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
-  Blockly.JavaScript['event_check_status_agent_or_patch'] = function(block) {
-    var dropdown_type_agent = block.getFieldValue('TYPE_AGENT');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+  Blockly.JavaScript['event_check_status_agent'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    globalCounterAuxVarNames++;
+    var nameAuxVar = 'aux_' + variable_name_agent + '_' + globalCounterAuxVarNames;
+
+    var code = 'ask ' + variable_name_agent + 'Z[\n' +
+               'let ' + nameAuxVar + ' one-of ' + variable_name_agent + 'Z\n' + 
+               'if ' + '[marcado?] of ' + nameAuxVar + ' = 1\n';
+
+    
+    var auxVarInfo = {};
+
+    auxVarInfo[variable_name_agent] = nameAuxVar;
+    globalListAuxVarInfo.push(auxVarInfo);
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
+
+  Blockly.JavaScript['event_check_status_patch'] = function(block) {
+    
+    globalCounterAuxVarNames++;
+    var nameAuxVar = 'aux_patch' + globalCounterAuxVarNames;
+
+    var code = 'ask patches[\n' +
+               'let ' + nameAuxVar + ' one-of patches\n' + 
+               'if ' + '[pMarcado?] of ' + nameAuxVar + ' = 1\n';
+
+    var auxVarInfo = {};
+
+    auxVarInfo['PATCH' + globalCounterAuxVarNames] = nameAuxVar;
+    globalListAuxVarInfo.push(auxVarInfo);
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
   Blockly.JavaScript['event_check_agent_energy'] = function(block) {

@@ -243,6 +243,21 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
     }
   };
 
+  Blockly.Blocks['proc_dep_kill_marked_agent'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("matar esse agente do tipo:")
+          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
+          .appendField("marcado");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento que mata o agente marcado do tipo especificado pelo evento. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['proc_dep_mark_specific_patch'] = {
     init: function() {
       this.appendDummyInput()

@@ -15,7 +15,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
   var agentStruct = { 'name' : variable_name_agent, 'initialNum' : number_num_agents, 'type' : dropdown_type_agent,
                       'gender' : dropdown_type_gen, 'initialEnergy' : dropdown_type_energy, 'reprodType' : dropdown_type_rep,
                       'movType' : dropdown_type_mov, 'velocType' : dropdown_type_veloc, 'visType' : dropdown_type_vision,
-                      'visRadius' : dropdown_type_vis_radius, 'size' : dropdown_type_size
+                      'visRadius' : dropdown_type_vis_radius, 'size' : dropdown_type_size, 'marcado?' : 0
                     }
 
   // Breed commands
@@ -26,7 +26,8 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
 
   // Create-Agent commands
   // Globals:
-  var agentGlobalsCode = "_GLOBAL" + variable_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao visRadius ]\n";
+  var agentGlobalsCode =  "_GLOBAL" + "patches-own [ pMarcado? ]\n" + 
+                          "_GLOBAL" + variable_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao visRadius marcado? ]\n";
   
   var colorCode = "set color ";
   if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";
@@ -123,7 +124,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
                   "setxy random-xcor random-ycor\n" + colorCode + "set nome " + "\"" + variable_name_agent + "\"" + "\n" + sizeCode + 
                   "set genero " + "\"" + dropdown_type_gen + "\"" + "\n" + energyCode + "\n" + visionRadCode + 
                   "set reprod " + "\"" + dropdown_type_rep + "\"" + "\n" + "set mov " + "\"" + dropdown_type_mov + "\"" + "\n" + 
-                  "set veloc " + veloc + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + "\n" + 
+                  "set veloc " + veloc + "\n" + "set visao " + "\"" + dropdown_type_vision + "\"" + "\n" + "set marcado? 0\n" + 
                   "set heading one-of " + headingCode + " ]\n";
 
 

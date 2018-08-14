@@ -312,20 +312,43 @@ Blockly.JavaScript['proc_dep_move_towards_specific'] = function(block) {
 
   Blockly.JavaScript['proc_dep_mark_specific_agent'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar[variable_name_agent] + ' [ set marcado? 1 ]\n';
+    return code;
+  };
+
+  Blockly.JavaScript['proc_dep_kill_marked_agent'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar[variable_name_agent] + ' [ die ]\n';
+    
     return code;
   };
 
   Blockly.JavaScript['proc_dep_mark_specific_patch'] = function(block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar['PATCH' + globalCounterAuxVarNames] + ' [ set pMarcado? 1 ]\n';
     return code;
   };
 
   Blockly.JavaScript['proc_dep_hatch_in_patch_specific'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar['PATCH' + globalCounterAuxVarNames] + 
+           ' [ sprout-' + variable_name_agent + 'Z 1 [set color blue set size 1.5 set visRadius ' + globalPatchVisRadius + '] ]\n';
+
     return code;
   };

@@ -47,7 +47,7 @@ Blockly.JavaScript['logic_if'] = function(block) {
         movStatements.push('_GO' + line + '\n');
     }
 
-    code = code + 'every ' + globalSimulationSpeed + '\n_GO[tick\n' + 
+    code = code + 'every ' + globalSimulationSpeed + '\n_GO[tick\n_GOcp\n' + 
            movStatements.join("") + goArrStatements.join("") + '\n_GO]\n';
 
     return code;
