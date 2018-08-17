@@ -26,8 +26,7 @@ Blockly.JavaScript['aprnc_create_agent_species2'] = function(block) {
 
   // Create-Agent commands
   // Globals:
-  var agentGlobalsCode =  "_GLOBAL" + "patches-own [ pMarcado? ]\n" + 
-                          "_GLOBAL" + variable_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao visRadius marcado? ]\n";
+  var agentGlobalsCode = "_GLOBAL" + variable_name_agent + 'Z' + "-own [ nome genero energia reprod mov veloc visao visRadius marcado? ]\n";
   
   var colorCode = "set color ";
   if(dropdown_type_gen == "male") colorCode = colorCode + "blue\n";

@@ -5,6 +5,7 @@ const GLOBAL_TAG = "_GLOBAL";
 const BREED_TAG  = "breed [ ";
 const GO_TAG = "_GO";
 const DSP_TAG = "_DSP";
+const PATCHES_OWN = "patches-own [ pMarcado? ]\n";
 
 var breedArray = [];
 var globalsArray = [];
@@ -113,7 +114,7 @@ function generateNLCode()
         goCode = goCode + goArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
+    var nlCode = globalCode + PATCHES_OWN + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
     globalAgentsMovementCode = [];
 
     return nlCode;
