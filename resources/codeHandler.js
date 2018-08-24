@@ -1,3 +1,6 @@
+var app = require('electron').remote;
+var dialog = app.dialog;
+
 var fs = require('fs');
 var prompt = require('electron-prompt');
 
@@ -180,4 +183,57 @@ function sendCodeToNL()
             return;
         }});
     }
+}
+
+function saveBlocklyXML()
+{
+    dialog.showSaveDialog((fileName) => 
+    {
+        if(fileName === undefined) 
+        {
+            alert("Erro: Não foi especificado um nome de arquivo a ser salvo."); 
+            return; 
+        }
+
+        var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
+        var xml_text = Blockly.Xml.domToPrettyText(xml);
+
+        fs.writeFile(fileName + '.xml', xml_text, (err) => 
+        {
+            if (err) {console.log(err);}
+            alert("Arquivo salvo com sucesso.");
+        })
+
+    })
+}
+
+function loadBlocklyXML()
+{
+    dialog.showOpenDialog((fileNames) => 
+    {
+        if(fileNames === undefined)
+        {
+            alert("Erro: Não foi especificado um arquivo a ser carregado.");
+        }
+        else
+        {
+            readBlocklyXML(fileNames[0]);
+        }
+    })
+}
+
+function readBlocklyXML(filepath)
+{
+    fs.readFile(filepath, 'utf-8', (err, blocklyXML) => 
+    {
+        if(err)
+        {
+            alert("Houve um erro ao tentar ler o arquivo especificado.");
+            return;
+        }
+
+        demoWorkspace.clear();
+        var xml = Blockly.Xml.textToDom(blocklyXML);
+        Blockly.Xml.domToWorkspace(xml, demoWorkspace);
+    })
 }
