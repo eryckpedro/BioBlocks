@@ -204,7 +204,7 @@ Blockly.JavaScript['event_check_agent_qtd'] = function(block) {
     
     var code = 'ask patches [\n' + 
                'let ' + nameAuxVar + ' self\n' + 
-               'if (count turtles in-here = 0) and ' + //Checks if the patch is empty
+               'if (count turtles-here = 0) and ' + //Checks if the patch is empty
                '(count turtles in-radius ' + globalPatchVisRadius + ' ' + compareType + ' ' + number_num_compared + ')\n';
     
     
