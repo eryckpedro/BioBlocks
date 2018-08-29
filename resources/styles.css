@@ -37,13 +37,48 @@ h1
     width: 800px;
 }
 
+#loadBtn
+{
+    float: left;
+    background-color: coral;
+    border: w3-border w3-border-black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+    font-size: 30px;
+}
+
+#loadBtn:hover
+{
+    background-color: orangered;
+    color: white;
+}
+
+#saveBtn
+{
+    float: left;
+    background-color: coral;
+    border: w3-border w3-border-black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+    font-size: 30px;
+}
+
+#saveBtn:hover
+{
+    background-color: orangered;
+    color: white;
+}
+
 #envBtn
 {
     float: right;
     background-color: coral;
-    border: none;
+    border: w3-border w3-border-black;
     color: white;
-    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     text-shadow: 1px 1px black;
