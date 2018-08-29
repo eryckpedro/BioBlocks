@@ -251,6 +251,20 @@ Blockly.JavaScript['proc_dep_reproduce_between_species_with_mutation'] = functio
   };
 
 Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
+    var variable_name_agent_fleeing = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_FLEEING'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_hunting = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_HUNTING'), Blockly.Variables.NAME_TYPE);
+    var code;
+    var listCopy = [];
+
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+    code = 'ask ' + auxVar[variable_name_agent_fleeing] + ' [ rt 180 ]\n';
+
+    return code;
+    
+  };  
+
+Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     var code;
     var listCopy = [];

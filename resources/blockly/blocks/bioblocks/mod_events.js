@@ -52,14 +52,14 @@ Blockly.Blocks['event_check_collision'] = {
   Blockly.Blocks['event_check_agent_qtd_in_agent_vicinity'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("a quantidade de agentes ao redor de um agente:")
+          .appendField("a QTD de agentes ao redor de um agente:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
           .appendField(new Blockly.FieldDropdown([["=","equal"], [">","gt"], ["<","lt"], ["≥","gte"], ["≤","lte"], ["≠","diff"]]), "TYPE_COMPARE")
           .appendField(new Blockly.FieldNumber(0), "NUM_COMPARED");
       this.setInputsInline(true);
       this.setOutput(true, "Boolean");
       this.setColour(60);
-   this.setTooltip("Faz a comparação da quantidade de agentes quaisquer no campo de visão de um agente do tipo especificado");
+   this.setTooltip("Faz a comparação da quantidade de agentes quaisquer no campo de visão de um agente do tipo especificado. Atenção: esse comando inclui o próprio agente que está perguntando.");
    this.setHelpUrl("");
     }
   };
@@ -67,9 +67,9 @@ Blockly.Blocks['event_check_collision'] = {
   Blockly.Blocks['event_check_agent_qtd_in_patch_vicinity'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("a quantidade de agentes entre um espaço vazio")
+          .appendField("a QTD de agentes ao redor de um espaço vazio")
           .appendField(new Blockly.FieldDropdown([["=","equal"], [">","gt"], ["<","lt"], ["≥","gte"], ["≤","lte"], ["≠","diff"]]), "TYPE_COMPARE")
-          .appendField(new Blockly.FieldNumber(0), "NUM_COMPARED");
+          .appendField(new Blockly.FieldNumber(0, 0), "NUM_COMPARED");
       this.setOutput(true, "Boolean");
       this.setColour(60);
    this.setTooltip("Faz a comparação da quantidade de agentes quaisquer ao redor de um espaço vazio no mapa.");

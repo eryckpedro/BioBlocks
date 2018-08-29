@@ -124,13 +124,14 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
     init: function() {
       this.appendDummyInput()
           .appendField("esse agente:")
-          .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
-          .appendField("foge");
+          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_FLEEING")
+          .appendField("foge do agente:")
+          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_HUNTING");
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
       this.setColour(30);
-   this.setTooltip("Processo de tentativa de fuga do agente especificado no evento. Somente usado após detecção de um agente pelo outro.");
+   this.setTooltip("Processo de tentativa de fuga do agente NOME 1 especificado no evento, em que está fugindo do agente NOME 2. Somente usado após detecção de um agente pelo outro.");
    this.setHelpUrl("");
     }
   };
