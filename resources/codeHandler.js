@@ -198,11 +198,22 @@ function saveBlocklyXML()
         var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
         var xml_text = Blockly.Xml.domToPrettyText(xml);
 
-        fs.writeFile(fileName + '.xml', xml_text, (err) => 
+        if(fileName.endsWith('.xml'))
+        {
+            fs.writeFile(fileName, xml_text, (err) => 
         {
             if (err) {console.log(err);}
             alert("Arquivo salvo com sucesso.");
         })
+        }
+        else
+        {
+            fs.writeFile(fileName + '.xml', xml_text, (err) => 
+            {
+                if (err) {console.log(err);}
+                alert("Arquivo salvo com sucesso.");
+            })
+        }
 
     })
 }

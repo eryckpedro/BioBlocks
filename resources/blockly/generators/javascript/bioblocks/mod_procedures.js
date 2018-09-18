@@ -159,24 +159,14 @@ Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
     var code;
     var listCopy = [];
 
+    var nameHunting = variable_name_agent_hunting;
+
     listCopy = Object.create(globalListAuxVarInfo);
     var auxVar = listCopy.pop();
     code = 'ask ' + auxVar[variable_name_agent_fleeing] + ' [ rt 180 ]\n';
 
     return code;
     
-  };  
-
-Blockly.JavaScript['proc_dep_agent_flee'] = function(block) {
-    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
-    var code;
-    var listCopy = [];
-
-    listCopy = Object.create(globalListAuxVarInfo);
-    var auxVar = listCopy.pop();
-    code = 'ask ' + auxVar[variable_name_agent] + ' [ rt 180 ]\n';
-
-    return code;
   };
 
 Blockly.JavaScript['proc_dep_kill_specific_agent'] = function(block) {
