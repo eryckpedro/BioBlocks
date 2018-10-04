@@ -59,14 +59,14 @@
                       <block type="logic_if" id="M^M0Q4g4)u3J2jdw6TS~">
                         <value name="IF_VALUE">
                           <block type="event_check_agent_in_proximity" id="Gd`*a@_7Y@v)9weKTO%|">
-                            <field name="NAME_AGENT_1" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                            <field name="NAME_AGENT_2" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                            <field name="NAME_AGENT_1" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                            <field name="NAME_AGENT_2" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
                           </block>
                         </value>
                         <statement name="THEN_VALUE">
                           <block type="proc_dep_agent_flee" id="y^-`crDU^O426|-dg8,E">
-                            <field name="NAME_AGENT_FLEEING" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                            <field name="NAME_AGENT_HUNTING" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                            <field name="NAME_AGENT_FLEEING" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                            <field name="NAME_AGENT_HUNTING" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
                           </block>
                         </statement>
                         <next>
