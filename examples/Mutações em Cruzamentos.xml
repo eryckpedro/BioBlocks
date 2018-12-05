@@ -4,24 +4,13 @@
     <variable type="" id="c/uqg_Q9,P6cRx=Mu1#S">mulher</variable>
     <variable type="" id="5F+Eh@_6IU36#GF^u~0{">mulherBaixa</variable>
   </variables>
-  <block type="aprnc_create_agent_species3" id="OZfM=AOV!,4lp{|Rt{p1" collapsed="true" x="-41" y="-149">
-    <field name="NUM_AGENTS">15</field>
-    <field name="NAME_AGENT" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
-    <field name="TYPE_AGENT">person</field>
-    <field name="NAME_COLOR">blue</field>
-    <field name="TYPE_SIZE">normal</field>
-    <field name="TYPE_ENERGY">inf</field>
-    <field name="TYPE_REP">sex</field>
-    <field name="TYPE_MOV">rand</field>
-    <field name="TYPE_VELOC">normal</field>
-    <field name="TYPE_VISION">circle</field>
-    <field name="TYPE_VIS_RADIUS">medium</field>
-    <next>
-      <block type="aprnc_create_agent_species3" id="0NhCsLNVIWc%`lRI~-/[" collapsed="true">
+  <block type="logic_program_sections" id="DU0n]$t{@N1#/2lb=nTU" x="16" y="-103">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species3" id="OZfM=AOV!,4lp{|Rt{p1" collapsed="true">
         <field name="NUM_AGENTS">15</field>
-        <field name="NAME_AGENT" id="c/uqg_Q9,P6cRx=Mu1#S" variabletype="">mulher</field>
+        <field name="NAME_AGENT" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
         <field name="TYPE_AGENT">person</field>
-        <field name="NAME_COLOR">red</field>
+        <field name="NAME_COLOR">blue</field>
         <field name="TYPE_SIZE">normal</field>
         <field name="TYPE_ENERGY">inf</field>
         <field name="TYPE_REP">sex</field>
@@ -30,12 +19,12 @@
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>
         <next>
-          <block type="aprnc_create_agent_species3" id="1=t.yBtNe)KBglzl1tzo" inline="false" collapsed="true">
-            <field name="NUM_AGENTS">5</field>
-            <field name="NAME_AGENT" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
+          <block type="aprnc_create_agent_species3" id="0NhCsLNVIWc%`lRI~-/[" collapsed="true">
+            <field name="NUM_AGENTS">15</field>
+            <field name="NAME_AGENT" id="c/uqg_Q9,P6cRx=Mu1#S" variabletype="">mulher</field>
             <field name="TYPE_AGENT">person</field>
             <field name="NAME_COLOR">red</field>
-            <field name="TYPE_SIZE">small</field>
+            <field name="TYPE_SIZE">normal</field>
             <field name="TYPE_ENERGY">inf</field>
             <field name="TYPE_REP">sex</field>
             <field name="TYPE_MOV">rand</field>
@@ -43,46 +32,57 @@
             <field name="TYPE_VISION">circle</field>
             <field name="TYPE_VIS_RADIUS">medium</field>
             <next>
-              <block type="logic_simulation_while" id="vFIl_#FoO+l9^`/UW(z?">
-                <statement name="DO_STATEMENTS">
-                  <block type="logic_if" id="5!-X1`1b0b!YH97dVs-?">
-                    <value name="IF_VALUE">
-                      <block type="event_check_collision" id="D.VJKMlQ.V#@3aFuDxA#">
-                        <field name="NAME_AGENT_1" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
-                        <field name="NAME_AGENT_2" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
-                      </block>
-                    </value>
-                    <statement name="THEN_VALUE">
-                      <block type="proc_ind_hatch_agent" id="JdOC({ou=0q1UD,(K}Q:">
-                        <field name="NUM_AGENTS">1</field>
-                        <field name="NAME_AGENT" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
-                      </block>
-                    </statement>
-                    <next>
-                      <block type="logic_if" id="yZ/!z$n%#GSKU=~;4-uX">
-                        <value name="IF_VALUE">
-                          <block type="event_check_collision" id="sJ2]sP/V|w,|0MV1G^E/">
-                            <field name="NAME_AGENT_1" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
-                            <field name="NAME_AGENT_2" id="c/uqg_Q9,P6cRx=Mu1#S" variabletype="">mulher</field>
-                          </block>
-                        </value>
-                        <statement name="THEN_VALUE">
-                          <block type="proc_ind_hatch_agent_with_mutation" id="}WQo:y[9|.U@%ms7fM6^">
-                            <field name="NUM_AGENTS">1</field>
-                            <field name="NAME_AGENT" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
-                            <field name="MUT_CHANCE">10</field>
-                            <field name="MUT_PROPERTY">size</field>
-                          </block>
-                        </statement>
-                      </block>
-                    </next>
-                  </block>
-                </statement>
+              <block type="aprnc_create_agent_species3" id="1=t.yBtNe)KBglzl1tzo" inline="false" collapsed="true">
+                <field name="NUM_AGENTS">5</field>
+                <field name="NAME_AGENT" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
+                <field name="TYPE_AGENT">person</field>
+                <field name="NAME_COLOR">red</field>
+                <field name="TYPE_SIZE">small</field>
+                <field name="TYPE_ENERGY">inf</field>
+                <field name="TYPE_REP">sex</field>
+                <field name="TYPE_MOV">rand</field>
+                <field name="TYPE_VELOC">normal</field>
+                <field name="TYPE_VISION">circle</field>
+                <field name="TYPE_VIS_RADIUS">medium</field>
               </block>
             </next>
           </block>
         </next>
       </block>
-    </next>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="logic_if" id="5!-X1`1b0b!YH97dVs-?">
+        <value name="IF_VALUE">
+          <block type="event_check_collision" id="D.VJKMlQ.V#@3aFuDxA#">
+            <field name="NAME_AGENT_1" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
+            <field name="NAME_AGENT_2" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
+          </block>
+        </value>
+        <statement name="THEN_VALUE">
+          <block type="proc_ind_hatch_agent" id="JdOC({ou=0q1UD,(K}Q:">
+            <field name="NUM_AGENTS">1</field>
+            <field name="NAME_AGENT" id="5F+Eh@_6IU36#GF^u~0{" variabletype="">mulherBaixa</field>
+          </block>
+        </statement>
+        <next>
+          <block type="logic_if" id="yZ/!z$n%#GSKU=~;4-uX">
+            <value name="IF_VALUE">
+              <block type="event_check_collision" id="sJ2]sP/V|w,|0MV1G^E/">
+                <field name="NAME_AGENT_1" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
+                <field name="NAME_AGENT_2" id="c/uqg_Q9,P6cRx=Mu1#S" variabletype="">mulher</field>
+              </block>
+            </value>
+            <statement name="THEN_VALUE">
+              <block type="proc_ind_hatch_agent_with_mutation" id="}WQo:y[9|.U@%ms7fM6^">
+                <field name="NUM_AGENTS">1</field>
+                <field name="NAME_AGENT" id="DAk=v_F9)WsNcI:(T0AB" variabletype="">homem</field>
+                <field name="MUT_CHANCE">10</field>
+                <field name="MUT_PROPERTY">size</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
   </block>
 </xml>

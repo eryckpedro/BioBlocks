@@ -52,3 +52,34 @@ Blockly.JavaScript['logic_if'] = function(block) {
 
     return code;
 };
+
+Blockly.JavaScript['logic_program_sections'] = function(block) {
+    var statements_prep_statements = Blockly.JavaScript.statementToCode(block, 'PREP_STATEMENTS:');
+    var statements_exec_statements = Blockly.JavaScript.statementToCode(block, 'EXEC_STATEMENTS:');
+
+    var prepCode = statements_prep_statements;
+
+    var execCode = '_GO';
+
+    var goArrStatements = []; goArrStatements.length = 0;
+    var movStatements = []; movStatements.length = 0;
+
+    arrStatements = statements_exec_statements.split('\n');
+
+    for (const line of arrStatements) 
+    {
+        goArrStatements.push('_GO' + line + '\n');
+    }
+
+    for (const line of globalAgentsMovementCode)
+    {
+        movStatements.push('_GO' + line + '\n');
+    }
+
+    execCode = execCode + 'every ' + globalSimulationSpeed + '\n_GO[tick\n_GOcp\n' + 
+           movStatements.join("") + goArrStatements.join("") + '\n_GO]\n';
+
+
+    var code = prepCode + execCode;
+    return code;
+  };

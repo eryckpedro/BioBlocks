@@ -3,86 +3,41 @@
     <variable type="" id="B+Tcn7X![Djx_(b}/?nw">homem</variable>
     <variable type="" id="#bu4$nbiK%QXKx*h0vv4">peixe</variable>
   </variables>
-  <block type="aprnc_create_agent_species3" id="1M}.M5*PjNfM/![a?*[Q" collapsed="true" x="16" y="10">
-    <field name="NUM_AGENTS">20</field>
-    <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-    <field name="TYPE_AGENT">person</field>
-    <field name="NAME_COLOR">blue</field>
-    <field name="TYPE_SIZE">normal</field>
-    <field name="TYPE_ENERGY">inf</field>
-    <field name="TYPE_REP">sex</field>
-    <field name="TYPE_MOV">rand</field>
-    <field name="TYPE_VELOC">normal</field>
-    <field name="TYPE_VISION">circle</field>
-    <field name="TYPE_VIS_RADIUS">medium</field>
-    <next>
-      <block type="aprnc_create_agent_species3" id="kpxUK}61`E8pU1Vey50H" collapsed="true">
-        <field name="NUM_AGENTS">40</field>
-        <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-        <field name="TYPE_AGENT">fish</field>
-        <field name="NAME_COLOR">gray</field>
+  <block type="logic_program_sections" id="pDd[JpRv-oY;*KkidT3|" x="14" y="96">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species3" id="1M}.M5*PjNfM/![a?*[Q" collapsed="true">
+        <field name="NUM_AGENTS">20</field>
+        <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
+        <field name="TYPE_AGENT">person</field>
+        <field name="NAME_COLOR">blue</field>
         <field name="TYPE_SIZE">normal</field>
         <field name="TYPE_ENERGY">inf</field>
         <field name="TYPE_REP">sex</field>
         <field name="TYPE_MOV">rand</field>
-        <field name="TYPE_VELOC">fast</field>
+        <field name="TYPE_VELOC">normal</field>
         <field name="TYPE_VISION">circle</field>
-        <field name="TYPE_VIS_RADIUS">small</field>
+        <field name="TYPE_VIS_RADIUS">medium</field>
         <next>
-          <block type="display_plot_graphic_agents_time" id="DT3.?,CCK9BGBr;g4rg;">
-            <statement name="NAME_AGENTS">
-              <block type="display_agent_axis_variable" id="vL|`,+amvEIT@C+w[lof">
-                <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                <next>
-                  <block type="display_agent_axis_variable" id=")D}5+`Wi2iz4`thl}XD,">
-                    <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                  </block>
-                </next>
-              </block>
-            </statement>
+          <block type="aprnc_create_agent_species3" id="kpxUK}61`E8pU1Vey50H" collapsed="true">
+            <field name="NUM_AGENTS">40</field>
+            <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+            <field name="TYPE_AGENT">fish</field>
+            <field name="NAME_COLOR">gray</field>
+            <field name="TYPE_SIZE">normal</field>
+            <field name="TYPE_ENERGY">inf</field>
+            <field name="TYPE_REP">sex</field>
+            <field name="TYPE_MOV">rand</field>
+            <field name="TYPE_VELOC">fast</field>
+            <field name="TYPE_VISION">circle</field>
+            <field name="TYPE_VIS_RADIUS">small</field>
             <next>
-              <block type="logic_simulation_while" id="B4SlQe7#T~dy2[~t2Q.x">
-                <statement name="DO_STATEMENTS">
-                  <block type="logic_if" id="K3$V~w/0.9f8WoPxa~jb">
-                    <value name="IF_VALUE">
-                      <block type="event_check_collision" id="/PiR7fG9d}-/zf,}41-a">
-                        <field name="NAME_AGENT_1" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                        <field name="NAME_AGENT_2" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                      </block>
-                    </value>
-                    <statement name="THEN_VALUE">
-                      <block type="proc_dep_kill_specific_agent" id="FobX(DEI*Nw/#duV#Nng">
-                        <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                      </block>
-                    </statement>
+              <block type="display_plot_graphic_agents_time" id="DT3.?,CCK9BGBr;g4rg;">
+                <statement name="NAME_AGENTS">
+                  <block type="display_agent_axis_variable" id="vL|`,+amvEIT@C+w[lof">
+                    <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
                     <next>
-                      <block type="logic_if" id="M^M0Q4g4)u3J2jdw6TS~">
-                        <value name="IF_VALUE">
-                          <block type="event_check_agent_in_proximity" id="Gd`*a@_7Y@v)9weKTO%|">
-                            <field name="NAME_AGENT_1" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                            <field name="NAME_AGENT_2" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                          </block>
-                        </value>
-                        <statement name="THEN_VALUE">
-                          <block type="proc_dep_agent_flee" id="y^-`crDU^O426|-dg8,E">
-                            <field name="NAME_AGENT_FLEEING" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                            <field name="NAME_AGENT_HUNTING" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
-                          </block>
-                        </statement>
-                        <next>
-                          <block type="logic_if" id="sFA.6{~QO]m6D9YQ))E;">
-                            <value name="IF_VALUE">
-                              <block type="event_check_agent_qtd" id="ckWZ@k|]5ZO.rs8jT6l(">
-                                <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
-                                <field name="TYPE_COMPARE">equal</field>
-                                <field name="NUM_COMPARED">0</field>
-                              </block>
-                            </value>
-                            <statement name="THEN_VALUE">
-                              <block type="proc_ind_stop_simulation" id="B=Ez}6.+^;Z~{,nPrdo="></block>
-                            </statement>
-                          </block>
-                        </next>
+                      <block type="display_agent_axis_variable" id=")D}5+`Wi2iz4`thl}XD,">
+                        <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
                       </block>
                     </next>
                   </block>
@@ -92,6 +47,51 @@
           </block>
         </next>
       </block>
-    </next>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="logic_if" id="K3$V~w/0.9f8WoPxa~jb">
+        <value name="IF_VALUE">
+          <block type="event_check_collision" id="/PiR7fG9d}-/zf,}41-a">
+            <field name="NAME_AGENT_1" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
+            <field name="NAME_AGENT_2" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+          </block>
+        </value>
+        <statement name="THEN_VALUE">
+          <block type="proc_dep_kill_specific_agent" id="FobX(DEI*Nw/#duV#Nng">
+            <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+          </block>
+        </statement>
+        <next>
+          <block type="logic_if" id="M^M0Q4g4)u3J2jdw6TS~">
+            <value name="IF_VALUE">
+              <block type="event_check_agent_in_proximity" id="Gd`*a@_7Y@v)9weKTO%|">
+                <field name="NAME_AGENT_1" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                <field name="NAME_AGENT_2" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
+              </block>
+            </value>
+            <statement name="THEN_VALUE">
+              <block type="proc_dep_agent_flee" id="y^-`crDU^O426|-dg8,E">
+                <field name="NAME_AGENT_FLEEING" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                <field name="NAME_AGENT_HUNTING" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
+              </block>
+            </statement>
+            <next>
+              <block type="logic_if" id="sFA.6{~QO]m6D9YQ))E;">
+                <value name="IF_VALUE">
+                  <block type="event_check_agent_qtd" id="ckWZ@k|]5ZO.rs8jT6l(">
+                    <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
+                    <field name="TYPE_COMPARE">equal</field>
+                    <field name="NUM_COMPARED">0</field>
+                  </block>
+                </value>
+                <statement name="THEN_VALUE">
+                  <block type="proc_ind_stop_simulation" id="B=Ez}6.+^;Z~{,nPrdo="></block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
   </block>
 </xml>

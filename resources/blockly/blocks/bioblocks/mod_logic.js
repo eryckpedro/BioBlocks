@@ -95,3 +95,19 @@ Blockly.Blocks['logic_simulation_while'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['logic_program_sections'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("comandos PREPAPAR:");
+      this.appendStatementInput("PREP_STATEMENTS:")
+          .setCheck("definition");
+      this.appendDummyInput()
+          .appendField("comandos EXECUTAR (em loop):");
+      this.appendStatementInput("EXEC_STATEMENTS:")
+          .setCheck("procedure");
+      this.setColour(270);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };

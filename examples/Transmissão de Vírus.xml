@@ -3,24 +3,13 @@
     <variable type="" id="ofz#M}s^M6Qy#a0U@N/R">pessoaSadia</variable>
     <variable type="" id="r6p?V@-Eq;tvM.SpXbN7">pessoaVirus</variable>
   </variables>
-  <block type="aprnc_create_agent_species3" id="k;(*77~55%XQ]Bp2aA0R" collapsed="true" x="12" y="24">
-    <field name="NUM_AGENTS">20</field>
-    <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
-    <field name="TYPE_AGENT">person</field>
-    <field name="NAME_COLOR">blue</field>
-    <field name="TYPE_SIZE">normal</field>
-    <field name="TYPE_ENERGY">inf</field>
-    <field name="TYPE_REP">sex</field>
-    <field name="TYPE_MOV">rand</field>
-    <field name="TYPE_VELOC">normal</field>
-    <field name="TYPE_VISION">circle</field>
-    <field name="TYPE_VIS_RADIUS">medium</field>
-    <next>
-      <block type="aprnc_create_agent_species3" id="KS8Ryu3Ljy+CnVFiYZ~k" collapsed="true">
-        <field name="NUM_AGENTS">5</field>
-        <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
+  <block type="logic_program_sections" id="LehqDA!~]JQLUl*Lpe~2" x="15" y="115">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species3" id="k;(*77~55%XQ]Bp2aA0R" collapsed="true">
+        <field name="NUM_AGENTS">20</field>
+        <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
         <field name="TYPE_AGENT">person</field>
-        <field name="NAME_COLOR">green</field>
+        <field name="NAME_COLOR">blue</field>
         <field name="TYPE_SIZE">normal</field>
         <field name="TYPE_ENERGY">inf</field>
         <field name="TYPE_REP">sex</field>
@@ -29,50 +18,26 @@
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>
         <next>
-          <block type="display_plot_graphic_agents_time" id="C+4{IW3}`#VEjI(|.(wu">
-            <statement name="NAME_AGENTS">
-              <block type="display_agent_axis_variable" id="WEWR=wbNlc0PsBYU;dHI">
-                <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
-                <next>
-                  <block type="display_agent_axis_variable" id="PD:v0U$doT_eRMi1dF{R">
-                    <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
-                  </block>
-                </next>
-              </block>
-            </statement>
+          <block type="aprnc_create_agent_species3" id="KS8Ryu3Ljy+CnVFiYZ~k" collapsed="true">
+            <field name="NUM_AGENTS">5</field>
+            <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
+            <field name="TYPE_AGENT">person</field>
+            <field name="NAME_COLOR">green</field>
+            <field name="TYPE_SIZE">normal</field>
+            <field name="TYPE_ENERGY">inf</field>
+            <field name="TYPE_REP">sex</field>
+            <field name="TYPE_MOV">rand</field>
+            <field name="TYPE_VELOC">normal</field>
+            <field name="TYPE_VISION">circle</field>
+            <field name="TYPE_VIS_RADIUS">medium</field>
             <next>
-              <block type="logic_simulation_while" id="W~Y#LB.@0)Wzpljmji3{">
-                <statement name="DO_STATEMENTS">
-                  <block type="logic_if" id="x@-H:`8H]BQ}u_xZJ1J4">
-                    <value name="IF_VALUE">
-                      <block type="event_check_collision" id="cntUic^[j`5,|Xm`-][7">
-                        <field name="NAME_AGENT_1" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
-                        <field name="NAME_AGENT_2" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
-                      </block>
-                    </value>
-                    <statement name="THEN_VALUE">
-                      <block type="proc_dep_kill_specific_agent" id="^rI0Q5Irw.I/8c)J(*A}">
-                        <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
-                        <next>
-                          <block type="proc_ind_hatch_agent" id="(@J=4X,RkkY6*i3`jYX[">
-                            <field name="NUM_AGENTS">1</field>
-                            <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
-                          </block>
-                        </next>
-                      </block>
-                    </statement>
+              <block type="display_plot_graphic_agents_time" id="C+4{IW3}`#VEjI(|.(wu">
+                <statement name="NAME_AGENTS">
+                  <block type="display_agent_axis_variable" id="WEWR=wbNlc0PsBYU;dHI">
+                    <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
                     <next>
-                      <block type="logic_if" id="WzPAA|mcbM5bcy*6r/0a">
-                        <value name="IF_VALUE">
-                          <block type="event_check_agent_qtd" id="akN7,)ZpU}JK*i~ZG,sz">
-                            <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
-                            <field name="TYPE_COMPARE">equal</field>
-                            <field name="NUM_COMPARED">0</field>
-                          </block>
-                        </value>
-                        <statement name="THEN_VALUE">
-                          <block type="proc_ind_stop_simulation" id="b8N9InX$xj4Z31u1P%%m"></block>
-                        </statement>
+                      <block type="display_agent_axis_variable" id="PD:v0U$doT_eRMi1dF{R">
+                        <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
                       </block>
                     </next>
                   </block>
@@ -82,6 +47,41 @@
           </block>
         </next>
       </block>
-    </next>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="logic_if" id="x@-H:`8H]BQ}u_xZJ1J4">
+        <value name="IF_VALUE">
+          <block type="event_check_collision" id="cntUic^[j`5,|Xm`-][7">
+            <field name="NAME_AGENT_1" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
+            <field name="NAME_AGENT_2" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
+          </block>
+        </value>
+        <statement name="THEN_VALUE">
+          <block type="proc_dep_kill_specific_agent" id="^rI0Q5Irw.I/8c)J(*A}">
+            <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
+            <next>
+              <block type="proc_ind_hatch_agent" id="(@J=4X,RkkY6*i3`jYX[">
+                <field name="NUM_AGENTS">1</field>
+                <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="logic_if" id="WzPAA|mcbM5bcy*6r/0a">
+            <value name="IF_VALUE">
+              <block type="event_check_agent_qtd" id="akN7,)ZpU}JK*i~ZG,sz">
+                <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
+                <field name="TYPE_COMPARE">equal</field>
+                <field name="NUM_COMPARED">0</field>
+              </block>
+            </value>
+            <statement name="THEN_VALUE">
+              <block type="proc_ind_stop_simulation" id="b8N9InX$xj4Z31u1P%%m"></block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
   </block>
 </xml>

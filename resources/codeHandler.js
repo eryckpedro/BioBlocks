@@ -67,6 +67,8 @@ function generateNLCode()
     {
         var line = allCodeArray[i];
 
+        line = line.trim();
+
         if (line.startsWith(GLOBAL_TAG)) { globalsArray.push(line.substring(GLOBAL_TAG.length)); }
 
         else if (line.startsWith(GO_TAG)) { goArray.push(line.substring(GO_TAG.length)); }

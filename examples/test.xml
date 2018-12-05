@@ -1,0 +1,50 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="$p2omu@+6fp!GKmZPR{@">homem</variable>
+  </variables>
+  <block type="logic_program_sections" id="t:BnQF#tEPD.|V8zlYa%" x="30" y="18">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species3" id="e%x.L^~*nU7IkR`tsZx%">
+        <field name="NUM_AGENTS">1</field>
+        <field name="NAME_AGENT" id="$p2omu@+6fp!GKmZPR{@" variabletype="">homem</field>
+        <field name="TYPE_AGENT">person</field>
+        <field name="NAME_COLOR">gray</field>
+        <field name="TYPE_SIZE">normal</field>
+        <field name="TYPE_ENERGY">100</field>
+        <field name="TYPE_REP">sex</field>
+        <field name="TYPE_MOV">rand</field>
+        <field name="TYPE_VELOC">normal</field>
+        <field name="TYPE_VISION">circle</field>
+        <field name="TYPE_VIS_RADIUS">medium</field>
+        <next>
+          <block type="display_monitor_num_agent2" id="tg63*PuonT2P|u=,8ao?">
+            <field name="NAME_AGENT" id="$p2omu@+6fp!GKmZPR{@" variabletype="">homem</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="proc_ind_manage_energy" id="T$bpg:AfGWF@X{upJd-I">
+        <field name="ACTION_TYPE">add</field>
+        <field name="QTD_ENERGY">10</field>
+        <field name="NAME_AGENT" id="$p2omu@+6fp!GKmZPR{@" variabletype="">homem</field>
+        <next>
+          <block type="logic_if" id="a2ZCj35RW^`fi6@4YJoL">
+            <value name="IF_VALUE">
+              <block type="event_check_agent_qtd_in_agent_vicinity" id="RvEZTV0jpIWYVDdxvf$|">
+                <field name="NAME_AGENT" id="$p2omu@+6fp!GKmZPR{@" variabletype="">homem</field>
+                <field name="TYPE_COMPARE">equal</field>
+                <field name="NUM_COMPARED">0</field>
+              </block>
+            </value>
+            <statement name="THEN_VALUE">
+              <block type="proc_dep_mark_specific_agent" id="4u~}8-kL,}fr*XIhW}8M">
+                <field name="NAME_AGENT" id="$p2omu@+6fp!GKmZPR{@" variabletype="">homem</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
