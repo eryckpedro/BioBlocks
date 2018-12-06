@@ -49,8 +49,8 @@ BUTTON
 31
 191
 64
-iniciar
-iniciar
+executar
+executar
 T
 1
 T

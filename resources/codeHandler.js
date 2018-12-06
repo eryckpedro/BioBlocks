@@ -119,7 +119,7 @@ function generateNLCode()
         goCode = goCode + goArray[i].trim() + '\n';
     }
 
-    var nlCode = globalCode + PATCHES_OWN + setupCode.trim() + "\nend\n" + "\nto iniciar\n" + goCode + "\nend";
+    var nlCode = globalCode + PATCHES_OWN + setupCode.trim() + "\nend\n" + "\nto executar\n" + goCode + "\nend";
     globalAgentsMovementCode = [];
 
     return nlCode;
