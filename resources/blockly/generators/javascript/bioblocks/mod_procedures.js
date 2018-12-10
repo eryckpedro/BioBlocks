@@ -91,7 +91,7 @@ Blockly.JavaScript['proc_ind_hatch_agent'] = function(block) {
     
     globalCounterAuxVarNames++;
     var code = 'let aux' + globalCounterAuxVarNames + ' one-of ' + variable_name_agent + 'Z\n' + 
-               'ask aux' + globalCounterAuxVarNames + ' [hatch-' + variable_name_agent + 'Z ' + number_num_agents + ']\n';
+               'ask aux' + globalCounterAuxVarNames + ' [hatch-' + variable_name_agent + 'Z ' + number_num_agents + ' [set hidden? false]]\n';
 
     return code;
 };
@@ -143,7 +143,8 @@ Blockly.JavaScript['proc_ind_hatch_agent_with_mutation'] = function(block) {
                 'let parent (childBreed)\n' + 'hatch ' + number_num_agents +
                 ' [ set breed [breed] of parent set nome [nome] of parent set energia [energia] of parent' + 
                 ' set reprod [reprod] of parent set mov [mov] of parent set veloc [veloc] of parent set visao [visao] of parent' + 
-                ' set size [size] of parent ' + 'set visRadius [visRadius] of parent\n' + 'set heading [heading] of parent\n' +
+                ' set size [size] of parent ' + 'set visRadius [visRadius] of parent\n' + 'set heading [heading] of parent' + 
+                ' set hidden? false\n' +
                 'if rnd < ' + dropdown_mut_chance + ' [ set color green set dftPropList remove (list ' + 
                 '[' + propValue + "] of parent) dftPropList " + 'set ' + propValue + ' one-of dftPropList\n' +
                 'if ' + propValue + ' = \"horiz\" [set heading one-of (list 0 180)]\n' +

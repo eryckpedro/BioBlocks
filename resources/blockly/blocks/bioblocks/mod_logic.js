@@ -107,8 +107,10 @@ Blockly.Blocks['logic_simulation_while'] = {
       this.appendStatementInput("EXEC_STATEMENTS:")
           .setCheck("procedure");
       this.setColour(270);
-   this.setTooltip("");
-   this.setHelpUrl("");
+      this.setTooltip("Bloco que agrupa as áreas de programação do modelo. Em " +  
+                      "\"PREPARAR\" se encaixam os comandos de definição de agntes e criação de gráficos. " +  
+                      "Em \"EXECUTAR\" estão os comandos de ações dos agentes, que ficam em loop infinito.");
+      this.setHelpUrl("");
     }
   };
 
@@ -124,7 +126,7 @@ Blockly.Blocks['logic_simulation_while'] = {
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(180);
-   this.setTooltip("");
-   this.setHelpUrl("");
+      this.setTooltip("Bloco que impõe uma probabilidade de ocorrência das ações em seu interior. Baixa = 25%, Média = 50%, Alta = 75% e Absoluta = 100%.");
+      this.setHelpUrl("");
     }
   };
