@@ -111,3 +111,20 @@ Blockly.Blocks['logic_simulation_while'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['logic_prob_clause'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("com chance:")
+          .appendField(new Blockly.FieldDropdown([["baixa","low"], ["média","mid"], ["alta","high"], ["absoluta","total"]]), "PROB_CHANCE")
+          .appendField(", faça:");
+      this.appendStatementInput("CHANCE_ACTIONS")
+          .setCheck(["procedure"]);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, "procedure");
+      this.setNextStatement(true, "procedure");
+      this.setColour(180);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };

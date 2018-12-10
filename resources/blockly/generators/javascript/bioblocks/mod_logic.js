@@ -1,3 +1,8 @@
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 Blockly.JavaScript['logic_if'] = function(block) {
     var value_if_value = Blockly.JavaScript.valueToCode(block, 'IF_VALUE', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_then_value = Blockly.JavaScript.statementToCode(block, 'THEN_VALUE');
@@ -81,5 +86,42 @@ Blockly.JavaScript['logic_program_sections'] = function(block) {
 
 
     var code = prepCode + execCode;
+    return code;
+  };
+
+  Blockly.JavaScript['logic_prob_clause'] = function(block) {
+    var dropdown_prob_chance = block.getFieldValue('PROB_CHANCE');
+    var statements_chance_actions = Blockly.JavaScript.statementToCode(block, 'CHANCE_ACTIONS');
+
+    var LOW = 25; var MID = 50; var HIGH = 75; var TOTAL = 100;
+
+    var chanceCode;
+    var rndID = randomIntFromInterval(0, 100); var rnd = "rnd" + rndID;
+    
+    switch(dropdown_prob_chance)
+    {
+        case "low":
+        {
+            chanceCode = "let " + rnd + " random-float 100\n if " + rnd + " < " + LOW + " [\n";
+            break;
+        }
+        case "mid":
+        {
+            chanceCode = "let " + rnd + " random-float 100\n if " + rnd + " < " + MID + " [\n";
+            break;
+        }
+        case "high":
+        {
+            chanceCode = "let " + rnd + " random-float 100\n if " + rnd + " < " + HIGH + " [\n";
+            break;
+        }
+        case "total":
+        {
+            chanceCode = "let " + rnd + " random-float 100\n if " + rnd + " < " + TOTAL + " [\n";
+            break;
+        }
+    }
+
+    var code = chanceCode + statements_chance_actions + " ]\n";
     return code;
   };
