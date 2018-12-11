@@ -1,0 +1,261 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="lb]w*dzwgy.m@VS5TkRd">ervilhaVerde</variable>
+    <variable type="" id="Sihq43s[x_nI_M0#85/Q">ervilhaAmarela</variable>
+    <variable type="" id="OoR/8ynU/E{bCGwVwVSR">ervilhaAmarelaHib</variable>
+  </variables>
+  <block type="logic_program_sections" id="Gp.NvL6Fi[hfv64Z$(W9" x="0" y="0">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species4" id="AxDI2e$uFbMm}@^T={8e" collapsed="true">
+        <field name="NUM_AGENTS">5</field>
+        <field name="TYPE_VISIBLE">TRUE</field>
+        <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+        <field name="TYPE_AGENT">circle</field>
+        <field name="NAME_COLOR">green</field>
+        <field name="TYPE_SIZE">normal</field>
+        <field name="TYPE_ENERGY">inf</field>
+        <field name="TYPE_REP">sex</field>
+        <field name="TYPE_MOV">rand</field>
+        <field name="TYPE_VELOC">normal</field>
+        <field name="TYPE_VISION">circle</field>
+        <field name="TYPE_VIS_RADIUS">medium</field>
+        <next>
+          <block type="aprnc_create_agent_species4" id="BLvW)_u3i8k$1;+*FDhV" collapsed="true">
+            <field name="NUM_AGENTS">5</field>
+            <field name="TYPE_VISIBLE">TRUE</field>
+            <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+            <field name="TYPE_AGENT">circle</field>
+            <field name="NAME_COLOR">yellow</field>
+            <field name="TYPE_SIZE">normal</field>
+            <field name="TYPE_ENERGY">inf</field>
+            <field name="TYPE_REP">sex</field>
+            <field name="TYPE_MOV">rand</field>
+            <field name="TYPE_VELOC">normal</field>
+            <field name="TYPE_VISION">circle</field>
+            <field name="TYPE_VIS_RADIUS">medium</field>
+            <next>
+              <block type="aprnc_create_agent_species4" id="5burgK+]JF4|lbbjk=.k" collapsed="true">
+                <field name="NUM_AGENTS">5</field>
+                <field name="TYPE_VISIBLE">TRUE</field>
+                <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                <field name="TYPE_AGENT">circle</field>
+                <field name="NAME_COLOR">brown</field>
+                <field name="TYPE_SIZE">normal</field>
+                <field name="TYPE_ENERGY">inf</field>
+                <field name="TYPE_REP">sex</field>
+                <field name="TYPE_MOV">rand</field>
+                <field name="TYPE_VELOC">normal</field>
+                <field name="TYPE_VISION">circle</field>
+                <field name="TYPE_VIS_RADIUS">medium</field>
+                <next>
+                  <block type="display_monitor_num_agent2" id="ogb^zekp2S!iR!JG$,M0">
+                    <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                    <next>
+                      <block type="display_monitor_num_agent2" id="CHC1`_df0KvDQdxtE+jk">
+                        <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                        <next>
+                          <block type="display_monitor_num_agent2" id="L4.Pe9^e5trc-Qg.p_f+">
+                            <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                            <next>
+                              <block type="display_plot_graphic_agents_time" id="Kr]-C`%16koEF4f]/B*e" collapsed="true">
+                                <statement name="NAME_AGENTS">
+                                  <block type="display_agent_axis_variable" id="=,Y~13=A+dB_Tt[x:.fc">
+                                    <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                                    <next>
+                                      <block type="display_agent_axis_variable" id="SoLL`/$N0K`r-lL/|l:D">
+                                        <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                                        <next>
+                                          <block type="display_agent_axis_variable" id="6wyjCaI8%`Q8;ZGWneV%">
+                                            <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="logic_if" id="@I1rdueoZLe$Z-Y@cT@_">
+        <value name="IF_VALUE">
+          <block type="event_check_collision" id="P@swmS5+y/_X+a5ruT.(">
+            <field name="NAME_AGENT_1" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+            <field name="NAME_AGENT_2" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+          </block>
+        </value>
+        <statement name="THEN_VALUE">
+          <block type="logic_prob_clause" id="_xbc0vyrG3,lwdrsRKKN">
+            <field name="PROB_CHANCE">total</field>
+            <statement name="CHANCE_ACTIONS">
+              <block type="proc_ind_hatch_agent" id="X9a?+DSMcn5;?P{Im|]F">
+                <field name="NUM_AGENTS">1</field>
+                <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="logic_if" id="vmXPQ.0e-!9QY53M5Jm#">
+            <value name="IF_VALUE">
+              <block type="event_check_collision" id="2wHsL^#J?@DQVZbl+Xj[">
+                <field name="NAME_AGENT_1" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                <field name="NAME_AGENT_2" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+              </block>
+            </value>
+            <statement name="THEN_VALUE">
+              <block type="logic_prob_clause" id="wg4W)%LhuWB-19H[W{y?">
+                <field name="PROB_CHANCE">total</field>
+                <statement name="CHANCE_ACTIONS">
+                  <block type="proc_ind_hatch_agent" id="r}k{Hb/7eD5Pw*O~~+88">
+                    <field name="NUM_AGENTS">1</field>
+                    <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="logic_if" id="/?60|uKhjyBcv_=4YX[z">
+                <value name="IF_VALUE">
+                  <block type="event_check_collision" id="2H;#@WG;KpG$Cw|F,+c;">
+                    <field name="NAME_AGENT_1" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                    <field name="NAME_AGENT_2" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                  </block>
+                </value>
+                <statement name="THEN_VALUE">
+                  <block type="logic_prob_clause" id=",I|+@zR7l1)o,}}9P:@V">
+                    <field name="PROB_CHANCE">mid</field>
+                    <statement name="CHANCE_ACTIONS">
+                      <block type="proc_ind_hatch_agent" id="o5z/~=]C|f/wrPGY%A~k">
+                        <field name="NUM_AGENTS">1</field>
+                        <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="logic_prob_clause" id="9bR0E~a{CINv:)7nlzbt">
+                        <field name="PROB_CHANCE">mid</field>
+                        <statement name="CHANCE_ACTIONS">
+                          <block type="proc_ind_hatch_agent" id=":8q97z6G:SE%k*o;QY})">
+                            <field name="NUM_AGENTS">1</field>
+                            <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="logic_if" id="d[G?}b|mghPveLU1;Q)?">
+                    <value name="IF_VALUE">
+                      <block type="event_check_collision" id="TW+7PHP0uOxw_Z7bK=Zg">
+                        <field name="NAME_AGENT_1" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                        <field name="NAME_AGENT_2" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                      </block>
+                    </value>
+                    <statement name="THEN_VALUE">
+                      <block type="logic_prob_clause" id="/BRdc)inzn]n[d#r!!l_">
+                        <field name="PROB_CHANCE">total</field>
+                        <statement name="CHANCE_ACTIONS">
+                          <block type="proc_ind_hatch_agent" id="#cH~O^PXx-8iu7[K/F/;">
+                            <field name="NUM_AGENTS">1</field>
+                            <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="logic_if" id="X[C|gZW0-CCxCv:2NO;I">
+                        <value name="IF_VALUE">
+                          <block type="event_check_collision" id="{Bt`B=L`}_al-zjt6wpT">
+                            <field name="NAME_AGENT_1" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                            <field name="NAME_AGENT_2" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                          </block>
+                        </value>
+                        <statement name="THEN_VALUE">
+                          <block type="logic_prob_clause" id="Bx,pg$y}m}Gv[LdlI-wV">
+                            <field name="PROB_CHANCE">mid</field>
+                            <statement name="CHANCE_ACTIONS">
+                              <block type="proc_ind_hatch_agent" id="`yfK1ZiaJ%`X9^[R0c$Y">
+                                <field name="NUM_AGENTS">1</field>
+                                <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="logic_prob_clause" id="Z3?QlaEwwF)ez!CRfBo`">
+                                <field name="PROB_CHANCE">mid</field>
+                                <statement name="CHANCE_ACTIONS">
+                                  <block type="proc_ind_hatch_agent" id="dNL@$:qp;z_m65JHAURG">
+                                    <field name="NUM_AGENTS">1</field>
+                                    <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="logic_if" id="hn~oV*J0TLD8iopLumc`">
+                            <value name="IF_VALUE">
+                              <block type="event_check_collision" id="W0R6Ap*QLg6~}uqdQ.(J">
+                                <field name="NAME_AGENT_1" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                                <field name="NAME_AGENT_2" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                              </block>
+                            </value>
+                            <statement name="THEN_VALUE">
+                              <block type="logic_prob_clause" id="8xI4,UT23G_G$E)z4lR$">
+                                <field name="PROB_CHANCE">low</field>
+                                <statement name="CHANCE_ACTIONS">
+                                  <block type="proc_ind_hatch_agent" id="mO5kv^H1UbN6}{+j#y[z">
+                                    <field name="NUM_AGENTS">1</field>
+                                    <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="logic_prob_clause" id="e|x.P!:8aQtIIZ)/:HFc">
+                                    <field name="PROB_CHANCE">low</field>
+                                    <statement name="CHANCE_ACTIONS">
+                                      <block type="proc_ind_hatch_agent" id="ly/ch,V)hek0Kp8XYoeG">
+                                        <field name="NUM_AGENTS">1</field>
+                                        <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="logic_prob_clause" id="*x=y~X[x^T#ig3#7/ayO">
+                                        <field name="PROB_CHANCE">mid</field>
+                                        <statement name="CHANCE_ACTIONS">
+                                          <block type="proc_ind_hatch_agent" id="^~^CJ9~BIv7|Dyy($/u_">
+                                            <field name="NUM_AGENTS">1</field>
+                                            <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

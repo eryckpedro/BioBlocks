@@ -288,7 +288,8 @@ Blockly.JavaScript['aprnc_create_agent_species4'] = function(block) {
                     }
 
   // Breed commands
-  var breedDict = { "person" : "pessoa", "bird" : "ave", "fish" : "peixe" };
+  var breedDict = { "person" : "pessoa", "bird" : "ave", "fish" : "peixe", "circle" : "circulo", "square" : "quadrado",
+                    "triangle" : "triangulo", "x" : "letra_X", "star" : "estrela", "tree" : "arvore" };
   var breedType = breedDict[dropdown_type_agent];
 
   var breedCode = "_GLOBAL" + "breed [ " + variable_name_agent + 'Z ' + variable_name_agent + " ]\n";

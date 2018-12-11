@@ -129,7 +129,9 @@ Blockly.Blocks['aprnc_create_agent_species2'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("tipo:")
-          .appendField(new Blockly.FieldDropdown([["humano","person"], ["ave","bird"], ["peixe","fish"]]), "TYPE_AGENT");
+          .appendField(new Blockly.FieldDropdown([["humano","person"], ["ave","bird"], ["peixe","fish"],
+                                                  ["círculo", "circle"], ["quadrado", "square"], ["triângulo", "triangle"],
+                                                  ["X (letra)", "x"], ["estrela", "star"], ["árvore", "tree"]]), "TYPE_AGENT");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("cor:")

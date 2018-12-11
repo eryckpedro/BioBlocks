@@ -12,7 +12,8 @@ Blockly.JavaScript['event_check_collision'] = function(block) {
     var codeAgent1 = 'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + 'Z' + '-here\n';
     var codeAgent2 = 'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z' + '-here\n';
 
-    var codeIF = 'if ( ' + nameAuxVar1 + ' != nobody and ' + nameAuxVar2 + ' != nobody )\n';
+    var codeIF = 'if (( ' + nameAuxVar1 + ' != nobody and ' + nameAuxVar2 + ' != nobody ) and ( ' + 
+                  nameAuxVar1 + ' != ' + nameAuxVar2 + ' ) )\n';
 
     // Assembling the final code
     var code = 'ask ' + variable_name_agent_1 + 'Z [\n'+ codeAgent1 + codeAgent2 + codeIF;
