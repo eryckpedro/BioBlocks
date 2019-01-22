@@ -15,8 +15,8 @@ Blockly.JavaScript['display_monitor_num_agent2'] = function(block) {
                        "precision": 17, "reserved": 1, "fontsize": 11       //netlogo default
                     };
 
-    monitorInfo.displayName = variable_name_agent;
-    monitorInfo.srcCode = "count " + monitorInfo.displayName + 'Z';
+    monitorInfo.displayName = "Num de " + variable_name_agent;
+    monitorInfo.srcCode = "count " + variable_name_agent + 'Z';
 
     var code = "_DSP" + 
                monitorInfo.name + ',' + monitorInfo.leftPos + ',' + monitorInfo.topPos + ',' +
@@ -27,6 +27,30 @@ Blockly.JavaScript['display_monitor_num_agent2'] = function(block) {
     return code;
 
 };
+
+Blockly.JavaScript['display_monitor_energy_agents'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    var randTopPos = randomIntFromInterval(0, 500);
+
+    var monitorInfo = {"name": "MONITOR", 
+                       "leftPos": 0, "rightPos": 100, 
+                       "topPos": randTopPos, "bottomPos": 100,
+                       "displayName": "", "srcCode": "",                     //user inputs
+                       "precision": 17, "reserved": 1, "fontsize": 11       //netlogo default
+                    };
+
+    monitorInfo.displayName = "Soma energias de " + variable_name_agent;
+    monitorInfo.srcCode = "sum [energia] of " + variable_name_agent + 'Z';
+
+    var code = "_DSP" + 
+               monitorInfo.name + ',' + monitorInfo.leftPos + ',' + monitorInfo.topPos + ',' +
+               monitorInfo.rightPos + ',' + monitorInfo.bottomPos + ',' + monitorInfo.displayName + ',' +
+               monitorInfo.srcCode + ',' + monitorInfo.precision + ',' + monitorInfo.reserved + ',' +
+               monitorInfo.fontsize + '\n';
+               
+    return code;
+  };
 
 Blockly.JavaScript['display_plot_graphic_agents_time'] = function(block) {
     var statements_name_agents = Blockly.JavaScript.statementToCode(block, 'NAME_AGENTS');
@@ -53,7 +77,11 @@ Blockly.JavaScript['display_plot_graphic_agents_time'] = function(block) {
         var agentOrigName = arrAgents[i];
         var agentName = agentOrigName.trim();
 
-        arrPenLines.push(defaultPenLine + "\"plot count " + agentName + "Z\"");
+        if(globalAgentGraphicPlotType == "QTD")
+            {arrPenLines.push(defaultPenLine + "\"plot count " + agentName + "Z\"");}
+        else if(globalAgentGraphicPlotType == "ENERGY")
+            {arrPenLines.push(defaultPenLine + "\"plot sum [energia] of " + agentName + "Z\"");}
+
     }
 
     var code = "_DSP" + 
@@ -74,9 +102,18 @@ Blockly.JavaScript['display_plot_graphic_agents_time'] = function(block) {
     return code;
   };
 
-Blockly.JavaScript['display_agent_axis_variable'] = function(block) {
+Blockly.JavaScript['display_agent_axis_variable_qtd'] = function(block) {
     var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
     
+    globalAgentGraphicPlotType = "QTD";
+    var code = variable_name_agent + '\n';
+    return code;
+  };
+
+  Blockly.JavaScript['display_agent_axis_variable_energy'] = function(block) {
+    var variable_name_agent = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT'), Blockly.Variables.NAME_TYPE);
+    
+    globalAgentGraphicPlotType = "ENERGY";
     var code = variable_name_agent + '\n';
     return code;
   };
