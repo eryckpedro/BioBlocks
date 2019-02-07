@@ -1,0 +1,61 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="iH6*~uVPgNekttR=%Mlp">homem</variable>
+    <variable type="" id="hP9EI7XCP4v2lm-TH7}8">peixe</variable>
+  </variables>
+  <block type="logic_program_sections" id="vu0cg:w_ULGr/cNEEapT" x="30" y="38">
+    <statement name="PREP_STATEMENTS:">
+      <block type="aprnc_create_agent_species4" id="+:@?WMB%7,{02/q,Kj:_" collapsed="true">
+        <field name="NUM_AGENTS">10</field>
+        <field name="TYPE_VISIBLE">TRUE</field>
+        <field name="NAME_AGENT" id="iH6*~uVPgNekttR=%Mlp" variabletype="">homem</field>
+        <field name="TYPE_AGENT">person</field>
+        <field name="NAME_COLOR">blue</field>
+        <field name="TYPE_SIZE">normal</field>
+        <field name="TYPE_ENERGY">0</field>
+        <field name="TYPE_REP">sex</field>
+        <field name="TYPE_MOV">rand</field>
+        <field name="TYPE_VELOC">fast</field>
+        <field name="TYPE_VISION">circle</field>
+        <field name="TYPE_VIS_RADIUS">medium</field>
+        <next>
+          <block type="aprnc_create_agent_species4" id="I/mx8S]F^*TXqC1*Z#W*" collapsed="true">
+            <field name="NUM_AGENTS">1</field>
+            <field name="TYPE_VISIBLE">TRUE</field>
+            <field name="NAME_AGENT" id="hP9EI7XCP4v2lm-TH7}8" variabletype="">peixe</field>
+            <field name="TYPE_AGENT">fish</field>
+            <field name="NAME_COLOR">gray</field>
+            <field name="TYPE_SIZE">normal</field>
+            <field name="TYPE_ENERGY">50</field>
+            <field name="TYPE_REP">sex</field>
+            <field name="TYPE_MOV">rand</field>
+            <field name="TYPE_VELOC">fast</field>
+            <field name="TYPE_VISION">circle</field>
+            <field name="TYPE_VIS_RADIUS">medium</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXEC_STATEMENTS:">
+      <block type="logic_if" id="8w$yRD1i3a*#kXKKp285">
+        <value name="IF_VALUE">
+          <block type="event_check_collision" id="n|#n-u%xj*=YOE^eMZj=">
+            <field name="NAME_AGENT_1" id="iH6*~uVPgNekttR=%Mlp" variabletype="">homem</field>
+            <field name="NAME_AGENT_2" id="hP9EI7XCP4v2lm-TH7}8" variabletype="">peixe</field>
+          </block>
+        </value>
+        <statement name="THEN_VALUE">
+          <block type="proc_dep_consume_agent_energy" id="tCKtorw?(vHNqQAT.vsG">
+            <field name="NAME_AGENT_EATER" id="iH6*~uVPgNekttR=%Mlp" variabletype="">homem</field>
+            <field name="NAME_AGENT_EATEN" id="hP9EI7XCP4v2lm-TH7}8" variabletype="">peixe</field>
+            <next>
+              <block type="proc_dep_kill_specific_agent" id="WnD4$-{YRo1z=x8^0z)L">
+                <field name="NAME_AGENT" id="hP9EI7XCP4v2lm-TH7}8" variabletype="">peixe</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

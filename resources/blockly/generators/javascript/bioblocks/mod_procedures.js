@@ -262,6 +262,19 @@ Blockly.JavaScript['proc_dep_move_towards_specific'] = function(block) {
     return code;
   };
 
+  Blockly.JavaScript['proc_dep_consume_agent_energy'] = function(block) {
+    var variable_name_agent_eater = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_EATER'), Blockly.Variables.NAME_TYPE);
+    var variable_name_agent_eaten = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME_AGENT_EATEN'), Blockly.Variables.NAME_TYPE);
+    
+    var listCopy = [];
+    listCopy = Object.create(globalListAuxVarInfo);
+    var auxVar = listCopy.pop();
+
+    code = 'ask ' + auxVar[variable_name_agent_eater] + ' [ set energia energia + [energia] of ' + auxVar[variable_name_agent_eaten] + ']';
+
+    return code;
+  };
+
 /* UNUSED
 Blockly.JavaScript['proc_dep_reproduce_between_species'] = function(block) {
     var number_num_cubs = block.getFieldValue('NUM_CUBS');

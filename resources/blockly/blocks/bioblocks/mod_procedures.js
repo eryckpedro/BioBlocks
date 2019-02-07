@@ -286,3 +286,19 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
    this.setHelpUrl("");
     }
   };
+
+  Blockly.Blocks['proc_dep_consume_agent_energy'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("esse agente:")
+          .appendField(new Blockly.FieldVariable("NOME 1"), "NAME_AGENT_EATER")
+          .appendField("ganha a energia do agente:")
+          .appendField(new Blockly.FieldVariable("NOME 2"), "NAME_AGENT_EATEN");
+      this.setInputsInline(false);
+      this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
+      this.setNextStatement(true, ["procedure", "procedure_dep"]);
+      this.setColour(30);
+   this.setTooltip("Procedimento em que o agente NOME 1 ganha a energia do agente NOME 2, somando à sua energia anterior. Somente usado como consequência de evento.");
+   this.setHelpUrl("");
+    }
+  };
