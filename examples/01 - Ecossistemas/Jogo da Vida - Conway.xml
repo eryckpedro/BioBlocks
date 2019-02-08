@@ -4,15 +4,16 @@
   </variables>
   <block type="logic_program_sections" id="|FcbB`i0~^Crx[}U!|^s" x="15" y="12">
     <statement name="PREP_STATEMENTS:">
-      <block type="aprnc_create_agent_species3" id="7|)vm63gC,cWJX)).mQl" collapsed="true">
+      <block type="aprnc_create_agent_species4" id="BM^@9]b|.~shFySOGfh@" collapsed="true">
         <field name="NUM_AGENTS">20</field>
+        <field name="TYPE_VISIBLE">TRUE</field>
         <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
         <field name="TYPE_AGENT">person</field>
         <field name="NAME_COLOR">blue</field>
         <field name="TYPE_SIZE">normal</field>
         <field name="TYPE_ENERGY">inf</field>
         <field name="TYPE_REP">sex</field>
-        <field name="TYPE_MOV">immobile</field>
+        <field name="TYPE_MOV">rand</field>
         <field name="TYPE_VELOC">normal</field>
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>

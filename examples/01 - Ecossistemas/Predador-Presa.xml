@@ -3,10 +3,11 @@
     <variable type="" id="B+Tcn7X![Djx_(b}/?nw">homem</variable>
     <variable type="" id="#bu4$nbiK%QXKx*h0vv4">peixe</variable>
   </variables>
-  <block type="logic_program_sections" id="pDd[JpRv-oY;*KkidT3|" x="14" y="96">
+  <block type="logic_program_sections" id="pDd[JpRv-oY;*KkidT3|" x="15" y="14">
     <statement name="PREP_STATEMENTS:">
-      <block type="aprnc_create_agent_species3" id="1M}.M5*PjNfM/![a?*[Q" collapsed="true">
+      <block type="aprnc_create_agent_species4" id="Ci=lIcS(4L[ADcs:=BK(" collapsed="true">
         <field name="NUM_AGENTS">20</field>
+        <field name="TYPE_VISIBLE">TRUE</field>
         <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
         <field name="TYPE_AGENT">person</field>
         <field name="NAME_COLOR">blue</field>
@@ -18,8 +19,9 @@
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>
         <next>
-          <block type="aprnc_create_agent_species3" id="kpxUK}61`E8pU1Vey50H" collapsed="true">
+          <block type="aprnc_create_agent_species4" id="-^:1OnA2|PW%Lhi0IsZ!" collapsed="true">
             <field name="NUM_AGENTS">40</field>
+            <field name="TYPE_VISIBLE">TRUE</field>
             <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
             <field name="TYPE_AGENT">fish</field>
             <field name="NAME_COLOR">gray</field>
@@ -31,12 +33,12 @@
             <field name="TYPE_VISION">circle</field>
             <field name="TYPE_VIS_RADIUS">small</field>
             <next>
-              <block type="display_plot_graphic_agents_time" id="DT3.?,CCK9BGBr;g4rg;">
+              <block type="display_plot_graphic_agents_time" id="vuFPScM9`g5In+lo5R]:">
                 <statement name="NAME_AGENTS">
-                  <block type="display_agent_axis_variable" id="vL|`,+amvEIT@C+w[lof">
+                  <block type="display_agent_axis_variable_qtd" id="_yY#AzQ@fbC;F+.hs0^P">
                     <field name="NAME_AGENT" id="B+Tcn7X![Djx_(b}/?nw" variabletype="">homem</field>
                     <next>
-                      <block type="display_agent_axis_variable" id=")D}5+`Wi2iz4`thl}XD,">
+                      <block type="display_agent_axis_variable_qtd" id="Fpj_RF`;S0yB_CX4U:sC">
                         <field name="NAME_AGENT" id="#bu4$nbiK%QXKx*h0vv4" variabletype="">peixe</field>
                       </block>
                     </next>

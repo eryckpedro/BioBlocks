@@ -3,10 +3,11 @@
     <variable type="" id="ofz#M}s^M6Qy#a0U@N/R">pessoaSadia</variable>
     <variable type="" id="r6p?V@-Eq;tvM.SpXbN7">pessoaVirus</variable>
   </variables>
-  <block type="logic_program_sections" id="LehqDA!~]JQLUl*Lpe~2" x="15" y="115">
+  <block type="logic_program_sections" id="LehqDA!~]JQLUl*Lpe~2" x="16" y="19">
     <statement name="PREP_STATEMENTS:">
-      <block type="aprnc_create_agent_species3" id="k;(*77~55%XQ]Bp2aA0R" collapsed="true">
+      <block type="aprnc_create_agent_species4" id="vd:1B7vTIzB-:;xjHb%K" collapsed="true">
         <field name="NUM_AGENTS">20</field>
+        <field name="TYPE_VISIBLE">TRUE</field>
         <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
         <field name="TYPE_AGENT">person</field>
         <field name="NAME_COLOR">blue</field>
@@ -18,8 +19,9 @@
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>
         <next>
-          <block type="aprnc_create_agent_species3" id="KS8Ryu3Ljy+CnVFiYZ~k" collapsed="true">
+          <block type="aprnc_create_agent_species4" id="eVQ8]6}O0n%I@W2z;g5)" collapsed="true">
             <field name="NUM_AGENTS">5</field>
+            <field name="TYPE_VISIBLE">TRUE</field>
             <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
             <field name="TYPE_AGENT">person</field>
             <field name="NAME_COLOR">green</field>
@@ -31,12 +33,12 @@
             <field name="TYPE_VISION">circle</field>
             <field name="TYPE_VIS_RADIUS">medium</field>
             <next>
-              <block type="display_plot_graphic_agents_time" id="C+4{IW3}`#VEjI(|.(wu">
+              <block type="display_plot_graphic_agents_time" id="eXzHmy!Si|zt;4-(anUo">
                 <statement name="NAME_AGENTS">
-                  <block type="display_agent_axis_variable" id="WEWR=wbNlc0PsBYU;dHI">
+                  <block type="display_agent_axis_variable_qtd" id="m/;xZbwDB,_RMJ)VWI2M">
                     <field name="NAME_AGENT" id="ofz#M}s^M6Qy#a0U@N/R" variabletype="">pessoaSadia</field>
                     <next>
-                      <block type="display_agent_axis_variable" id="PD:v0U$doT_eRMi1dF{R">
+                      <block type="display_agent_axis_variable_qtd" id="/eQ=R}~*teHDgZxOj%V/">
                         <field name="NAME_AGENT" id="r6p?V@-Eq;tvM.SpXbN7" variabletype="">pessoaVirus</field>
                       </block>
                     </next>

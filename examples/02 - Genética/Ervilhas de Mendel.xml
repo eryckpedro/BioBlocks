@@ -4,7 +4,7 @@
     <variable type="" id="Sihq43s[x_nI_M0#85/Q">ervilhaAmarela</variable>
     <variable type="" id="OoR/8ynU/E{bCGwVwVSR">ervilhaAmarelaHib</variable>
   </variables>
-  <block type="logic_program_sections" id="Gp.NvL6Fi[hfv64Z$(W9" x="0" y="0">
+  <block type="logic_program_sections" id="Gp.NvL6Fi[hfv64Z$(W9" x="9" y="7">
     <statement name="PREP_STATEMENTS:">
       <block type="aprnc_create_agent_species4" id="AxDI2e$uFbMm}@^T={8e" collapsed="true">
         <field name="NUM_AGENTS">5</field>
@@ -57,15 +57,15 @@
                           <block type="display_monitor_num_agent2" id="L4.Pe9^e5trc-Qg.p_f+">
                             <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
                             <next>
-                              <block type="display_plot_graphic_agents_time" id="Kr]-C`%16koEF4f]/B*e" collapsed="true">
+                              <block type="display_plot_graphic_agents_time" id="OHfPy5ZRoj3h[*i!SupE" collapsed="true">
                                 <statement name="NAME_AGENTS">
-                                  <block type="display_agent_axis_variable" id="=,Y~13=A+dB_Tt[x:.fc">
+                                  <block type="display_agent_axis_variable_qtd" id="T!2,#F)HDIT@2iDNbCyd">
                                     <field name="NAME_AGENT" id="lb]w*dzwgy.m@VS5TkRd" variabletype="">ervilhaVerde</field>
                                     <next>
-                                      <block type="display_agent_axis_variable" id="SoLL`/$N0K`r-lL/|l:D">
+                                      <block type="display_agent_axis_variable_qtd" id="r1Y;14Ib`,2s;5q2*wFo">
                                         <field name="NAME_AGENT" id="Sihq43s[x_nI_M0#85/Q" variabletype="">ervilhaAmarela</field>
                                         <next>
-                                          <block type="display_agent_axis_variable" id="6wyjCaI8%`Q8;ZGWneV%">
+                                          <block type="display_agent_axis_variable_qtd" id="HpDh:3{uSx68j;+aq^4q">
                                             <field name="NAME_AGENT" id="OoR/8ynU/E{bCGwVwVSR" variabletype="">ervilhaAmarelaHib</field>
                                           </block>
                                         </next>
