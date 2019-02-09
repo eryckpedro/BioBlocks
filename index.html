@@ -59,9 +59,22 @@
     <div id="btnList">
         <!-- <button onclick="showNLCode()">Mostrar código NetLogo</button> -->
 
-        <button id="loadBtn" onclick="loadBlocklyXML()"><i class="fa fa-folder-open-o"></i></button>
-        <button id="saveBtn" onclick="saveBlocklyXML()"><i class="fa fa-floppy-o"></i></button>
-        <button id="envBtn" onclick="sendCodeToNL()"><i class="fa fa-play-circle-o"></i></button>
+        <button id="newBtn" class="tooltip">
+            <i class="fa fa-file-o"></i>
+            <span>Novo arquivo</span>
+        </button>
+        <button id="loadBtn" onclick="loadBlocklyXML()" class="tooltip">
+            <i class="fa fa-folder-open-o"></i>
+            <span>Carregar arquivo</span>
+        </button>
+        <button id="saveBtn" onclick="saveBlocklyXML()" class="tooltip">
+            <i class="fa fa-floppy-o"></i>
+            <span>Salvar arquivo</span>
+        </button>
+        <button id="envBtn" onclick="sendCodeToNL()" class="tooltipNL">
+            <i class="fa fa-play-circle-o"></i>
+            <span>Enviar ao NetLogo</span>
+        </button>
     </div>
 
     

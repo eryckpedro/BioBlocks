@@ -37,6 +37,89 @@ h1
     width: 800px;
 }
 
+.tooltip 
+{
+    position: relative;
+    z-index: 20;
+}
+
+.tooltip span 
+{
+    display: none;
+}
+
+.tooltip:hover
+{
+    z-index: 21;
+}
+
+.tooltip:hover span
+{
+    display: block;
+    width: 100px;
+    padding: 5px;
+    color: #FFF;
+    background: #535665;
+    font-size: 11px;
+    text-decoration: none;
+    position: absolute;
+    border-radius: 6px;
+    top: -10px;
+    left: 5px;
+    text-align: center;
+}
+
+.tooltipNL 
+{
+    position: relative;
+    z-index: 20;
+}
+
+.tooltipNL span 
+{
+    display: none;
+}
+
+.tooltipNL:hover
+{
+    z-index: 21;
+}
+
+.tooltipNL:hover span
+{
+    display: block;
+    width: 100px;
+    padding: 5px;
+    color: #FFF;
+    background: #535665;
+    font-size: 11px;
+    text-decoration: none;
+    position: absolute;
+    border-radius: 6px;
+    top: -10px;
+    left: -65px;
+    text-align: center;
+}
+
+#newBtn
+{
+    float: left;
+    background-color: coral;
+    border: w3-border w3-border-black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+    font-size: 30px;
+}
+
+#newBtn:hover
+{
+    background-color: orangered;
+    color: white;
+}
+
+
 #loadBtn
 {
     float: left;
