@@ -189,36 +189,53 @@ function sendCodeToNL()
 
 function saveBlocklyXML()
 {
-    dialog.showSaveDialog((fileName) => 
+    let fileName = dialog.showSaveDialog();
+    if(fileName === undefined) 
     {
-        if(fileName === undefined) 
-        {
-            alert("Erro: Não foi especificado um nome de arquivo a ser salvo."); 
-            return; 
-        }
+        alert("Erro: Não foi especificado um nome de arquivo a ser salvo."); 
+        return; 
+    }
 
-        var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
-        var xml_text = Blockly.Xml.domToPrettyText(xml);
+    saveWS = demoWorkspace;
+    var xml = Blockly.Xml.workspaceToDom(saveWS);
+    var xml_text = Blockly.Xml.domToPrettyText(xml);
 
-        if(fileName.endsWith('.xml'))
-        {
-            fs.writeFile(fileName, xml_text, (err) => 
+    if(fileName.endsWith('.xml'))
+    {
+        fs.writeFile(fileName, xml_text, (err) => 
+    {
+        if (err) {console.log(err);}
+        alert("Arquivo salvo com sucesso.");
+    })
+    }
+    else
+    {
+        fs.writeFile(fileName + '.xml', xml_text, (err) => 
         {
             if (err) {console.log(err);}
             alert("Arquivo salvo com sucesso.");
         })
-        }
-        else
-        {
-            fs.writeFile(fileName + '.xml', xml_text, (err) => 
-            {
-                if (err) {console.log(err);}
-                alert("Arquivo salvo com sucesso.");
-            })
-        }
-
-    })
+    }    
 }
+
+function newFile()
+{
+    var saveCurrent = confirm("Deseja salvar o arquivo atual?");
+
+    if(saveCurrent == true)
+    {
+        saveBlocklyXML();
+    }
+
+    clearWorkspace();
+}
+
+function clearWorkspace()
+{
+    demoWorkspace.clear();
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
+}
+
 
 function loadBlocklyXML()
 {
