@@ -239,6 +239,13 @@ function clearWorkspace()
 
 function loadBlocklyXML()
 {
+    var saveCurrent = confirm("Deseja salvar o arquivo atual?");
+
+    if(saveCurrent == true)
+    {
+        saveBlocklyXML();
+    }
+
     dialog.showOpenDialog((fileNames) => 
     {
         if(fileNames === undefined)
