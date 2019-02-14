@@ -262,8 +262,12 @@ function newFile()
             saveResult = saveBlocklyXML();
         }
     }
+    else if(chosenOpt == 2)         //Cancel
+    {
+        return;
+    }
 
-    if(saveResult != -1)
+    if((saveResult != -1))
         clearWorkspace();
 }
 
@@ -352,9 +356,9 @@ function loadBlocklyXML()
 
         //Loading the desired file
         var loadMsgOptions =
-            {
-                title: 'CARREGAR ARQUIVO'
-            }
+        {
+            title: 'CARREGAR ARQUIVO'
+        }
 
         dialog.showOpenDialog(null, loadMsgOptions, (fileNames) => 
         {
