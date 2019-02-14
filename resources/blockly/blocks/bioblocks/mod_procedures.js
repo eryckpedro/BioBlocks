@@ -130,7 +130,7 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Processo de tentativa de fuga do agente NOME 1 especificado no evento, em que está fugindo do agente NOME 2. Somente usado após detecção de um agente pelo outro.");
    this.setHelpUrl("");
     }
@@ -152,7 +152,7 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies. O gênero será aleatório. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -178,7 +178,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Gera uma quantidade específica de filhos entre as 2 espécies, colocando chances de mutação uma característica. O gênero será aleatório. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -192,7 +192,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento que mata o agente especificado pelo evento. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -208,7 +208,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Adiciona ou remove uma quantidade de energia do agente especificado pelo evento. Máximo de 100 unidades. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -224,7 +224,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento em que o agente NOME 1 se move em direção ao NOME 2. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -238,7 +238,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento que marca o agente especificado pelo evento, afim de aplicar um efeito sobre o mesmo posteriormente. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -253,7 +253,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento que mata o agente marcado do tipo especificado pelo evento. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -266,7 +266,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento que marca o espaço vazio especificado pelo evento, afim de aplicar um efeito sobre o mesmo posteriormente. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -281,7 +281,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento que gera um agente do tipo especificado no espaço vazio marcado. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }
@@ -297,7 +297,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
       this.setInputsInline(false);
       this.setPreviousStatement(true, ["procedure_IF", "procedure_dep"]);
       this.setNextStatement(true, ["procedure", "procedure_dep"]);
-      this.setColour(30);
+      this.setColour(225);
    this.setTooltip("Procedimento em que o agente NOME 1 ganha a energia do agente NOME 2, somando à sua energia anterior. Somente usado como consequência de evento.");
    this.setHelpUrl("");
     }

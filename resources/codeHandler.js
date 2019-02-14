@@ -189,33 +189,41 @@ function sendCodeToNL()
 
 function saveBlocklyXML()
 {
-    let fileName = dialog.showSaveDialog();
+    var saveOptions =
+    {
+        title: 'SALVAR COMO'
+    }
+
+    let fileName = dialog.showSaveDialog(null, saveOptions);
     if(fileName === undefined) 
     {
         alert("Erro: Não foi especificado um nome de arquivo a ser salvo."); 
-        return; 
-    }
-
-    saveWS = demoWorkspace;
-    var xml = Blockly.Xml.workspaceToDom(saveWS);
-    var xml_text = Blockly.Xml.domToPrettyText(xml);
-
-    if(fileName.endsWith('.xml'))
-    {
-        fs.writeFile(fileName, xml_text, (err) => 
-    {
-        if (err) {console.log(err);}
-        alert("Arquivo salvo com sucesso.");
-    })
+        return -1; //User either cancelled the operation or didn't specify a file - Cancels whole suboperations
     }
     else
     {
-        fs.writeFile(fileName + '.xml', xml_text, (err) => 
+        saveWS = demoWorkspace;
+        var xml = Blockly.Xml.workspaceToDom(saveWS);
+        var xml_text = Blockly.Xml.domToPrettyText(xml);
+    
+        if(fileName.endsWith('.xml'))
+        {
+            fs.writeFile(fileName, xml_text, (err) => 
         {
             if (err) {console.log(err);}
             alert("Arquivo salvo com sucesso.");
         })
-    }    
+        }
+        else
+        {
+            fs.writeFile(fileName + '.xml', xml_text, (err) => 
+            {
+                if (err) {console.log(err);}
+                alert("Arquivo salvo com sucesso.");
+            })
+        } 
+    }
+       
 }
 
 function newFile()
@@ -230,10 +238,11 @@ function newFile()
     }
 
     var chosenOpt = dialog.showMessageBox(null, saveMsgOptions);
+    var saveResult;
 
     if(chosenOpt == 0)          // Yes
     {
-        saveBlocklyXML();
+        saveResult = saveBlocklyXML();
     }
     else if(chosenOpt == 1)     // No
     {
@@ -250,11 +259,12 @@ function newFile()
 
         if(chosenConfirm == 1)      //No
         {
-            saveBlocklyXML();
+            saveResult = saveBlocklyXML();
         }
     }
 
-    clearWorkspace();
+    if(saveResult != -1)
+        clearWorkspace();
 }
 
 function clearWorkspace()
@@ -276,23 +286,31 @@ function loadBlocklyXML()
     }
 
     var chosenOpt = dialog.showMessageBox(null, saveMsgOptions);
+    var saveResult;
 
     if(chosenOpt == 0)          // Yes
     {
-        saveBlocklyXML();
-
-        //Loading the desired file
-        dialog.showOpenDialog((fileNames) => 
+        saveResult = saveBlocklyXML();
+        if(saveResult != -1)
         {
-            if(fileNames === undefined)
+            //Loading the desired file
+            var loadMsgOptions =
             {
-                alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                title: 'CARREGAR ARQUIVO'
             }
-            else
+
+            dialog.showOpenDialog(null, loadMsgOptions, (fileNames) => 
             {
-                readBlocklyXML(fileNames[0]);
-            }
-        })
+                if(fileNames === undefined)
+                {
+                    alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                }
+                else
+                {
+                    readBlocklyXML(fileNames[0]);
+                }
+            })
+        }
     }
     else if(chosenOpt == 1)     // No
     {
@@ -309,11 +327,36 @@ function loadBlocklyXML()
 
         if(chosenConfirm == 1)      //No
         {
-            saveBlocklyXML();
+            saveResult = saveBlocklyXML();
+            if(saveResult != -1)
+            {
+                //Loading the desired file
+                var loadMsgOptions =
+                {
+                    title: 'CARREGAR ARQUIVO'
+                }
+
+                dialog.showOpenDialog(null, loadMsgOptions, (fileNames) => 
+                {
+                    if(fileNames === undefined)
+                    {
+                        alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                    }
+                    else
+                    {
+                        readBlocklyXML(fileNames[0]);
+                    }
+                })
+            }
         }
 
         //Loading the desired file
-        dialog.showOpenDialog((fileNames) => 
+        var loadMsgOptions =
+            {
+                title: 'CARREGAR ARQUIVO'
+            }
+
+        dialog.showOpenDialog(null, loadMsgOptions, (fileNames) => 
         {
             if(fileNames === undefined)
             {
@@ -325,25 +368,6 @@ function loadBlocklyXML()
             }
         })
     }
-    
-    // var saveCurrent = confirm("Deseja salvar o arquivo atual?");
-
-    // if(saveCurrent == true)
-    // {
-    //     saveBlocklyXML();
-    // }
-
-    // dialog.showOpenDialog((fileNames) => 
-    // {
-    //     if(fileNames === undefined)
-    //     {
-    //         alert("Erro: Não foi especificado um arquivo a ser carregado.");
-    //     }
-    //     else
-    //     {
-    //         readBlocklyXML(fileNames[0]);
-    //     }
-    // })
 }
 
 function readBlocklyXML(filepath)
