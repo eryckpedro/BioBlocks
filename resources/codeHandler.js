@@ -220,11 +220,38 @@ function saveBlocklyXML()
 
 function newFile()
 {
-    var saveCurrent = confirm("Deseja salvar o arquivo atual?");
+    //Dialogs to ask if user wants to save current file
+    var saveMsgOptions = 
+    {
+        type: 'question',
+        buttons: ['Sim', 'Não', 'Cancelar'],
+        message: 'Deseja salvar o arquivo atual?',
+        cancelId: 2
+    }
 
-    if(saveCurrent == true)
+    var chosenOpt = dialog.showMessageBox(null, saveMsgOptions);
+
+    if(chosenOpt == 0)          // Yes
     {
         saveBlocklyXML();
+    }
+    else if(chosenOpt == 1)     // No
+    {
+        //Checking if the user really doesn't want to save current file
+        var confirmMsgOptions = 
+        {
+            type: 'question',
+            buttons: ['Sim', 'Não'],
+            message: 'Tem certeza de que não quer salvar o arquivo atual?',
+            cancelId: 0
+        }
+
+        var chosenConfirm = dialog.showMessageBox(null, confirmMsgOptions);
+
+        if(chosenConfirm == 1)      //No
+        {
+            saveBlocklyXML();
+        }
     }
 
     clearWorkspace();
@@ -239,24 +266,84 @@ function clearWorkspace()
 
 function loadBlocklyXML()
 {
-    var saveCurrent = confirm("Deseja salvar o arquivo atual?");
-
-    if(saveCurrent == true)
+    //Dialogs to ask if user wants to save current file
+    var saveMsgOptions = 
     {
-        saveBlocklyXML();
+        type: 'question',
+        buttons: ['Sim', 'Não', 'Cancelar'],
+        message: 'Deseja salvar o arquivo atual?',
+        cancelId: 2
     }
 
-    dialog.showOpenDialog((fileNames) => 
+    var chosenOpt = dialog.showMessageBox(null, saveMsgOptions);
+
+    if(chosenOpt == 0)          // Yes
     {
-        if(fileNames === undefined)
+        saveBlocklyXML();
+
+        //Loading the desired file
+        dialog.showOpenDialog((fileNames) => 
         {
-            alert("Erro: Não foi especificado um arquivo a ser carregado.");
-        }
-        else
+            if(fileNames === undefined)
+            {
+                alert("Erro: Não foi especificado um arquivo a ser carregado.");
+            }
+            else
+            {
+                readBlocklyXML(fileNames[0]);
+            }
+        })
+    }
+    else if(chosenOpt == 1)     // No
+    {
+        //Checking if the user really doesn't want to save current file
+        var confirmMsgOptions = 
         {
-            readBlocklyXML(fileNames[0]);
+            type: 'question',
+            buttons: ['Sim', 'Não'],
+            message: 'Tem certeza de que não quer salvar o arquivo atual?',
+            cancelId: 0
         }
-    })
+
+        var chosenConfirm = dialog.showMessageBox(null, confirmMsgOptions);
+
+        if(chosenConfirm == 1)      //No
+        {
+            saveBlocklyXML();
+        }
+
+        //Loading the desired file
+        dialog.showOpenDialog((fileNames) => 
+        {
+            if(fileNames === undefined)
+            {
+                alert("Erro: Não foi especificado um arquivo a ser carregado.");
+            }
+            else
+            {
+                readBlocklyXML(fileNames[0]);
+            }
+        })
+    }
+    
+    // var saveCurrent = confirm("Deseja salvar o arquivo atual?");
+
+    // if(saveCurrent == true)
+    // {
+    //     saveBlocklyXML();
+    // }
+
+    // dialog.showOpenDialog((fileNames) => 
+    // {
+    //     if(fileNames === undefined)
+    //     {
+    //         alert("Erro: Não foi especificado um arquivo a ser carregado.");
+    //     }
+    //     else
+    //     {
+    //         readBlocklyXML(fileNames[0]);
+    //     }
+    // })
 }
 
 function readBlocklyXML(filepath)
