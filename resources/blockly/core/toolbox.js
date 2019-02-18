@@ -560,7 +560,11 @@ Blockly.Toolbox.TreeControl.prototype.setSelectedItem = function(node) {
     toolbox.lastCategory_.getRowElement().style.backgroundColor = '';
   }
   if (node) {
-    var hexColour = node.hexColour || '#57e';
+
+    //var hexColour = node.hexColour || '#57e'*/
+
+    var hexColour = '#00000000' // TRANSPARENT
+
     node.getRowElement().style.backgroundColor = hexColour;
     // Add colours to child nodes which may have been collapsed and thus
     // not rendered.
