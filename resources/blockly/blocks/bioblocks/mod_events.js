@@ -37,7 +37,7 @@ Blockly.Blocks['event_check_collision'] = {
   Blockly.Blocks['event_check_agent_qtd'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("a quantidade de agentes do tipo:")
+          .appendField("a QTD de agentes do tipo:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
           .appendField(new Blockly.FieldDropdown([["=","equal"], [">","gt"], ["<","lt"], ["≥","gte"], ["≤","lte"], ["≠","diff"]]), "TYPE_COMPARE")
           .appendField(new Blockly.FieldNumber(0), "NUM_COMPARED");
@@ -106,7 +106,7 @@ Blockly.Blocks['event_check_collision'] = {
   Blockly.Blocks['event_check_agent_energy'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("a quantidade de energia de um agente do tipo:")
+          .appendField("a QTD de energia de um agente do tipo:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT")
           .appendField(new Blockly.FieldDropdown([["=","equal"], [">","gt"], ["<","lt"], ["≥","gte"], ["≤","lte"], ["≠","diff"]]), "TYPE_COMPARE")
           .appendField(new Blockly.FieldNumber(0), "NUM_COMPARED");
