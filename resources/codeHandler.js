@@ -197,7 +197,6 @@ function saveBlocklyXML()
     let fileName = dialog.showSaveDialog(null, saveOptions);
     if(fileName === undefined) 
     {
-        alert("Erro: Não foi especificado um nome de arquivo a ser salvo."); 
         return -1; //User either cancelled the operation or didn't specify a file - Cancels whole suboperations
     }
     else
@@ -307,7 +306,7 @@ function loadBlocklyXML()
             {
                 if(fileNames === undefined)
                 {
-                    alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                    //alert("Erro: Não foi especificado um arquivo a ser carregado.");
                 }
                 else
                 {
@@ -344,7 +343,7 @@ function loadBlocklyXML()
                 {
                     if(fileNames === undefined)
                     {
-                        alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                        //alert("Erro: Não foi especificado um arquivo a ser carregado.");
                     }
                     else
                     {
@@ -364,7 +363,7 @@ function loadBlocklyXML()
         {
             if(fileNames === undefined)
             {
-                alert("Erro: Não foi especificado um arquivo a ser carregado.");
+                //alert("Erro: Não foi especificado um arquivo a ser carregado.");
             }
             else
             {
