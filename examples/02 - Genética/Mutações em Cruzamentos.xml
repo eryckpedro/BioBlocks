@@ -1,10 +1,10 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <variables>
     <variable type="" id="DAk=v_F9)WsNcI:(T0AB">homem</variable>
-    <variable type="" id="5F+Eh@_6IU36#GF^u~0{">mulherBaixa</variable>
     <variable type="" id="c/uqg_Q9,P6cRx=Mu1#S">mulher</variable>
+    <variable type="" id="5F+Eh@_6IU36#GF^u~0{">mulherBaixa</variable>
   </variables>
-  <block type="logic_program_sections" id="DU0n]$t{@N1#/2lb=nTU" x="15" y="-56">
+  <block type="logic_program_sections" id="DU0n]$t{@N1#/2lb=nTU" x="15" y="-18">
     <statement name="PREP_STATEMENTS:">
       <block type="aprnc_create_agent_species4" id="[JiAqa0%vQT,Tw7(qrnV" collapsed="true">
         <field name="NUM_AGENTS">15</field>
