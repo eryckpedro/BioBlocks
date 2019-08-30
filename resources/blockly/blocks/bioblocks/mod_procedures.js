@@ -14,7 +14,7 @@ Blockly.Blocks['proc_ind_stop_simulation'] = {
   Blockly.Blocks['proc_ind_manage_energy'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
+          .appendField(new Blockly.FieldDropdown([["adicionar","add"], ["remover","rem"]]), "ACTION_TYPE")
           .appendField(new Blockly.FieldNumber(0, 1, 100), "QTD_ENERGY")
           .appendField("ponto(s) de energia de todos agentes:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");
@@ -201,7 +201,7 @@ Blockly.Blocks['proc_dep_reproduce_between_species_with_mutation'] = {
   Blockly.Blocks['proc_dep_manage_energy_specific'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["adiconar","add"], ["remover","rem"]]), "ACTION_TYPE")
+          .appendField(new Blockly.FieldDropdown([["adicionar","add"], ["remover","rem"]]), "ACTION_TYPE")
           .appendField(new Blockly.FieldNumber(0, 1, 100), "QTD_ENERGY")
           .appendField("ponto(s) de energia desse agente:")
           .appendField(new Blockly.FieldVariable("NOME"), "NAME_AGENT");

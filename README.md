@@ -15,5 +15,7 @@ Software NetLogo (disponível em: http://ccl.northwestern.edu/netlogo/)
 
 NodeJS (disponível em: https://nodejs.org/en/)
 
-# Instalação
-Após clonar o repositório, executar o comando "npm install" (sem aspas) no diretório clonado.
+# Instalação do Código-Fonte
+1) Clonar o repositório para um local em sua máquina;
+2) Executar o comando "npm install" no diretório clonado;
+3) Executar o comando "npm start" no diretório clonado.
