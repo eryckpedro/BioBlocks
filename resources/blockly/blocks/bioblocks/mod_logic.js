@@ -10,7 +10,7 @@ Blockly.Blocks['logic_if'] = {
       this.setPreviousStatement(true, "procedure");
       this.setNextStatement(true, "procedure");
       this.setColour(180);
-   this.setTooltip("");
+   this.setTooltip("Bloco que cria uma condição Se -> então. Este bloco deve atribuir uma Condição de Controle no campo ao lado do \"se\", obrigatoriamente, e uma Ação de Controle no campo ao lado do \"então\", opcional. A Ação de Controle somente será executada caso a Condição de Controle especificada aconteça. Ações Livres também podem ser realizadas como Ação de Controle, mas o oposto NÃO é válido.");
    this.setHelpUrl("");
     }
   };

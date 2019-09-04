@@ -147,6 +147,24 @@ function showNLCode()
     alert(nlCode);
 }
 
+function basicErrorsCheck(nlFile)
+{
+    var error;
+
+    error = nlFile.search("NOME");
+    if(error != -1) { alert("Parâmetro \"NOME\" não alterado em algum bloco"); globalValidationMode = false; }
+
+    error = nlFile.search("NOME 1");
+    if(error != -1) { alert("Parâmetro \"NOME 1\" não alterado em algum bloco"); globalValidationMode = false; }
+
+    error = nlFile.search("NOME 2");
+    if(error != -1) { alert("Parâmetro \"NOME 2\" não alterado em algum bloco"); globalValidationMode = false; }
+
+    error = nlFile.search("undefined");
+    if(error != -1) { alert("Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
+
+}
+
 function sendCodeToNL() 
 {
     try 
@@ -170,8 +188,9 @@ function sendCodeToNL()
     fs.writeFileSync(fileDir, nlModelCode);
 
     var modelTxt = fs.readFileSync('./modelo.nlogo', 'utf8');
-    var lastErrorCheck = modelTxt.search('undefined');
-    if(lastErrorCheck != -1) { alert("Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
+    basicErrorsCheck(modelTxt);
+    //var lastErrorCheck = modelTxt.search('undefined');
+    //if(lastErrorCheck != -1) { alert("Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
 
     resetGlobalVariables();
 

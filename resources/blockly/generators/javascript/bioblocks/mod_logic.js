@@ -11,7 +11,7 @@ Blockly.JavaScript['logic_if'] = function(block) {
 
     if(value_if_value == '')
     {
-        alert("Erro: condição do bloco IF está vazia.");
+        alert("Erro: Condição de Controle do bloco Se -> então está vazia.");
         globalValidationMode = false;
     }
     

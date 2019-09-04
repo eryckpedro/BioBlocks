@@ -90,7 +90,7 @@ Blockly.Blocks['aprnc_set_all_patch_color'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(120);
-        this.setTooltip("");
+        this.setTooltip("Muda a cor de fundo da área de visualização da simulação para a cor especificada.");
         this.setHelpUrl("");
     }
   };
