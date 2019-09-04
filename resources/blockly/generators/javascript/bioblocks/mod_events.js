@@ -54,14 +54,14 @@ Blockly.JavaScript['event_check_agent_in_proximity'] = function(block) {
         
         case 'cone':
             code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 
-                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + '-here\n' +
-                   'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-cone visRadius' + DEFAULT_CONE_ANGLE + '\n' +
+                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + 'Z-here\n' +
+                   'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n' +
                    'if any? ' + variable_name_agent_2 + 'Z in-cone visRadius ' + DEFAULT_CONE_ANGLE + '\n';
             break;
         
         case 'blind':
             code = 'ask ' + variable_name_agent_1 + 'Z [\n' + 
-                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + '-here\n' +
+                   'let ' + nameAuxVar1 + ' one-of ' + variable_name_agent_1 + 'Z-here\n' +
                    'let ' + nameAuxVar2 + ' one-of ' + variable_name_agent_2 + 'Z in-radius visRadius\n' + 
                    'if any? ' + variable_name_agent_2 + 'Z in-radius visRadius ' + '\n';
     }
