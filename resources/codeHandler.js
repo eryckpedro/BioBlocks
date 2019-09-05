@@ -149,19 +149,27 @@ function showNLCode()
 
 function basicErrorsCheck(nlFile)
 {
-    var error;
+    var numTotalBlocks = demoWorkspace.getAllBlocks(true).length;
+    var numBlocksInsideLPSBlock = demoWorkspace.getBlockById("LPS").getDescendants(true).length;
 
+    //Checks if there is any disconnected block in Workspace aside from the Logic Program Sections block
+    if(numTotalBlocks > 1 && numTotalBlocks != numBlocksInsideLPSBlock)
+    { alert("Erro: Algum bloco está desconectado do Bloco de Seções de Programa"); globalValidationMode = false; }
+
+    //Checks if any default block variable name was not changed by user
+    var error;
+    
     error = nlFile.search("NOME");
-    if(error != -1) { alert("Parâmetro \"NOME\" não alterado em algum bloco"); globalValidationMode = false; }
+    if(error != -1) { alert("Erro: Parâmetro \"NOME\" não alterado em algum bloco"); globalValidationMode = false; }
 
     error = nlFile.search("NOME 1");
-    if(error != -1) { alert("Parâmetro \"NOME 1\" não alterado em algum bloco"); globalValidationMode = false; }
+    if(error != -1) { alert("Erro: Parâmetro \"NOME 1\" não alterado em algum bloco"); globalValidationMode = false; }
 
     error = nlFile.search("NOME 2");
-    if(error != -1) { alert("Parâmetro \"NOME 2\" não alterado em algum bloco"); globalValidationMode = false; }
+    if(error != -1) { alert("Erro: Parâmetro \"NOME 2\" não alterado em algum bloco"); globalValidationMode = false; }
 
     error = nlFile.search("undefined");
-    if(error != -1) { alert("Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
+    if(error != -1) { alert("Erro: Houve algum erro de definição de parâmetros."); globalValidationMode = false; }
 
 }
 
