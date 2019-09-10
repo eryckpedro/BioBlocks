@@ -109,7 +109,8 @@ Blockly.Blocks['logic_simulation_while'] = {
       this.setColour(270);
       this.setTooltip("Bloco que agrupa as áreas de programação do modelo. Em " +  
                       "\"PREPARAR\" se encaixam os comandos de definição de agntes e criação de gráficos. " +  
-                      "Em \"EXECUTAR\" estão os comandos de ações dos agentes, que ficam em loop infinito.");
+                      "Em \"EXECUTAR\" estão os comandos de ações dos agentes, que ficam em loop infinito. " +
+                      "Este bloco não pode ser duplicado nem excluído.");
       this.setHelpUrl("");
     }
   };
