@@ -1,83 +1,83 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <variables>
-    <variable type="" id="iI2.KxR)[)mBxBOnY+tg">homem</variable>
+    <variable type="" id="(~j;B)/DYE2=^z,=ie4p">homem</variable>
   </variables>
-  <block type="logic_program_sections" id="|FcbB`i0~^Crx[}U!|^s" x="15" y="12">
+  <block type="logic_program_sections" id="LPS" deletable="false" x="15" y="15">
     <statement name="PREP_STATEMENTS:">
-      <block type="aprnc_create_agent_species4" id="BM^@9]b|.~shFySOGfh@" collapsed="true">
+      <block type="aprnc_create_agent_species4" id=";(C+a]V?*/#E+~0kzD}i" collapsed="true">
         <field name="NUM_AGENTS">20</field>
         <field name="TYPE_VISIBLE">TRUE</field>
-        <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+        <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
         <field name="TYPE_AGENT">person</field>
         <field name="NAME_COLOR">blue</field>
         <field name="TYPE_SIZE">normal</field>
         <field name="TYPE_ENERGY">inf</field>
         <field name="TYPE_REP">sex</field>
-        <field name="TYPE_MOV">rand</field>
+        <field name="TYPE_MOV">immobile</field>
         <field name="TYPE_VELOC">normal</field>
         <field name="TYPE_VISION">circle</field>
         <field name="TYPE_VIS_RADIUS">medium</field>
       </block>
     </statement>
     <statement name="EXEC_STATEMENTS:">
-      <block type="logic_if" id="+Jk#,6iNyXz[:C+HTJ_M">
+      <block type="logic_if" id=";y/*WjPbK8SH,dVn;x9h">
         <value name="IF_VALUE">
-          <block type="event_check_agent_qtd_in_agent_vicinity" id="}_`OM`SxaJ:x|NTJ%bU:">
-            <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+          <block type="event_check_agent_qtd_in_agent_vicinity" id="_5E:rso-6Dff/nHxu{gu">
+            <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
             <field name="TYPE_COMPARE">gt</field>
             <field name="NUM_COMPARED">4</field>
           </block>
         </value>
         <statement name="THEN_VALUE">
-          <block type="proc_dep_mark_specific_agent" id="J,yNX!C=LLbR$@c|5H9$">
-            <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+          <block type="proc_dep_mark_specific_agent" id="xlCJ/d@(S5Vofh@OhlC0">
+            <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
           </block>
         </statement>
         <next>
-          <block type="logic_if" id="wMD*3m#?6cf/G1(bY{Su">
+          <block type="logic_if" id="CXx*a]}y!%0M@9PYAb8E">
             <value name="IF_VALUE">
-              <block type="event_check_agent_qtd_in_agent_vicinity" id="lr]nPukzl,3DS0:fVgau">
-                <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+              <block type="event_check_agent_qtd_in_agent_vicinity" id="dtD[;(BCFyRh@yQ9ESvq">
+                <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
                 <field name="TYPE_COMPARE">lte</field>
                 <field name="NUM_COMPARED">2</field>
               </block>
             </value>
             <statement name="THEN_VALUE">
-              <block type="proc_dep_mark_specific_agent" id="buLVnpHuC3_YlovL.^/r">
-                <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+              <block type="proc_dep_mark_specific_agent" id="sNkX@@PjXPwEt#,,Dwxw">
+                <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
               </block>
             </statement>
             <next>
-              <block type="logic_if" id="kbB_+/,9FaDSbEZoqRlD">
+              <block type="logic_if" id="~|x=plmKALF?#GS+G[nt">
                 <value name="IF_VALUE">
-                  <block type="event_check_agent_qtd_in_patch_vicinity" id="m;(HWxJ7VwqB|NN6ol!s">
+                  <block type="event_check_agent_qtd_in_patch_vicinity" id="t:xts$w4w%DiH+n(Nj;F">
                     <field name="TYPE_COMPARE">equal</field>
                     <field name="NUM_COMPARED">3</field>
                   </block>
                 </value>
                 <statement name="THEN_VALUE">
-                  <block type="proc_dep_mark_specific_patch" id="k}[lbO(uQ4^[=UxYf.p["></block>
+                  <block type="proc_dep_mark_specific_patch" id="fJ.kcz`$0qqg?g,hXdMY"></block>
                 </statement>
                 <next>
-                  <block type="logic_if" id="t8/u!1sy6t,W4Ew$I8A*">
+                  <block type="logic_if" id="uBNfMJ#Uu5fZa!/ktYt}">
                     <value name="IF_VALUE">
-                      <block type="event_check_status_agent" id="8m!*nVvj.DjBHxs*[W8*">
-                        <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+                      <block type="event_check_status_agent" id="Z=G8R#H:THEoAO($c.So">
+                        <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
                       </block>
                     </value>
                     <statement name="THEN_VALUE">
-                      <block type="proc_dep_kill_specific_agent" id="Ab4X/aQz8TAWhVK7Mx[5">
-                        <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+                      <block type="proc_dep_kill_marked_agent" id="IB.4kT~5%/uFAQiPEh=$">
+                        <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
                       </block>
                     </statement>
                     <next>
-                      <block type="logic_if" id="6I=0)NPZk2NoXoNN@icv">
+                      <block type="logic_if" id="$BI%l$rl7QyLr=W}kOvt">
                         <value name="IF_VALUE">
-                          <block type="event_check_status_patch" id="JM@-9tzxU`I1T`^{84qB"></block>
+                          <block type="event_check_status_patch" id="g.?:1jll8Y(2Nlw|SBnC"></block>
                         </value>
                         <statement name="THEN_VALUE">
-                          <block type="proc_dep_hatch_in_patch_specific" id="5wF]YaWg1U}2gTOu67h1">
-                            <field name="NAME_AGENT" id="iI2.KxR)[)mBxBOnY+tg" variabletype="">homem</field>
+                          <block type="proc_dep_hatch_in_patch_specific" id="}9OTqio[]$?^LkD-!j?~">
+                            <field name="NAME_AGENT" id="(~j;B)/DYE2=^z,=ie4p" variabletype="">homem</field>
                           </block>
                         </statement>
                       </block>
